@@ -2,18 +2,14 @@
 " 表示関係 {{{2
 " カラースキームを設定
 colorscheme jellybeans
-
 " シンタックスハイライトを有効にする
-syntax on
+syntax enable
 
 " ウィンドウタイトルを編集中のファイル名にする
 set title
 
 " 行番号を表示する
 set number
-
-" 見えない文字を可視化
-"set list
 
 " ステータス行の行数
 set laststatus=2
@@ -36,7 +32,7 @@ set autoindent
 " 新しい行を作ったときに高度な自動インデントを行う
 set smartindent
 
-"連続した空白に対してタブ、バックスペースキーが動く幅
+" 連続した空白に対してタブ、バックスペースキーが動く幅
 set softtabstop=2
 " 検索関係 {{{2
 " 検索時に大文字を含んでいたら大/小を区別
@@ -104,6 +100,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc'
 " My Bundles and settings
+
+" Colorschemes {{{2
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'vim-scripts/Wombat'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'sickill/vim-monokai'
+NeoBundle 'ciaranm/inkpot'
+" Unite-colorscheme
+NeoBundle 'ujihisa/unite-colorscheme'
 " Vim-Ruby {{{2
 NeoBundle 'vim-ruby/vim-ruby.git'
 imap <C-k> <C-x><C-o>
@@ -122,10 +130,11 @@ vmap ,, <Plug>NERDCommenterToggle
 NeoBundle 'thinca/vim-quickrun.git'
 " インデントレベルを可視化 - indentguides {{{2
 NeoBundle "nathanaelkane/vim-indent-guides"
+let g:indent_guides_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let s:hooks = neobundle#get_hooks("vim-indent-guides")
 function! s:hooks.on_source(bundle)
-    let g:indent_guides_guide_size = 1
+  let g:indent_guides_guide_size = 1
 endfunction
 " endの自動補完 - endwise {{{2
 NeoBundle 'tpope/vim-endwise'
@@ -217,39 +226,46 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " スニペット - neosnippet {{{2
-" NeoBundle 'Shougo/neosnippet.vim'
-" "Plugin key-mappings.
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
+NeoBundle 'Shougo/neosnippet.vim'
+"Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" " SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            " \ "\<Plug>(neosnippet_expand_or_jump)"
-            " \: pumvisible() ? "\<C-n>" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            " \ "\<Plug>(neosnippet_expand_or_jump)"
-            " \: "\<TAB>"
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
 
-" " For snippet_complete marker.
-" if has('conceal')
-    " set conceallevel=2 concealcursor=i
-" endif
+" For snippet_complete marker.
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
 
-" " g:neosnippet#snippets_directory variable (e.g Honza's Snippets)
-" " Enable snipMate compatibility feature.
-" let g:neosnippet#enable_snipmate_compatibility = 1
-" " " Tell Neosnippet about the other snippets
-" let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" g:neosnippet#snippets_directory variable (e.g Honza's Snippets)
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" " Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 " 括弧を自動で閉じる - autoclose {{{2
 NeoBundle 'Townk/vim-autoclose'
-" 括弧を自動で閉じる - vim-surround {{{2
+" 囲いを簡単にする - vim-surround {{{2
 NeoBundle 'tpope/vim-surround'
-" ステータスラインをカスタマイズ {{{2
+" ステータスラインをカスタマイズ - lightline {{{2
 NeoBundle 'itchyny/lightline.vim'
+set t_Co=256
 let g:lightline = {
     \ 'colorscheme': 'jellybeans'
-\ }
+    \ }
+" 任意の単語をハイライト - quickhl {{{2
+NeoBundle 't9md/vim-quickhl'
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
 " NERD Tree {{{2
 NeoBundle 'scrooloose/nerdtree'
 nmap <leader>d :NERDTreeToggle<CR>
@@ -257,7 +273,41 @@ nmap <leader>f :NERDTreeFind<CR>
 let g:NERDSpaceDelims = 1
 " Clever-f {{{2
 NeoBundle 'rhysd/clever-f.vim'
+" Unite.vim {{{2
+" let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" JS {{{2
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'leshill/vim-json'
+" HTML {{{2
+NeoBundle 'nono/vim-handlebars'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'indenthtml.vim'
+" etc {{{2
+NeoBundle 'Shougo/vimfiler.vim'
 " Original repos on github {{{2
+NeoBundle 'mutewinter/vim-markdown'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -265,19 +315,20 @@ NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'L9'
 NeoBundle 'FuzzyFinder'
 NeoBundle 'rails.vim'
+NeoBundle 'unite.vim'
 " Non github repos
 NeoBundle 'git://git.wincent.com/command-t.git'
-" let g:CommandTMaxHeight = 20
-" nmap <leader>b :CommandTBuffer<CR>
-" nmap <leader>t :CommandT<CR>
-" nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+let g:CommandTMaxHeight = 20
+nmap <leader>b :CommandTBuffer<CR>
+nmap <leader>t :CommandT<CR>
+nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
 " gist repos
 " NeoBundle 'gist:Shougo/656148', {
-    " \ 'name': 'everything.vim',
-    " \ 'script_type': 'plugin'}
+"    \ 'name': 'everything.vim',
+"    \ 'script_type': 'plugin'}
 " Non git repos
 NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
-" NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
+NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
 
 " ...
 
@@ -291,59 +342,53 @@ filetype plugin indent on     " Required!
 " Installation check.
 NeoBundleCheck
 " その他 {{{1
-" PHP補完 {{{2
-"autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
-"highlight Pmenu ctermbg=4
-"highlight PmenuSel ctermbg=1
-"highlight PMenuSbar ctermbg=4
 " テンプレート設定 {{{2
 ".cファイル作成時にテンプレート(C.txt)を読み込む
 autocmd BufNewFile *.c 0r $HOME/.vim/template/c.txt
-
+autocmd BufNewFile *.cpp 0r $HOME/.vim/template/Cpp.txt
 ".cppファイル作成時にテンプレート(C.txt)を読み込む
 "autocmd BufNewFile *.cpp 0r $HOME/.vim/template/cpp.txt
-
 ".htmlファイル作成時にテンプレート(C.txt)を読み込む
 autocmd BufNewFile *.html 0r $HOME/.vim/template/html.txt
-
 ".phpファイル作成時にテンプレート(php.txt)を読み込む
 autocmd BufNewFile *.php 0r $HOME/.vim/template/php.txt
+
 " 挿入モード時、ステータスラインの色を変更 {{{2
-" let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkred gui=none ctermfg=none ctermbg=red cterm=none'
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkred gui=none ctermfg=none ctermbg=red cterm=none'
 
-" if has('syntax')
-    " augroup InsertHook
-        " autocmd!
-        " autocmd InsertEnter * call s:StatusLine('Enter')
-        " autocmd InsertLeave * call s:StatusLine('Leave')
-    " augroup END
-" endif
+if has('syntax')
+    augroup InsertHook
+        autocmd!
+        autocmd InsertEnter * call s:StatusLine('Enter')
+        autocmd InsertLeave * call s:StatusLine('Leave')
+    augroup END
+endif
 
-" if has('unix') && !has('gui_running')
-" " ESCでキー入力待ちになる対策 挿入モードで矢印キーが使えなくなる
-" "inoremap <silent> <ESC> <ESC>
-" endif
+if has('unix') && !has('gui_running')
+" ESCでキー入力待ちになる対策 挿入モードで矢印キーが使えなくなる
+"inoremap <silent> <ESC> <ESC>
+endif
 
-" let s:slhlcmd = ''
-" function! s:StatusLine(mode)
-    " if a:mode == 'Enter'
-        " silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-        " silent exec g:hi_insert
-    " else
-        " highlight clear StatusLine
-        " silent exec s:slhlcmd
-        " redraw
-    " endif
-" endfunction
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+    if a:mode == 'Enter'
+        silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+        silent exec g:hi_insert
+    else
+        highlight clear StatusLine
+        silent exec s:slhlcmd
+        redraw
+    endif
+endfunction
 
-" function! s:GetHighlight(hi)
-    " redir => hl
-    " exec 'highlight '.a:hi
-    " redir END
-    " let hl = substitute(hl, '[\r\n]', '', 'g')
-    " let hl = substitute(hl, 'xxx', '', '')
-    " return hl
-" endfunction
+function! s:GetHighlight(hi)
+    redir => hl
+    exec 'highlight '.a:hi
+    redir END
+    let hl = substitute(hl, '[\r\n]', '', 'g')
+    let hl = substitute(hl, 'xxx', '', '')
+    return hl
+endfunction
 " Dashでリファレンス検索 {{{2
 function! s:dash(...)
     let word = len(a:000) == 0 ? input('Dash search: ') : a:1
@@ -351,16 +396,16 @@ function! s:dash(...)
 endfunction
 command! -nargs=? Dash call <SID>dash(<f-args>)
 " 前回閉じた場所から再開 {{{2
-if has("autocmd")
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-        \   exe "normal! g'\"" |
-        \ endif
-endif
+" if has("autocmd")
+    " autocmd BufReadPost *
+        " \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        " \   exe "normal! g'\"" |
+        " \ endif
+" endif
 " Ruby - Syntaxチェックと実行 {{{2
 autocmd FileType ruby :map <C-n> <ESC>:!ruby -cW %<CR>
 autocmd FileType ruby :map <C-e> <ESC>:!ruby %<CR>
 " modeline {{{2
 " vim: foldmethod=marker
 " vim: foldcolumn=3
-" vim: foldlevel=0
+" vim: foldlevel=1
