@@ -1,0 +1,84 @@
+# Update Homebrew to the latest version
+update || true
+
+# Repositories
+tap phinze/homebrew-cask || true
+tap homebrew/versions || true
+
+#
+# Packages
+#
+# Editor
+install vim --with-lua || true
+
+# Shell
+install zsh || true
+install zsh-completions || true
+install tmux || true
+
+# Version Control System
+install git || true
+install hub || true
+install hg || true
+
+# Downloader
+install wget || true
+install curl || true
+
+# Ruby
+install rbenv || true
+install ruby-build || true
+
+# Library
+install openssl || true
+install readline || true
+
+# Database
+install sqlite || true
+
+# Utilities
+install heroku-toolbelt || true
+install wakeonlan || true
+
+#
+# Apps
+#
+install brew-cask || true
+
+# Browser
+cask install google-chrome || true
+cask install firefox || true
+
+cask install skype || true
+cask install dropbox || true
+cask install evernote || true
+
+# Virtual Machines
+cask install virtualbox || true
+cask install vagrant || true
+
+# Development
+cask install iterm2 || true
+cask install sublime-text || true
+cask install brackets || true
+cask install dash || true
+
+# Tools
+cask install mou || true
+
+# Multimedia
+cask install vlc || true
+cask install spotify || true
+
+# Utilities
+cask install alfred || true
+cask install bartender || true
+cask install moom || true
+cask install appcleaner || true
+cask install ccleaner || true
+cask install keyremap4macbook || true
+cask install bettertouchtool || true
+cask install startninja || true
+
+# Remove outdated versions
+cleanup

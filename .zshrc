@@ -122,8 +122,10 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 
 # エイリアス設定 {{{1
 # Commands
-alias gcc="gcc -Wall -o"
-alias g++="g++ -Wall -o"
+alias gcc="gcc -Wall"
+alias g++="g++ -Wall"
+alias gco="gcc -Wall -o"
+alias gpo="g++ -Wall -o"
 
 alias df="df -h"
 
