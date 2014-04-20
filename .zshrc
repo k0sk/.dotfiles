@@ -136,6 +136,7 @@ compdef -d rake
 # Directories
 alias blog="cd $HOME/Dropbox/Blog/cigeek.github.io"
 alias naritate="cd $HOME/Dropbox/Ruby/naritate"
+alias contest="cd $HOME/Dropbox/Contest"
 alias rdev="cd $HOME/Dropbox/Ruby"
 alias cdev="cd $HOME/Dropbox/C"
 alias cpdev="cd $HOME/Dropbox/Cpp"
