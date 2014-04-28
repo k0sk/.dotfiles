@@ -128,6 +128,8 @@ nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
 " プログラムを簡易実行 - quickrun {{{2
 NeoBundle 'thinca/vim-quickrun.git'
+nmap <leader>r :QuickRun<CR>
+let g:quickhl_config = {'_': {'split': 'vertical'}}
 " インデントレベルを可視化 - indentguides {{{2
 NeoBundle "nathanaelkane/vim-indent-guides"
 let g:indent_guides_auto_colors = 1
