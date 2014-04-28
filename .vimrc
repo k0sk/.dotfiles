@@ -88,7 +88,7 @@ set modelines=3
 set nocompatible
 
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -155,18 +155,18 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions',
-    \ 'cpp' : $DOTVIM.'/dict/cpp.dict',
-    \ 'ruby' : $DOTVIM.'/dict/ruby.dict',
-    \ 'perl' : $DOTVIM.'/dict/perl.dict',
-    \ 'php' : $DOTVIM.'/dict/php.dict'
-        \ }
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'scheme' : $HOME.'/.gosh_completions',
+      \ 'cpp' : $DOTVIM.'/dict/cpp.dict',
+      \ 'ruby' : $DOTVIM.'/dict/ruby.dict',
+      \ 'perl' : $DOTVIM.'/dict/perl.dict',
+      \ 'php' : $DOTVIM.'/dict/php.dict'
+      \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -231,6 +231,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " スニペット - neosnippet {{{2
 NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 "Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -238,15 +239,15 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
-    set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=i
 endif
 
 " g:neosnippet#snippets_directory variable (e.g Honza's Snippets)
@@ -262,8 +263,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'itchyny/lightline.vim'
 set t_Co=256
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans'
-    \ }
+      \ 'colorscheme': 'jellybeans'
+      \ }
 " 任意の単語をハイライト - quickhl {{{2
 NeoBundle 't9md/vim-quickhl'
 nmap <Space>m <Plug>(quickhl-manual-this)
@@ -361,50 +362,50 @@ autocmd BufNewFile *.php 0r $HOME/.vim/template/php.txt
 let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkred gui=none ctermfg=none ctermbg=red cterm=none'
 
 if has('syntax')
-    augroup InsertHook
-        autocmd!
-        autocmd InsertEnter * call s:StatusLine('Enter')
-        autocmd InsertLeave * call s:StatusLine('Leave')
-    augroup END
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
 endif
 
 if has('unix') && !has('gui_running')
-" ESCでキー入力待ちになる対策 挿入モードで矢印キーが使えなくなる
-"inoremap <silent> <ESC> <ESC>
+  " ESCでキー入力待ちになる対策 挿入モードで矢印キーが使えなくなる
+  "inoremap <silent> <ESC> <ESC>
 endif
 
 let s:slhlcmd = ''
 function! s:StatusLine(mode)
-    if a:mode == 'Enter'
-        silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-        silent exec g:hi_insert
-    else
-        highlight clear StatusLine
-        silent exec s:slhlcmd
-        redraw
-    endif
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+    redraw
+  endif
 endfunction
 
 function! s:GetHighlight(hi)
-    redir => hl
-    exec 'highlight '.a:hi
-    redir END
-    let hl = substitute(hl, '[\r\n]', '', 'g')
-    let hl = substitute(hl, 'xxx', '', '')
-    return hl
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
 endfunction
 " Dashでリファレンス検索 {{{2
 function! s:dash(...)
-    let word = len(a:000) == 0 ? input('Dash search: ') : a:1
-    call system(printf("open dash://'%s'", word))
+  let word = len(a:000) == 0 ? input('Dash search: ') : a:1
+  call system(printf("open dash://'%s'", word))
 endfunction
 command! -nargs=? Dash call <SID>dash(<f-args>)
 " 前回閉じた場所から再開 {{{2
 " if has("autocmd")
-    " autocmd BufReadPost *
-        " \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-        " \   exe "normal! g'\"" |
-        " \ endif
+" autocmd BufReadPost *
+" \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+" \   exe "normal! g'\"" |
+" \ endif
 " endif
 " Ruby - Syntaxチェックと実行 {{{2
 autocmd FileType ruby :map <C-n> <ESC>:!ruby -cW %<CR>
