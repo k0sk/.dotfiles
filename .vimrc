@@ -158,7 +158,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions',
-    \ 'ruby' : $DOTVIM.'/dict/ruby.dicy',
+    \ 'ruby' : $DOTVIM.'/dict/ruby.dict',
     \ 'php' : $DOTVIM.'/dict/php.dict'
         \ }
 
