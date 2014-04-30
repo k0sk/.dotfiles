@@ -322,7 +322,7 @@ NeoBundle 'FuzzyFinder'
 NeoBundle 'rails.vim'
 NeoBundle 'unite.vim'
 " Non github repos
-NeoBundle 'git://git.wincent.com/command-t.git'
+NeoBundle 'wincent/command-T.git'
 let g:CommandTMaxHeight = 20
 nmap <leader>b :CommandTBuffer<CR>
 nmap <leader>t :CommandT<CR>
