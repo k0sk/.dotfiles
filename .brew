@@ -10,6 +10,7 @@ tap homebrew/versions || true
 #
 # Editor
 install vim --with-lua || true
+install emacs || true
 
 # Shell
 install zsh || true
@@ -73,7 +74,6 @@ cask install spotify || true
 # Utilities
 cask install alfred || true
 cask install bartender || true
-cask install moom || true
 cask install appcleaner || true
 cask install ccleaner || true
 cask install keyremap4macbook || true
