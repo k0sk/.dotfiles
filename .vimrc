@@ -301,6 +301,11 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+" TweetVim {{{2
+NeoBundle 'TwitVim'
+let twitvim_browser_cmd = '/usr/bin/open'
+let twitvim_force_ssl = 1
+let twitvim_count = 40
 " JS {{{2
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
