@@ -112,13 +112,16 @@ NeoBundle 'sickill/vim-monokai'
 NeoBundle 'ciaranm/inkpot'
 " Unite-colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
-" Vim-Ruby {{{2
-NeoBundle 'vim-ruby/vim-ruby.git'
 imap <C-k> <C-x><C-o>
-" 一括置換 - vim-over
+" コーディングルールの準拠チェック {{{2
+NeoBundle 'scrooloose/syntastic'
+let g:syntastic_mode_map = { 'mode': 'passive',
+      \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+" 一括置換 - vim-over {{{ 2
 NeoBundle 'osyo-manga/vim-over'
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
-" ノーマルモード移行時に自動保存 - wauto.vim
+" ノーマルモード移行時に自動保存 - wauto.vim {{{2
 NeoBundle 'syui/wauto.vim'
 " コメント機能改善 - nerdcommenter {{{2
 NeoBundle 'scrooloose/nerdcommenter'
@@ -301,11 +304,13 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
-" TweetVim {{{2
+" TwiVim {{{2
 NeoBundle 'TwitVim'
-let twitvim_browser_cmd = '/usr/bin/open'
-let twitvim_force_ssl = 1
-let twitvim_count = 40
+let twitvim_browser_cmd='noglob open'
+let twitvim_force_ssl=1
+let twitvim_count=40
+" Ruby {{{2
+NeoBundle 'vim-ruby/vim-ruby.git'
 " JS {{{2
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
