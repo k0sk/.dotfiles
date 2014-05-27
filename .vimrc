@@ -309,6 +309,15 @@ NeoBundle 'TwitVim'
 let twitvim_browser_cmd='noglob open'
 let twitvim_force_ssl=1
 let twitvim_count=40
+nnoremap ,tp :<C-u>PosttoTwitter<CR>
+nnoremap ,tl :<C-u>FriendsTwitter<CR><C-w>j
+nnoremap ,tu :<C-u>UserTwitter<CR><C-w>j
+nnoremap ,tr :<C-u>RepliesTwitter<CR><C-w>j
+nnoremap ,tn :<C-u>NextTwitter<CR>
+autocmd FileType twitvim call s:twitvim_my_settings()
+function! s:twitvim_my_settings()
+  set nowrap
+endfunction
 " Ruby {{{2
 NeoBundle 'vim-ruby/vim-ruby.git'
 " JS {{{2
