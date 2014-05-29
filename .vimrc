@@ -187,7 +187,7 @@ function! s:my_cr_function()
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
+" <C-h>, <BS>: close popup and delete backword .
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
@@ -203,7 +203,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Or set this.
 "let g:neocomplete#enable_cursor_hold_i = 1
 " Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
+"let g:neocomplete#enable_insert__pre = 1
 
 " AutoComplPop like behavior.
 "let g:neocomplete#enable_auto_select = 1
@@ -325,9 +325,13 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'leshill/vim-json'
 " HTML {{{2
-NeoBundle 'nono/vim-handlebars'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'nono/vim-handlebars'
 NeoBundle 'indenthtml.vim'
+" Git {{{2
+NeoBundle 'airblade/vim-gitgutter'
 " etc {{{2
 NeoBundle 'Shougo/vimfiler.vim'
 " Original repos on github {{{2
