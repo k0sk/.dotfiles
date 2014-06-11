@@ -1,87 +1,69 @@
 " 一般設定 {{{1
 " 表示関係 {{{2
-" カラースキームを設定
-colorscheme jellybeans
-" シンタックスハイライトを有効にする
-syntax enable
+colorscheme jellybeans " カラースキームを設定
 
-" ウィンドウタイトルを編集中のファイル名にする
-set title
+syntax enable " シンタックスハイライトを有効化
 
-" 行番号を表示する
-set number
+set title " ウィンドウタイトルを編集中のファイル名に
 
-" ステータス行の行数
-set laststatus=2
+set number " 行番号の表示
 
-" 閉じ括弧が入力されたとき、対応する開き括弧にわずかの間ジャンプする
-set showmatch
+set laststatus=2 " ステータス行の行数
+
+set showmatch " 閉じ括弧が入力されたとき、対応する開き括弧に少しの間ジャンプ
+
+set cursorline " カレント行をハイライト
+
 " インデント関係{{{2
-" TAB幅をスペース二つ分にする
-set tabstop=2
+set tabstop=2 " TAB幅をスペース二つ分にする
 
-" タブ文字を\tじゃなくスペースにする
-set expandtab
+set shiftwidth=2 " 自動インデントとインデント時の幅
 
-" 自動インデントとインデント時の幅
-set shiftwidth=2
+set softtabstop=2 " 連続した空白に対してタブ、バックスペースキーが作用する幅
 
-" 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする
-set autoindent
+set expandtab " タブ文字を\tじゃなくスペースに置換
 
-" 新しい行を作ったときに高度な自動インデントを行う
-set smartindent
+set autoindent " 改行時に前の行のインデントを継続
 
-" 連続した空白に対してタブ、バックスペースキーが動く幅
-set softtabstop=2
+set smartindent " 改行時に前の行の末尾に合わせた自動インデント
+
 " 検索関係 {{{2
-" 検索時に大文字を含んでいたら大/小を区別
-set smartcase
+set smartcase " 検索時に大文字を含んでいたら大/小を区別
 
-" 小文字の検索で大文字も見つかるようにする
-set ignorecase
+set incsearch " 検索文字打ち込みで即検索
 
-" 検索文字を打ち込むと即検索する
-set incsearch
+set hlsearch " 検索結果のハイライト
 
-" 検索結果をハイライトする
-set hlsearch
+set wrapscan " 検索時に最後まで行ったら最初に戻る
 
-" 検索時に最後まで行ったら最初に戻る
-set wrapscan
 " 入力関係 {{{2
-"補完候補を表示する
-set wildmenu
+set wildmenu "補完候補を表示する
 
-" バックスペースでインデントや改行を削除できるようにする
-set backspace=indent,eol,start
+set backspace=indent,eol,start " バックスペースでインデントや改行を削除できるようにする
 
-" コピペ
-set clipboard=unnamed,autoselect
+set clipboard=unnamed,autoselect " コピペ
 
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
 nnoremap j gj
 nnoremap k gk
+set whichwrap=b,s,h,s,<,>,[,],~ " カーソルを行頭、行末で止まらないようにする
 
-" カーソルを行頭、行末で止まらないようにする
-set whichwrap=b,s,h,s,<,>,[,],~
 " 保存関係 {{{2
+" 文字コード設定
 set termencoding=UTF-8
 set encoding=UTF-8
-
-" 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e " 保存時に行末の空白を除去する
 
 " スワップファイルを作成しない
 set noswapfile
 set nobackup
 set nowritebackup
-" modeline {{{2
-" モードラインを有効にする
-set modeline
 
-" 3行目までをモードラインとして検索する
-set modelines=3
+" modeline {{{2
+set modeline " モードラインを有効にする
+
+set modelines=3 " 3行目までをモードラインとして検索する
+
 " NeoBundle 設定・プラグイン管理 {{{1
 " 基本設定 {{{2
 " Be iMproved
@@ -110,29 +92,36 @@ NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'sickill/vim-monokai'
 NeoBundle 'ciaranm/inkpot'
+
 " Unite-colorscheme
 NeoBundle 'ujihisa/unite-colorscheme'
 imap <C-k> <C-x><C-o>
+
 " コーディングルールの準拠チェック {{{2
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
       \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+
 " 一括置換 - vim-over {{{ 2
 NeoBundle 'osyo-manga/vim-over'
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
+
 " ノーマルモード移行時に自動保存 - wauto.vim {{{2
 NeoBundle 'syui/wauto.vim'
+
 " コメント機能改善 - nerdcommenter {{{2
 NeoBundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
 let NERDShutUp=1
 nmap ,, <Plug>NERDCommenterToggle
 vmap ,, <Plug>NERDCommenterToggle
+
 " プログラムを簡易実行 - quickrun {{{2
 NeoBundle 'thinca/vim-quickrun.git'
 nmap <leader>r :QuickRun<CR>
 let g:quickhl_config = {'_': {'split': 'vertical'}}
+
 " インデントレベルを可視化 - indentguides {{{2
 NeoBundle "nathanaelkane/vim-indent-guides"
 let g:indent_guides_auto_colors = 1
@@ -141,8 +130,7 @@ let s:hooks = neobundle#get_hooks("vim-indent-guides")
 function! s:hooks.on_source(bundle)
   let g:indent_guides_guide_size = 1
 endfunction
-" endの自動補完 - endwise {{{2
-NeoBundle 'tpope/vim-endwise'
+
 " 補完 - neocomplete {{{2
 NeoBundle 'Shougo/neocomplete.vim'
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -232,6 +220,7 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
 " スニペット - neosnippet {{{2
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -258,29 +247,36 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 " " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
 " 括弧を自動で閉じる - autoclose {{{2
 NeoBundle 'Townk/vim-autoclose'
+
 " 囲いを簡単にする - vim-surround {{{2
 NeoBundle 'tpope/vim-surround'
+
 " ステータスラインをカスタマイズ - lightline {{{2
 NeoBundle 'itchyny/lightline.vim'
 set t_Co=256
 let g:lightline = {
       \ 'colorscheme': 'jellybeans'
       \ }
+
 " 任意の単語をハイライト - quickhl {{{2
 NeoBundle 't9md/vim-quickhl'
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
+
 " NERD Tree {{{2
 NeoBundle 'scrooloose/nerdtree'
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 let g:NERDSpaceDelims = 1
+
 " Clever-f {{{2
 NeoBundle 'rhysd/clever-f.vim'
+
 " Unite.vim {{{2
 " let g:unite_enable_start_insert=1
 " バッファ一覧
@@ -301,9 +297,10 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split
 " ウィンドウを縦に分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
+" ESCキー2回押しで終了
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
 " TwiVim {{{2
 NeoBundle 'TwitVim'
 let twitvim_browser_cmd='noglob open'
@@ -318,22 +315,29 @@ autocmd FileType twitvim call s:twitvim_my_settings()
 function! s:twitvim_my_settings()
   set nowrap
 endfunction
+
 " Ruby {{{2
 NeoBundle 'vim-ruby/vim-ruby.git'
+NeoBundle 'tpope/vim-endwise' " endの自動補完
+
 " JS {{{2
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'leshill/vim-json'
+
 " HTML {{{2
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'nono/vim-handlebars'
 NeoBundle 'indenthtml.vim'
+
 " Git {{{2
 NeoBundle 'airblade/vim-gitgutter'
+
 " etc {{{2
 NeoBundle 'Shougo/vimfiler.vim'
+
 " Original repos on github {{{2
 NeoBundle 'mutewinter/vim-markdown'
 NeoBundle 'tpope/vim-fugitive'
@@ -369,70 +373,29 @@ filetype plugin indent on     " Required!
 
 " Installation check.
 NeoBundleCheck
+
 " その他 {{{1
 " テンプレート設定 {{{2
-".cファイル作成時にテンプレート(C.txt)を読み込む
 autocmd BufNewFile *.c 0r $HOME/.vim/template/c.txt
-autocmd BufNewFile *.cpp 0r $HOME/.vim/template/Cpp.txt
-".cppファイル作成時にテンプレート(C.txt)を読み込む
 "autocmd BufNewFile *.cpp 0r $HOME/.vim/template/cpp.txt
-".htmlファイル作成時にテンプレート(C.txt)を読み込む
 autocmd BufNewFile *.html 0r $HOME/.vim/template/html.txt
-".phpファイル作成時にテンプレート(php.txt)を読み込む
 autocmd BufNewFile *.php 0r $HOME/.vim/template/php.txt
 
-" 挿入モード時、ステータスラインの色を変更 {{{2
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkred gui=none ctermfg=none ctermbg=red cterm=none'
-
-if has('syntax')
-  augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-  augroup END
-endif
-
-if has('unix') && !has('gui_running')
-  " ESCでキー入力待ちになる対策 挿入モードで矢印キーが使えなくなる
-  "inoremap <silent> <ESC> <ESC>
-endif
-
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-  if a:mode == 'Enter'
-    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    silent exec g:hi_insert
-  else
-    highlight clear StatusLine
-    silent exec s:slhlcmd
-    redraw
-  endif
-endfunction
-
-function! s:GetHighlight(hi)
-  redir => hl
-  exec 'highlight '.a:hi
-  redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
-  let hl = substitute(hl, 'xxx', '', '')
-  return hl
-endfunction
 " Dashでリファレンス検索 {{{2
 function! s:dash(...)
   let word = len(a:000) == 0 ? input('Dash search: ') : a:1
   call system(printf("open dash://'%s'", word))
 endfunction
 command! -nargs=? Dash call <SID>dash(<f-args>)
-" 前回閉じた場所から再開 {{{2
+
+" 前回閉じた場所 {{{2
 " if has("autocmd")
 " autocmd BufReadPost *
 " \ if line("'\"") > 0 && line ("'\"") <= line("$") |
 " \   exe "normal! g'\"" |
 " \ endif
 " endif
-" Ruby - Syntaxチェックと実行 {{{2
-autocmd FileType ruby :map <C-n> <ESC>:!ruby -cW %<CR>
-autocmd FileType ruby :map <C-e> <ESC>:!ruby %<CR>
+
 " modeline {{{2
 " vim: foldmethod=marker
 " vim: foldcolumn=3

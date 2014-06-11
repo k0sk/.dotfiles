@@ -40,6 +40,7 @@ install sqlite || true
 # Utilities
 install heroku-toolbelt || true
 install wakeonlan || true
+install nkf || true
 
 #
 # Apps
@@ -50,9 +51,12 @@ install brew-cask || true
 cask install google-chrome || true
 cask install firefox || true
 
-cask install skype || true
+# File sharing
 cask install dropbox || true
 cask install evernote || true
+
+# Communication
+cask install skype || true
 
 # Virtual Machines
 cask install virtualbox || true
