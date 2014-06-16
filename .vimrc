@@ -37,7 +37,7 @@ set hlsearch " 検索結果のハイライト
 set wrapscan " 検索時に最後まで行ったら最初に戻る
 
 " 入力関係 {{{2
-set wildmenu "補完候補を表示する
+set wildmenu " 補完候補を表示する
 
 set backspace=indent,eol,start " バックスペースでインデントや改行を削除できるようにする
 
@@ -171,7 +171,7 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return neocomplete#smart_close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  "return pumvisible() ? neocomplete#close_popup() : \<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -181,13 +181,13 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+"inoremap <expr><Left>  neocomplete#close_popup() . \<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . \<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . \<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . \<Down>"
 " Or set this.
 "let g:neocomplete#enable_cursor_hold_i = 1
 " Or set this.
@@ -269,11 +269,15 @@ nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 
 " NERD Tree {{{2
-NeoBundle 'scrooloose/nerdtree'
-nmap <leader>d :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
-let g:NERDSpaceDelims = 1
+" NeoBundle 'scrooloose/nerdtree'
+" nmap <leader>d :NERDTreeToggle<CR>
+" nmap <leader>f :NERDTreeFind<CR>
+" let g:NERDSpaceDelims = 1
 
+" Explorer - netrw {{{2
+NeoBundle 'vim-scripts/netrw.vim'
+let g:netrw_liststyle=3
+let g:netrw_list_hide='.DS_Store'
 " Clever-f {{{2
 NeoBundle 'rhysd/clever-f.vim'
 
