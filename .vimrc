@@ -12,7 +12,19 @@ set laststatus=2 " ステータス行の行数
 
 set showmatch " 閉じ括弧が入力されたとき、対応する開き括弧に少しの間ジャンプ
 
+set matchpairs& matchpairs+=<:> " 対応括弧に<>を追加
+
 set cursorline " カレント行をハイライト
+
+set wrap " 長いテキストの折り返し
+
+set textwidth=0 " 自動的な改行を無効化
+
+set colorcolumn=80 " 80文字目にラインを入れる
+
+"不可視文字の表示
+set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 
 " インデント関係{{{2
 set tabstop=2 " TAB幅をスペース二つ分にする
@@ -32,12 +44,16 @@ set smartcase " 検索時に大文字を含んでいたら大/小を区別
 
 set incsearch " 検索文字打ち込みで即検索
 
-set hlsearch " 検索結果のハイライト
+" 検索結果のハイライト
+set hlsearch
+nmap <silent> <ESC><ESC> :nohlsearch<CR>
 
 set wrapscan " 検索時に最後まで行ったら最初に戻る
 
 " 入力関係 {{{2
 set wildmenu " 補完候補を表示する
+
+set infercase " 補完時に大文字、小文字を区別しない
 
 set backspace=indent,eol,start " バックスペースでインデントや改行を削除できるようにする
 
@@ -46,6 +62,7 @@ set clipboard=unnamed,autoselect " コピペ
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
 nnoremap j gj
 nnoremap k gk
+
 set whichwrap=b,s,h,s,<,>,[,],~ " カーソルを行頭、行末で止まらないようにする
 
 " 保存関係 {{{2
