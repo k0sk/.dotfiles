@@ -338,8 +338,10 @@ function! s:twitvim_my_settings()
 endfunction
 
 " Ruby {{{2
-NeoBundle 'vim-ruby/vim-ruby.git'
-NeoBundle 'tpope/vim-endwise' " endの自動補完
+NeoBundleLazy 'vim-ruby/vim-ruby.git', {
+    \ "autoload": {"filetypes": ['ruby']}}
+NeoBundleLazy 'tpope/vim-endwise', {
+    \ "autoload": {"filetypes": ['ruby']}} " endの自動補完
 
 " JS {{{2
 NeoBundle 'pangloss/vim-javascript'
