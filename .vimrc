@@ -400,7 +400,7 @@ NeoBundleCheck
 " その他 {{{1
 " テンプレート設定 {{{2
 autocmd BufNewFile *.c 0r $HOME/.vim/template/c.txt
-"autocmd BufNewFile *.cpp 0r $HOME/.vim/template/cpp.txt
+autocmd BufNewFile *.cpp 0r $HOME/.vim/template/cpp.txt
 autocmd BufNewFile *.html 0r $HOME/.vim/template/html.txt
 autocmd BufNewFile *.php 0r $HOME/.vim/template/php.txt
 
