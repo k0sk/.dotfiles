@@ -1,0 +1,12 @@
+[core]
+	excludesfile = /Users/KOSK/.gitignore_global
+[user]
+	email = mail@kosk.me
+	name = KOSK
+[credential]
+	helper = osxkeychain
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	ci = commit
