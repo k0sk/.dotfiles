@@ -1,3 +1,14 @@
+# Uneeded files.
 *~
+*.sw?
 .DS_Store
 ._*
+
+# Ruby
+.rbenv-version
+
+# Rails
+/.bundle
+.project
+.idea
+.secret
