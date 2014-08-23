@@ -368,21 +368,6 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
-" TwiVim {{{2
-NeoBundle 'TwitVim'
-let twitvim_browser_cmd='noglob open'
-let twitvim_force_ssl=1
-let twitvim_count=40
-nnoremap ,tp :<C-u>PosttoTwitter<CR>
-nnoremap ,tl :<C-u>FriendsTwitter<CR><C-w>j
-nnoremap ,tu :<C-u>UserTwitter<CR><C-w>j
-nnoremap ,tr :<C-u>RepliesTwitter<CR><C-w>j
-nnoremap ,tn :<C-u>NextTwitter<CR>
-autocmd FileType twitvim call s:twitvim_my_settings()
-function! s:twitvim_my_settings()
-  set nowrap
-endfunction
-
 " Ruby {{{2
 NeoBundle 'rails.vim'
 NeoBundle 'tpope/vim-rails'
