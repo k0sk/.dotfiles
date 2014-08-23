@@ -16,11 +16,17 @@ set matchpairs& matchpairs+=<:> " 対応括弧に<>を追加
 
 set cursorline " カレント行をハイライト
 
+highlight CursorLine cterm=underline
+
 set wrap " 長いテキストの折り返し
 
 set textwidth=0 " 自動的な改行を無効化
 
 set colorcolumn=80 " 80文字目にラインを入れる
+
+set showcmd " 入力中のコマンドを表示
+
+set ruler " rulerの表示
 
 "不可視文字の表示
 set list
@@ -67,8 +73,16 @@ set whichwrap=b,s,h,s,<,>,[,],~ " カーソルを行頭、行末で止まらな�
 
 " 保存関係 {{{2
 " 文字コード設定
-set termencoding=UTF-8
-set encoding=UTF-8
+set termencoding=utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+"エンコーディング
+set bomb
+set ttyfast
+set binary
+
 autocmd BufWritePre * :%s/\s\+$//e " 保存時に行末の空白を除去する
 
 " スワップファイルを作成しない
@@ -97,7 +111,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \   'windows' : 'tools\\update-dll-mingw',
+  \   'cygwin' : 'make -f make_cygwin.mak',
+  \   'mac' : 'make -f make_mac.mak',
+  \   'unix' : 'make -f make_unix.mak',
+  \   },
+  \ }
 " My Bundles and settings
 
 " Colorschemes {{{2
@@ -114,11 +135,20 @@ NeoBundle 'ciaranm/inkpot'
 NeoBundle 'ujihisa/unite-colorscheme'
 imap <C-k> <C-x><C-o>
 
+NeoBundle 'vim-scripts/CSApprox'
+
 " コーディングルールの準拠チェック {{{2
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
       \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_auto_loc_list=1
+let g:syntastic_aggregate_errors = 1
 
 " 一括置換 - vim-over {{{ 2
 NeoBundle 'osyo-manga/vim-over'
@@ -140,13 +170,27 @@ nmap <leader>r :QuickRun<CR>
 let g:quickhl_config = {'_': {'split': 'vertical'}}
 
 " インデントレベルを可視化 - indentguides {{{2
-NeoBundle "nathanaelkane/vim-indent-guides"
+NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let s:hooks = neobundle#get_hooks("vim-indent-guides")
 function! s:hooks.on_source(bundle)
   let g:indent_guides_guide_size = 1
 endfunction
+
+" 言語パック {{{2
+NeoBundle 'sheerun/vim-polyglot'
+
+" grep {{{2
+NeoBundle 'vim-scripts/grep.vim'
+nnoremap <silent> <leader>f :Rgrep<CR>
+let Grep_Default_Options = '-IR'
+
+" vimshell {{{2
+NeoBundle 'Shougo/vimshell.vim'
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_prompt =  '$ '
+nnoremap <silent> <leader>sh :VimShellCreate<CR>
 
 " 補完 - neocomplete {{{2
 NeoBundle 'Shougo/neocomplete.vim'
@@ -274,6 +318,7 @@ NeoBundle 'tpope/vim-surround'
 " ステータスラインをカスタマイズ - lightline {{{2
 NeoBundle 'itchyny/lightline.vim'
 set t_Co=256
+set term=xterm-256color
 let g:lightline = {
       \ 'colorscheme': 'jellybeans'
       \ }
@@ -286,15 +331,16 @@ nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 
 " NERD Tree {{{2
-" NeoBundle 'scrooloose/nerdtree'
-" nmap <leader>d :NERDTreeToggle<CR>
-" nmap <leader>f :NERDTreeFind<CR>
-" let g:NERDSpaceDelims = 1
+NeoBundle 'scrooloose/nerdtree'
+nmap <leader>d :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
+let g:NERDSpaceDelims = 1
 
 " Explorer - netrw {{{2
 NeoBundle 'vim-scripts/netrw.vim'
 let g:netrw_liststyle=3
 let g:netrw_list_hide='.DS_Store'
+
 " Clever-f {{{2
 NeoBundle 'rhysd/clever-f.vim'
 
@@ -338,6 +384,25 @@ function! s:twitvim_my_settings()
 endfunction
 
 " Ruby {{{2
+NeoBundle 'rails.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'thoughtbot/vim-rspec'
+NeoBundle 'majutsushi/tagbar'
+nmap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+
 NeoBundleLazy 'vim-ruby/vim-ruby.git', {
     \ "autoload": {"filetypes": ['ruby']}}
 NeoBundleLazy 'tpope/vim-endwise', {
@@ -350,26 +415,46 @@ NeoBundle 'leshill/vim-json'
 
 " HTML {{{2
 NeoBundle 'othree/html5.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'lilydjwg/colorizer'
+"NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'nono/vim-handlebars'
-NeoBundle 'indenthtml.vim'
+"NeoBundle 'indenthtml.vim'
+NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'tpope/vim-haml'
+
+" Python {{{2
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'Yggdroot/indentLine'
 
 " Git {{{2
+" Gitラッパー
+NeoBundle 'tpope/vim-fugitive'
+" 差分の表示
 NeoBundle 'airblade/vim-gitgutter'
 
 " etc {{{2
 NeoBundle 'Shougo/vimfiler.vim'
+" ファイルセレクタ
+NeoBundle 'kien/ctrlp.vim'
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,.pyc,__pycache__
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
+let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
+let g:ctrlp_use_caching = 0
+cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_map = ',e'
+let g:ctrlp_open_new_file = 'r'
 
 " Original repos on github {{{2
 NeoBundle 'mutewinter/vim-markdown'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " vim-scripts repos
 NeoBundle 'L9'
 NeoBundle 'FuzzyFinder'
-NeoBundle 'rails.vim'
 NeoBundle 'unite.vim'
 " Non github repos
 NeoBundle 'wincent/command-T.git'
@@ -411,13 +496,23 @@ function! s:dash(...)
 endfunction
 command! -nargs=? Dash call <SID>dash(<f-args>)
 
-" 前回閉じた場所 {{{2
+" 前回閉じた場所から開始 {{{2
 " if has("autocmd")
 " autocmd BufReadPost *
 " \ if line("'\"") > 0 && line ("'\"") <= line("$") |
 " \   exe "normal! g'\"" |
 " \ endif
 " endif
+
+" 防タイポ {{{2
+cab W! w!
+cab Q! q!
+cab Wq wq
+cab Wa wa
+cab wQ wq
+cab WQ wq
+cab W w
+cab Q q
 
 " modeline {{{2
 " vim: foldmethod=marker
