@@ -126,7 +126,7 @@ alias gpo="g++ -Wall -o"
 alias df="df -h"
 alias lss="ls -alhGF"
 
-alias cb="cd-bookmark
+alias cb="cd-bookmark"
 
 # Octopress
 alias brake="noglob bundle exec rake"
@@ -141,6 +141,7 @@ alias zshrc="vim $HOME/.zshrc"
 export LANG=ja_JP.UTF-8
 
 # cd-bookmark
+fpath=($HOME/.zsh/functions/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 
 # Auto rbenv rehash
