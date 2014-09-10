@@ -1,5 +1,6 @@
 [core]
 	excludesfile = /Users/KOSK/.gitignore_global
+	autocrlf = true
 [user]
 	email = mail@kosk.me
 	name = KOSK
@@ -11,3 +12,5 @@
 	co = checkout
 	ci = commit
 	st = status
+[help]
+	autocorrect = 1
