@@ -42,6 +42,10 @@ set clipboard=unnamed,autoselect " コピペ
 nnoremap j gj
 nnoremap k gk
 set whichwrap=b,s,h,s,<,>,[,],~ " カーソルを行頭、行末で止まらないようにする
+" ESCの反応を早く
+set timeout
+set timeoutlen=1000
+set ttimeoutlen=75
 
 " 保存関係 {{{2
 " 文字コード設定
@@ -49,6 +53,7 @@ set termencoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+set fileformat=unix
 "エンコーディング
 set bomb
 set ttyfast
