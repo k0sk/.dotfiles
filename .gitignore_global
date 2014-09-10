@@ -3,6 +3,15 @@
 *.sw?
 .DS_Store
 ._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon # 必ず\rを2つ
+
 
 # Ruby
 .rbenv-version
