@@ -1,74 +1,46 @@
 " 一般設定 {{{1
 " 表示関係 {{{2
-colorscheme jellybeans " カラースキームを設定
-
-syntax enable " シンタックスハイライトを有効化
-
-set title " ウィンドウタイトルを編集中のファイル名に
-
-set number " 行番号の表示
-
+syntax on
+colorscheme jellybeans
+set title
+set number
 set laststatus=2 " ステータス行の行数
-
-set showmatch " 閉じ括弧が入力されたとき、対応する開き括弧に少しの間ジャンプ
-
-set matchpairs& matchpairs+=<:> " 対応括弧に<>を追加
-
-set cursorline " カレント行をハイライト
-
+set matchpairs& matchpairs+=<:> " <>を対応する括弧に設定
+set cursorline " カレント行のハイライト
 highlight CursorLine cterm=underline
-
-set wrap " 長いテキストの折り返し
-
-set textwidth=0 " 自動的な改行を無効化
-
+set wrap " テキストの折り返し
+set textwidth=80 " 自動的な改行
 set colorcolumn=80 " 80文字目にラインを入れる
-
 set showcmd " 入力中のコマンドを表示
-
-set ruler " rulerの表示
-
-"不可視文字の表示
-set list
+set list "不可視文字の表示
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 
 " インデント関係{{{2
+filetype on
+filetype indent on
+filetype plugin on
 set tabstop=2 " TAB幅をスペース二つ分にする
-
 set shiftwidth=2 " 自動インデントとインデント時の幅
-
 set softtabstop=2 " 連続した空白に対してタブ、バックスペースキーが作用する幅
-
 set expandtab " タブ文字を\tじゃなくスペースに置換
-
 set autoindent " 改行時に前の行のインデントを継続
-
 set smartindent " 改行時に前の行の末尾に合わせた自動インデント
 
 " 検索関係 {{{2
 set smartcase " 検索時に大文字を含んでいたら大/小を区別
-
 set incsearch " 検索文字打ち込みで即検索
-
-" 検索結果のハイライト
-set hlsearch
+set hlsearch " 検索結果のハイライト
 nmap <silent> <ESC><ESC> :nohlsearch<CR>
-
 set wrapscan " 検索時に最後まで行ったら最初に戻る
 
 " 入力関係 {{{2
 set wildmenu " 補完候補を表示する
-
 set infercase " 補完時に大文字、小文字を区別しない
-
 set backspace=indent,eol,start " バックスペースでインデントや改行を削除できるようにする
-
 set clipboard=unnamed,autoselect " コピペ
-
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
 nnoremap j gj
 nnoremap k gk
-
 set whichwrap=b,s,h,s,<,>,[,],~ " カーソルを行頭、行末で止まらないようにする
 
 " 保存関係 {{{2
@@ -77,14 +49,12 @@ set termencoding=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-
 "エンコーディング
 set bomb
 set ttyfast
 set binary
-
-autocmd BufWritePre * :%s/\s\+$//e " 保存時に行末の空白を除去する
-
+" 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//e
 " スワップファイルを作成しない
 set noswapfile
 set nobackup
@@ -92,10 +62,9 @@ set nowritebackup
 
 " modeline {{{2
 set modeline " モードラインを有効にする
-
 set modelines=3 " 3行目までをモードラインとして検索する
 
-" NeoBundle 設定・プラグイン管理 {{{1
+" プラグイン管理 {{{1
 " 基本設定 {{{2
 " Be iMproved
 set nocompatible
@@ -140,7 +109,7 @@ NeoBundle 'vim-scripts/CSApprox'
 " コーディングルールの準拠チェック {{{2
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
-      \ 'active_filetypes': ['ruby'] }
+      \ 'passive_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol='✗'
@@ -169,14 +138,12 @@ NeoBundle 'thinca/vim-quickrun.git'
 nmap <leader>r :QuickRun<CR>
 let g:quickhl_config = {'_': {'split': 'vertical'}}
 
-" インデントレベルを可視化 - indentguides {{{2
-NeoBundle 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_auto_colors = 1
-let g:indent_guides_enable_on_vim_startup = 1
-let s:hooks = neobundle#get_hooks("vim-indent-guides")
-function! s:hooks.on_source(bundle)
-  let g:indent_guides_guide_size = 1
-endfunction
+" インデントレベルを可視化 - indentLine {{{2
+if has('conceal')
+  NeoBundleLazy 'Yggdroot/indentLine', { 'autoload': {
+    \ 'commands': ['IndentLinesReset', 'IndentLinesToggle']
+    \ }}
+endif
 
 " 言語パック {{{2
 NeoBundle 'sheerun/vim-polyglot'
@@ -243,33 +210,12 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Close popup by <Space>.
 inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . \<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . \<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . \<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . \<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert__pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
@@ -277,7 +223,6 @@ endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
@@ -289,7 +234,6 @@ NeoBundle 'Shougo/neosnippet-snippets'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)"
@@ -297,12 +241,10 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)"
       \: "\<TAB>"
-
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-
 " g:neosnippet#snippets_directory variable (e.g Honza's Snippets)
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -311,6 +253,10 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " 括弧を自動で閉じる - autoclose {{{2
 NeoBundle 'Townk/vim-autoclose'
+
+" 整列 vim-easy-align {{{2
+NeoBundleLazy 'junegunn/vim-easy-align', { 'autoload': {
+      \ 'commands' : ['EasyAlign'] }}
 
 " 囲いを簡単にする - vim-surround {{{2
 NeoBundle 'tpope/vim-surround'
@@ -378,40 +324,25 @@ NeoBundle 'majutsushi/tagbar'
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_type_ruby = {
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
-\ }
+			\ 'kinds' : [
+			\ 'm:modules',
+			\ 'c:classes',
+			\ 'd:describes',
+			\ 'C:contexts',
+			\ 'f:methods',
+			\ 'F:singleton methods'
+			\ ]
+			\ }
 
-NeoBundleLazy 'vim-ruby/vim-ruby.git', {
-    \ "autoload": {"filetypes": ['ruby']}}
-NeoBundleLazy 'tpope/vim-endwise', {
-    \ "autoload": {"filetypes": ['ruby']}} " endの自動補完
-
-" JS {{{2
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'leshill/vim-json'
+NeoBundle 'tpope/vim-endwise'
 
 " HTML {{{2
-NeoBundle 'othree/html5.vim'
-"NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'nono/vim-handlebars'
-"NeoBundle 'indenthtml.vim'
 NeoBundle 'amirh/HTML-AutoCloseTag'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'gorodinskiy/vim-coloresque'
-NeoBundle 'tpope/vim-haml'
 
 " Python {{{2
 NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'Yggdroot/indentLine'
 
 " Git {{{2
 " Gitラッパー
