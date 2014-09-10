@@ -144,6 +144,16 @@ export LANG=ja_JP.UTF-8
 fpath=($HOME/.zsh/functions/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 
+# peco commands
+function cbf() {
+	cb | peco | awk -F"|" '{ print $2 }' | xargs open
+}
+
+function gim() {
+	vim `git ls-files | peco`
+	# vim `find . -name "*" | peco`
+}
+
 # Auto rbenv rehash
 function gem(){
   $HOME/.rbenv/shims/gem $*
@@ -158,7 +168,7 @@ function bundle(){
   if [ "$1" = "install" ] || [ "$1" = "update" ]
   then
     rbenv rehash
-   fi
+  fi
  }
 
 ###-begin-npm-completion-###
