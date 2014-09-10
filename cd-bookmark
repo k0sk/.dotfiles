@@ -1,0 +1,237 @@
+# cd-bookmark - zsh plugin to bookmark directories to cd.
+#
+# Copyright (c) 2014 Hideaki Miyake
+# Licensed under the MIT License (MIT)
+#
+# Author : Hideaki Miyake (https://github.com/mollifier)
+# URL : https://github.com/mollifier/cd-bookmark
+#
+# How to set up
+#   Put cd-bookmark and _cd-bookmark files somewhere in your $fpath
+#   and add this line to your .zshrc:
+#
+#     autoload -Uz cd-bookmark
+#
+# Usage: cd-bookmark -a [BOOKMARK_ID]
+#    or: cd-bookmark [-c] BOOKMARK_ID
+#    or: cd-bookmark [-l]
+#
+
+typeset -r SCRIPT_NAME="cd-bookmark"
+typeset -r BOOKMARK_FILE="${CD_BOOKMARK_FILE:-${HOME}/.cdbookmark}"
+
+function _cdbookmark_print_usage() {
+    cat << EOF
+Usage: $SCRIPT_NAME -a [BOOKMARK_ID]  (1st form)
+  or:  $SCRIPT_NAME [-c] BOOKMARK_ID  (2nd form)
+  or:  $SCRIPT_NAME [-l]              (3rd form)
+$SCRIPT_NAME is a command to bookmark directories.
+In the 1st form, add current directory to bookmark with BOOKMARK_ID.
+BOOKMARK_ID is used as a key in bookmark.
+In the 2nd form, find directory by BOOKMARK_ID and move to it.
+In the 3rd form, list current bookmark.
+
+In the 2nd form, you can add relative path from bookmark real path at the end of BOOKMARK_ID.
+For example if 'cd-bookmark work' command will change current directory to '~/work',
+'cd-bookmark work/project/zsh' command changes current directory to '~/work/project/zsh'.
+
+  -a [BOOKMARK_ID]   add current directory to bookmark
+                     with no BOOKMARK_ID, automatically use free ID number as BOOKMARK_ID
+  -c BOOKMARK_ID     change directory which is identified by BOOKMARK_ID
+  -l                 list bookmark
+  -e                 edit bookmark file
+  -p BOOKMARK_ID     display bookmark real path for BOOKMARK_ID
+  -h                 display this help and exit
+EOF
+}
+
+function _cdbookmark_print_error() {
+    echo "$SCRIPT_NAME: $@" 1>&2
+    echo "Try \`-h' option for more information." 1>&2
+}
+
+function _cdbookmark_edit_bookmark() {
+  # open BOOKMARK_FILE with EDITOR.
+  ${EDITOR:-vi} "$BOOKMARK_FILE"
+}
+
+function _cdbookmark_list_bookmark() {
+  cat "$BOOKMARK_FILE" | sort -n
+}
+
+function _cdbookmark_list_bookmark_path() {
+  cat "$BOOKMARK_FILE" | cut -d '|' -f 2
+}
+
+function _cdbookmark_list_bookmark_id() {
+  cat "$BOOKMARK_FILE" | cut -d '|' -f 1
+}
+
+function _cdbookmark_get_bookmark() {
+  escaped_id=$(echo "$1" | sed -e 's/[^a-zA-Z0-9<>]/\\&/g')
+  cat "$BOOKMARK_FILE" | grep -E "^${escaped_id}\\|" | cut -d '|' -f 2 | head -n 1
+}
+
+function _cdbookmark_init_bookmark() {
+  if [ -r "$BOOKMARK_FILE" ]; then
+    return 0
+  else
+    touch "$BOOKMARK_FILE"
+  fi
+}
+
+function _cdbookmark_cd_to_bookmark() {
+  local bookmark_id="$1"
+  local bookmark_dir=$(_cdbookmark_get_bookmark "$bookmark_id")
+
+  if [ -z "$bookmark_dir" ]; then
+    if [[ "$bookmark_id" == */* ]]; then
+      local strip_bookmark_id="${bookmark_id%%/*}"
+      local dir_path="${bookmark_id#*/}"
+      bookmark_dir=$(_cdbookmark_get_bookmark "$strip_bookmark_id")
+
+      if [ -n "$bookmark_dir" ]; then
+        bookmark_dir="${bookmark_dir}/${dir_path}"
+      fi
+    fi
+  fi
+
+  if [ -z "$bookmark_dir" ]; then
+    _cdbookmark_print_error "$bookmark_id is not in bookmark"
+    return 3
+  fi
+
+  if [ ! -d "$bookmark_dir" ]; then
+    _cdbookmark_print_error "no such directory: $bookmark_dir"
+    return 3
+  fi
+
+  cd "$bookmark_dir"
+}
+
+function _cdbookmark_add_to_bookmark() {
+  local bookmark_dir="$1"
+  local new_bookmark_id="$2"  # optional
+
+  if _cdbookmark_list_bookmark_path | grep -F -x "$bookmark_dir" > /dev/null; then
+    _cdbookmark_print_error "$bookmark_dir is already in bookmark"
+    return 2
+  fi
+
+  if [ -n "$new_bookmark_id" ]; then
+    if _cdbookmark_list_bookmark_id | grep -F -x "$new_bookmark_id" > /dev/null; then
+      _cdbookmark_print_error "$new_bookmark_id is already used as bookmark id"
+      return 2
+    fi
+  fi
+
+  if [ -z $new_bookmark_id ]; then
+    local maxid
+    maxid=$(_cdbookmark_list_bookmark_id | grep '^[0-9][0-9]*$' | sort -n -r | head -1)
+    if [ -n "$maxid" ] && [ "$maxid" -ge 1 ]; then
+      new_bookmark_id=$((maxid + 1))
+    else
+      new_bookmark_id="1"
+    fi
+  fi
+
+  echo "$new_bookmark_id|$bookmark_dir" >> "$BOOKMARK_FILE"
+}
+
+# main function
+function _cdbookmark_main() {
+  # mode : add, cd, list, edit, show
+  local mode=""
+  local bookmark_id=""
+
+  local option OPTARG OPTIND
+  while getopts ':ac:lep:h' option; do
+    case $option in
+      a)
+        mode="add"
+        ;;
+      c)
+        bookmark_id="$OPTARG"
+        mode="cd"
+        ;;
+      l)
+        mode="list"
+        ;;
+      e)
+        mode="edit"
+        ;;
+      p)
+        bookmark_id="$OPTARG"
+        mode="show"
+        ;;
+      h)
+        _cdbookmark_print_usage
+        return 0
+        ;;
+      :)
+        _cdbookmark_print_error "option requires an argument -- $OPTARG"
+        return 1
+        ;;
+      *)
+        _cdbookmark_print_error "invalid option -- $OPTARG"
+        return 1
+        ;;
+    esac
+  done
+  shift $(expr $OPTIND - 1)
+
+  if [ "$mode" = "add" ]; then
+    # argument for -a option is omittable
+    bookmark_id="$1"
+  fi
+
+  # with no option, cd or list bookmarks
+  if [ -z "$mode" ]; then
+    bookmark_id="$1"
+
+    if [ -n "$bookmark_id" ]; then
+      mode="cd"
+    else
+      mode="list"
+    fi
+  fi
+
+  if ! _cdbookmark_init_bookmark; then
+    _cdbookmark_print_error "Could not init bookmark file."
+    return 1
+  fi
+
+  case "$mode" in
+    add)
+      _cdbookmark_add_to_bookmark "$PWD" "$bookmark_id"
+      ;;
+    cd)
+      _cdbookmark_cd_to_bookmark "$bookmark_id"
+      ;;
+    list)
+      _cdbookmark_list_bookmark
+      ;;
+    edit)
+      _cdbookmark_edit_bookmark
+      ;;
+    show)
+      local bookmark_dir=$(_cdbookmark_get_bookmark "$bookmark_id")
+      if [ -z "$bookmark_dir" ]; then
+        _cdbookmark_print_error "$bookmark_id is not in bookmark"
+        return 3
+      else
+        echo "$bookmark_dir"
+      fi
+      ;;
+  esac
+}
+
+#set -o xtrace
+#set -o verbose
+
+_cdbookmark_main "$@"
+
+#set +o xtrace
+#set +o verbose
+
+# vim:set ft=zsh:

@@ -120,28 +120,17 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 
 # エイリアス設定 {{{1
 # Commands
-alias gcc="gcc -Wall"
-alias g++="g++ -Wall"
 alias gco="gcc -Wall -o"
 alias gpo="g++ -Wall -o"
 
 alias df="df -h"
-
 alias lss="ls -alhGF"
+
+alias cb="cd-bookmark
 
 # Octopress
 alias brake="noglob bundle exec rake"
 compdef -d rake
-
-# Directories
-alias blog="cd $HOME/Repos/cigeek.github.io"
-alias naritate="cd $HOME/Dropbox/Ruby/naritate"
-alias contest="cd $HOME/Dropbox/Contest"
-alias euler="cd $HOME/Dropbox/Euler"
-alias rdev="cd $HOME/Dropbox/Ruby"
-alias cdev="cd $HOME/Dropbox/C"
-alias cpdev="cd $HOME/Dropbox/Cpp"
-alias jdev="cd $HOME/Dropbox/Java"
 
 # Dotfiles
 alias vimrc="vim $HOME/.vimrc"
@@ -150,6 +139,9 @@ alias zshrc="vim $HOME/.zshrc"
 # その他 {{{1
 # 言語設定
 export LANG=ja_JP.UTF-8
+
+# cd-bookmark
+autoload -Uz cd-bookmark
 
 # Auto rbenv rehash
 function gem(){
