@@ -127,6 +127,8 @@ alias gpo="g++ -Wall -o"
 
 alias df="df -h"
 
+alias lss="ls -alhGF"
+
 # Octopress
 alias brake="noglob bundle exec rake"
 compdef -d rake
