@@ -1,16 +1,15 @@
 [core]
-	excludesfile = /Users/KOSK/.gitignore_global
-	autocrlf = true
+excludesfile = /Users/KOSK/.gitignore_global
 [user]
-	email = mail@kosk.me
-	name = KOSK
+email = mail@kosk.me
+name = KOSK
 [credential]
-	helper = osxkeychain
+helper = osxkeychain
 [color]
-	ui = auto
+ui = auto
 [alias]
-	co = checkout
-	ci = commit
-	st = status
+co = checkout
+ci = commit
+st = status
 [help]
-	autocorrect = 1
+autocorrect = 1
