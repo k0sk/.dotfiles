@@ -144,11 +144,33 @@ export LANG=ja_JP.UTF-8
 fpath=($HOME/.zsh/functions/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 
-# peco commands
-function cbf() {
+# peco - cd-bookrmark
+function cbp() {
 	cb | peco | awk -F"|" '{ print $2 }' | xargs open
 }
 
+# peco - history filter
+function ph() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+
+# peco - kill process
+function pkp() {
+    ps -ef | peco | awk '{ print $2 }' | xargs kill
+    zle clear-screen
+}
+
+# peco - search file and open with vim
 function gim() {
 	vim `git ls-files | peco`
 	# vim `find . -name "*" | peco`
