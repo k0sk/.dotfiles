@@ -1,4 +1,4 @@
-" 一般設定 {{{1
+" 一般設定 {{{2
 " 表示関係 {{{2
 syntax on
 colorscheme jellybeans
@@ -44,8 +44,13 @@ nnoremap k gk
 set whichwrap=b,s,h,s,<,>,[,],~ " カーソルを行頭、行末で止まらないようにする
 " ESCの反応を早く
 set timeout
-set timeoutlen=1000
+set timeoutlen=200
 set ttimeoutlen=75
+" 挿入モードでもhjkl移動
+noremap! <c-h> <Left>
+noremap! <c-j> <Down>
+noremap! <c-k> <Up>
+noremap! <c-l> <Right>
 
 " 保存関係 {{{2
 " 文字コード設定
