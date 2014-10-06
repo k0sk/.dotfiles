@@ -1,0 +1,25 @@
+{
+	"auto_complete": true,
+	"auto_indent": true,
+	"auto_match_enabled": true,
+	"caret_style": "smooth",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"draw_white_space": "all",
+	"font_face": "Source Code Pro",
+	"font_size": 13,
+	"hilight_line": true,
+	"hilight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_numbers": true,
+	"save_on_focus_lost": true,
+	"show_encoding": true,
+	"tab_completion": true,
+	"theme": "Spacegray.sublime-theme",
+	"trim_automatic_white_space": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": true,
+	"wrap_width": 80
+}
