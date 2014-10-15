@@ -15,7 +15,6 @@
 	],
 	"line_numbers": true,
 	"save_on_focus_lost": true,
-	"show_encoding": true,
 	"tab_completion": true,
 	"theme": "Spacegray.sublime-theme",
 	"trim_automatic_white_space": true,
