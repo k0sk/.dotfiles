@@ -2,9 +2,13 @@
 	"installed_packages":
 	[
 		"AngularJS",
+		"AutoFileName",
 		"Better CoffeeScript",
 		"ConvertToUTF8",
+		"CSS Snippets",
+		"HTML5",
 		"Stupid Indent",
+		"sublimelint",
 		"Theme - Spacegray"
 	]
 }
