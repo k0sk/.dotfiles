@@ -1,6 +1,8 @@
 {
 	"installed_packages":
 	[
+		"AngularJS",
+		"AngularJS (CoffeeScript)",
 		"ConvertToUTF8",
 		"Stupid Indent",
 		"Theme - Spacegray"
