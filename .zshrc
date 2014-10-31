@@ -1,24 +1,3 @@
-# PATH {{{1
-export PATH="/usr/local/bin:$PATH"
-
-# rbenv
-export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
-
-# Android SDK
-export PATH="/Applications/ADT/sdk/platform-tools:$PATH"
-export PATH="/Applications/ADT/sdk/tools:$PATH"
-
-# Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Sublime
-alias sbl='open -a /Applications/Sublime\ Text.app'
-
-# Text Wrangler
-alias tw='open -a /Applications/TextWrangler.app'
-
-GNUTERM=x11
 # 補完関係　{{{1
 # 補完設定をロードして設定
 autoload -U compinit
@@ -192,60 +171,6 @@ function bundle(){
     rbenv rehash
   fi
  }
-
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
-
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
-fi
-###-end-npm-completion-###
 
 #" vim: foldmethod=marker
 #" vim: foldcolumn=3
