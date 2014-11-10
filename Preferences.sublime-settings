@@ -6,12 +6,11 @@
 	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
 	"draw_white_space": "all",
 	"font_face": "Source Code Pro",
-	"font_size": 14,
+	"font_size": 13,
 	"hilight_line": true,
 	"hilight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintage"
 	],
 	"line_numbers": true,
 	"save_on_focus_lost": true,
@@ -19,6 +18,8 @@
 	"theme": "Spacegray.sublime-theme",
 	"trim_automatic_white_space": true,
 	"trim_trailing_white_space_on_save": true,
+	"vintage_ctrl_keys": true,
+	"vintage_use_clipboard": true,
 	"word_wrap": true,
 	"wrap_width": 80
 }
