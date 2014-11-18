@@ -13,7 +13,7 @@ export PATH="/Applications/ADT/sdk/tools:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Sublime
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin/:$PATH"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 # Text Wrangler
 alias tw='open -a /Applications/TextWrangler.app'

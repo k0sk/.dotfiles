@@ -1,5 +1,5 @@
 [core]
-excludesfile = /Users/KOSK/.gitignore_global
+excludesfile = ~/.gitignore_global
 [user]
 email = mail@kosk.me
 name = KOSK

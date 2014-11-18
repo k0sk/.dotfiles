@@ -10,11 +10,11 @@
 Network Trash Folder
 Temporary Items
 .apdisk
-Icon # 必ず\rを2つ
+Icon
 
 
-# Ruby
-.rbenv-version
+# rbenv
+.ruby-version
 
 # Rails
 /.bundle
