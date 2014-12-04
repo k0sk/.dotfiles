@@ -21,3 +21,6 @@ Icon
 .project
 .idea
 .secret
+
+# Node.js
+node_modules
