@@ -172,6 +172,35 @@ function bundle(){
   fi
  }
 
+# Blank enter
+function blank_enter {
+    if [[ -n "$BUFFER" ]]; then
+        builtin zle .accept-line
+        return 0
+    fi
+    if [ "$WIDGET" != "$LASTWIDGET" ]; then
+        BLANK_ENTER_COUNT=0
+    fi
+    case $[BLANK_ENTER_COUNT++] in
+        0)
+            BUFFER=" ls -ahlFG"
+            ;;
+        1)
+            if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+                BUFFER=" git status -sb"
+            elif [[ -d .svn ]]; then
+                BUFFER=" svn status"
+            fi
+            ;;
+        *)
+            unset BLANK_ENTER_COUNT
+            ;;
+    esac
+    builtin zle .accept-line
+}
+zle -N blank_enter
+bindkey '^m' blank_enter
+
 #" vim: foldmethod=marker
 #" vim: foldcolumn=3
 #" vim: foldlevel=0
