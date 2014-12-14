@@ -56,10 +56,11 @@ setopt globdots
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
-setopt hist_ignore_all_dups #ignore duplication command history list
-setopt hist_no_store        #historyコマンドは履歴に登録しない
-setopt share_history        #share command history data
-setopt hist_reduce_blanks   #余分な空白は詰めて記録
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_no_store
+setopt share_history
+setopt hist_reduce_blanks
 
 # 履歴検索機能のショートカット設定
 autoload history-search-end
