@@ -18,4 +18,7 @@ export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 # Text Wrangler
 alias tw='open -a /Applications/TextWrangler.app'
 
+# Other {{{1
+export LANG=ja_JP.UTF-8
+EDITOR='vim'
 GNUTERM=x11

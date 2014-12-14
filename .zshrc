@@ -117,9 +117,6 @@ alias vimrc="vim $HOME/.vimrc"
 alias zshrc="vim $HOME/.zshrc"
 
 # その他 {{{1
-# 言語設定
-export LANG=ja_JP.UTF-8
-
 # cd-bookmark
 fpath=($HOME/.zsh/functions/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
