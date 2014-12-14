@@ -199,6 +199,11 @@ function blank_enter {
 zle -N blank_enter
 bindkey '^m' blank_enter
 
+# Edit command line with editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^XE' edit-command-line
+
 #" vim: foldmethod=marker
 #" vim: foldcolumn=3
 #" vim: foldlevel=0
