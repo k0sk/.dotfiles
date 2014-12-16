@@ -1,3 +1,5 @@
+set encoding=utf-8
+scriptencoding utf-8
 " 一般設定 {{{2
 " 表示関係 {{{2
 syntax on
@@ -55,9 +57,7 @@ noremap! <c-l> <Right>
 " 保存関係 {{{2
 " 文字コード設定
 set termencoding=utf-8
-set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8
 set fileformat=unix
 "エンコーディング
 set bomb
