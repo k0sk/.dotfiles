@@ -1,5 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
+
 " 一般設定 {{{2
 " 表示関係 {{{2
 syntax on
@@ -421,14 +422,6 @@ function! s:dash(...)
   call system(printf("open dash://'%s'", word))
 endfunction
 command! -nargs=? Dash call <SID>dash(<f-args>)
-
-" 前回閉じた場所から開始 {{{2
-" if has("autocmd")
-" autocmd BufReadPost *
-" \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-" \   exe "normal! g'\"" |
-" \ endif
-" endif
 
 " 防タイポ {{{2
 cab W! w!
