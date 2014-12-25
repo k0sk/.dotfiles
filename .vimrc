@@ -269,16 +269,26 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundleLazy 'junegunn/vim-easy-align', { 'autoload': {
       \ 'commands' : ['EasyAlign'] }}
 
-" 囲いを簡単にする - vim-surround {{{2
-NeoBundle 'tpope/vim-surround'
+" 囲みを簡単にする - vim-operator-surround {{{2
+NeoBundle 'kana/vim-operator-user' " dependency
+NeoBundle 'rhysd/vim-operator-surround'
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
 
 " ステータスラインをカスタマイズ - lightline {{{2
 NeoBundle 'itchyny/lightline.vim'
 set t_Co=256
 set term=xterm-256color
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans'
-      \ }
+    \ 'colorscheme': 'jellybeans'
+    \ }
+
+" 検索・置換を改善 - incsearch {{{2
+NeoBundle 'haya14busa/incsearch.vim'
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " 任意の単語をハイライト - quickhl {{{2
 NeoBundle 't9md/vim-quickhl'
@@ -360,6 +370,8 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tpope/vim-fugitive'
 " 差分の表示
 NeoBundle 'airblade/vim-gitgutter'
+" コミットバッファを改善
+NeoBundle 'rhysd/committia.vim'
 
 " etc {{{2
 NeoBundle 'Shougo/vimfiler.vim'
