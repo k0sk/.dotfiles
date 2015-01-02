@@ -113,6 +113,9 @@ alias vimrc="vim $HOME/.vimrc"
 alias zshrc="vim $HOME/.zshrc"
 
 # その他 {{{1
+# zsh-completions
+fpath=(path/to/zsh-completions/src $fpath)
+
 # cd-bookmark
 fpath=($HOME/.zsh/functions/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
