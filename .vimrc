@@ -54,6 +54,9 @@ noremap! <c-h> <Left>
 noremap! <c-j> <Down>
 noremap! <c-k> <Up>
 noremap! <c-l> <Right>
+" インクリメント，デクリメント
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 " 保存関係 {{{2
 " 文字コード設定
