@@ -108,10 +108,6 @@ alias lss="ls -alhGF"
 
 alias cb="cd-bookmark"
 
-# Octopress
-alias brake="noglob bundle exec rake"
-compdef -d rake
-
 # Dotfiles
 alias vimrc="vim $HOME/.vimrc"
 alias zshrc="vim $HOME/.zshrc"
