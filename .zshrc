@@ -22,14 +22,40 @@ bindkey '^X^E' edit-command-line
 # Corsor move {{{2
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+# Blank enter {{{2
+function git-status() {
+  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+    echo
+    echo -e "\e[0;33m--- git status ---\e[0m"
+    git status -sb
+  fi
+}
+function do-enter() {
+  if [ -n "$BUFFER" ]; then
+    zle accept-line
+    return 0
+  fi
+  echo
+  ls-abbrev
+  git-status
+  echo
+  zle reset-prompt
+  return 0
+}
+zle -N do-enter
+bindkey '^M' do-enter
+# After cd {{{2
+chpwd() {
+  ls-abbrev
+  git-status
+}
 
 
 # Functions {{{1
 # Auto suggestions {{{2
 source $HOME/.zsh/plugins/zsh-autosuggestions/autosuggestions.zsh
 autosuggest-start
-bindkey '^I' menu-expand-or-complete
-bindkey '^F' forward-word
+bindkey '^I' forward-word
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
@@ -37,6 +63,37 @@ bindkey '^N' history-substring-search-down
 fpath=($HOME/.zsh/plugins/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 alias cb="cd-bookmark"
+
+# ls abbreviation {{{2
+function ls-abbrev() {
+  if [[ ! -r $PWD ]]; then
+    return
+  fi
+  # -a : Do not ignore entries starting with ..
+  # -C : Force multi-column output.
+  # -F : Append indicator (one of */=>@|) to entries.
+  local cmd_ls='ls'
+  local -a opt_ls
+  opt_ls=('-aCF' '--color=always')
+  case "${OSTYPE}" in
+    freebsd*|darwin*)
+      opt_ls=('-aCFG')
+  esac
+
+  local ls_result
+  ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command $cmd_ls ${opt_ls[@]} | sed $'/^\e\[[0-9;]*m$/d')
+
+  local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
+
+  if [ $ls_lines -gt 10 ]; then
+    echo "$ls_result" | head -n 5
+    echo '...'
+    echo "$ls_result" | tail -n 5
+    echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
+  else
+    echo "$ls_result"
+  fi
+}
 
 # peco {{{2
 # Kill process {{{3
