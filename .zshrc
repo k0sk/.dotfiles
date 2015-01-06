@@ -55,7 +55,10 @@ chpwd() {
 # Functions {{{1
 # Auto suggestions {{{2
 source $HOME/.zsh/plugins/zsh-autosuggestions/autosuggestions.zsh
-autosuggest-start
+zle-line-init() {
+  zle autosuggest-start
+}
+zle -N zle-line-init
 bindkey '^I' forward-word
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
