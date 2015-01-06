@@ -32,6 +32,7 @@ function git-status() {
 }
 function do-enter() {
   if [ -n "$BUFFER" ]; then
+    zle .end-of-line
     zle accept-line
     return 0
   fi
