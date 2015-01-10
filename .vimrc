@@ -291,6 +291,11 @@ endif
 syntax enable
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 hi CursorLine cterm=underline term=underline
+" Indentation {{{3
+augroup vimrc
+  autocmd FileType c setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+  autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+augroup END
 
 " Operation {{{2
 " Avoid typo errors {{{3
