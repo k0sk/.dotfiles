@@ -18,7 +18,7 @@ export PAGER='less'
 # Language
 #
 if [[ -z "$LANG" ]]; then
-  export LANG='ja-JP.UTF-8'
+  export LANG='ja_JP.UTF-8'
 fi
 
 
