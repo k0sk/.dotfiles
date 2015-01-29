@@ -1,0 +1,42 @@
+"*":
+  editor:
+    fontFamily: "Source Code Pro, Source Han Sans JP"
+    fontSize: 13
+    showInvisibles: true
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    invisibles: {}
+  core:
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "Thumbs.db"
+      "._*"
+    ]
+    themes: [
+      "flatland-dark-ui"
+      "flatland-dark"
+    ]
+    projectHome: "~/Repos"
+  "file-icons":
+    coloured: false
+  "exception-reporting":
+    userId: "62f8490a-8e62-357f-a5d2-217c4238a88e"
+  welcome:
+    showOnStartup: false
+  "recent-files":
+    updated: false
+  linter: {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
+    hideIgnoredNames: true
+  "git-plus": {}
+  rspec: {}
+  "atom-beautify":
+    _analyticsUserId: "9bda7156-eb68-4735-b4b3-21e503306407"
+  "atom-terminal":
+    app: "iTerm.app"
+  "travis-ci-status": {}
