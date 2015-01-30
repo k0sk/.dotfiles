@@ -2,6 +2,7 @@
   editor:
     fontFamily: "Source Code Pro, Source Han Sans JP"
     fontSize: 13
+    lineHeight: 1.4
     showInvisibles: true
     showIndentGuide: true
     softWrap: true
@@ -17,8 +18,8 @@
       "._*"
     ]
     themes: [
-      "flatland-dark-ui"
-      "flatland-dark"
+      "spacegray-dark-ui"
+      "spacegray-dark-syntax"
     ]
     projectHome: "~/Repos"
   "file-icons":
@@ -40,3 +41,4 @@
   "atom-terminal":
     app: "iTerm.app"
   "travis-ci-status": {}
+  "autocomplete-plus": {}
