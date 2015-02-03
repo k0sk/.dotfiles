@@ -1,5 +1,6 @@
 [core]
 excludesfile = ~/.gitignore_global
+filemode = false
 [user]
 email = mail@kosk.me
 name = KOSK
@@ -9,6 +10,7 @@ helper = osxkeychain
 ui = auto
 [alias]
 co = checkout
+br = branch
 ci = commit
 st = status
 [help]
