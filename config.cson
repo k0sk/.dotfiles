@@ -42,3 +42,4 @@
     app: "iTerm.app"
   "travis-ci-status": {}
   "autocomplete-plus": {}
+  "atom-terminal-panel": {}
