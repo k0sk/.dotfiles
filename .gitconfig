@@ -1,17 +1,17 @@
 [core]
-excludesfile = ~/.gitignore_global
-filemode = false
+	excludesfile = ~/.gitignore_global
+	filemode = false
 [user]
-email = mail@kosk.me
+	email = mail@kosk.me
 	name = kosk
 [credential]
-helper = osxkeychain
+	helper = osxkeychain
 [color]
-ui = auto
+	ui = auto
 [alias]
-co = checkout
-br = branch
-ci = commit
-st = status
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
 [help]
-autocorrect = 1
+	autocorrect = 1
