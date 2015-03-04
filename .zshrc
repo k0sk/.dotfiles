@@ -62,7 +62,8 @@ zle-line-init() {
   zle autosuggest-start
 }
 zle -N zle-line-init
-bindkey '^I' forward-word
+bindkey '^I' expand-or-complete
+bindkey '^F' forward-word
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
