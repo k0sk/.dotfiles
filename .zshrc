@@ -13,6 +13,9 @@ alias lss="ls -alhGF"
 alias gco="gcc -Wall -o"
 alias gpo="g++ -Wall -o"
 
+# Utilities
+eval "$(hub alias -s)"
+
 
 # Preferences {{{1
 # Edit command line with editor {{{2
