@@ -3,18 +3,21 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-
-# Alias {{{1
+# Commands {{{1
 # OS {{{2
 alias df="df -h"
-alias lss="ls -alhGF"
-
-# Compiler {{{2
-alias gco="gcc -Wall -o"
-alias gpo="g++ -Wall -o"
-
-# Utilities
+alias ls="ls -Gh"
+alias ll=" ls -Fl"
+# Dev {{{2
+alias gco="gcc -O2 -Wall -o"
+alias gpo="g++ -O2 -Wall -o"
 eval "$(hub alias -s)"
+# Files {{{2
+alias -s c=vim
+alias -s cpp=vim
+alias -s rb=vim
+alias -s html=atom
+alias -s log="less -MN"
 
 
 # Preferences {{{1
@@ -25,14 +28,7 @@ bindkey '^X^E' edit-command-line
 # Corsor move {{{2
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
-# Blank enter {{{2
-function git-status() {
-  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-    echo
-    echo -e "\e[0;33m--- git status ---\e[0m"
-    git status -sb
-  fi
-}
+# Press enter {{{2
 function do-enter() {
   if [ -n "$BUFFER" ]; then
     zle .end-of-line
@@ -54,7 +50,6 @@ chpwd() {
   git-status
 }
 
-
 # Functions {{{1
 # Auto suggestions {{{2
 source $HOME/.zsh/plugins/zsh-autosuggestions/autosuggestions.zsh
@@ -72,7 +67,8 @@ fpath=($HOME/.zsh/plugins/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 alias cb="cd-bookmark"
 
-# ls abbreviation {{{2
+# Blank enter {{{2
+# ls abbreviation {{{3
 function ls-abbrev() {
   if [[ ! -r $PWD ]]; then
     return
@@ -100,6 +96,15 @@ function ls-abbrev() {
     echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
   else
     echo "$ls_result"
+  fi
+}
+
+# git repo status {{{3
+function git-status() {
+  if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+    echo
+    echo -e "\e[0;33m--- git status ---\e[0m"
+    git status -sb
   fi
 }
 
@@ -142,7 +147,6 @@ function pdfind() {
 }
 zle -N pdfind
 bindkey '^X^F' pdfind
-
 
 # Modeline {{{2
 # vim: foldmethod=marker
