@@ -6,8 +6,9 @@ fi
 # Commands {{{1
 # OS {{{2
 alias df="df -h"
-alias ls="ls -Gh"
-alias ll=" ls -Fl"
+alias ls="ls -FGh"
+alias ll="ls -l"
+alias la="ll -A"
 # Dev {{{2
 alias gco="gcc -O2 -Wall -o"
 alias gpo="g++ -O2 -Wall -o"
