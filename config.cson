@@ -17,10 +17,6 @@
       "Thumbs.db"
       "._*"
     ]
-    themes: [
-      "spacegray-dark-ui"
-      "spacegray-dark-syntax"
-    ]
     projectHome: "~/Repos"
   "file-icons":
     coloured: false
