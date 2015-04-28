@@ -61,7 +61,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Prompt {{{1
 # Set the prompt theme to load {{{2
-zstyle ':prezto:module:prompt' theme 'pure'
+zstyle ':prezto:module:prompt' theme 'powerline'
 
 
 # Ruby  {{{1
