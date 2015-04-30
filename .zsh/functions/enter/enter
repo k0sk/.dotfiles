@@ -1,0 +1,11 @@
+if [ -n "$BUFFER" ]; then
+  zle .end-of-line
+  zle accept-line
+  return 0
+fi
+echo
+ls-abbrev
+git-status-abbrev
+echo
+zle reset-prompt
+return 0

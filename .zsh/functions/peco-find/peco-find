@@ -1,0 +1,8 @@
+local current_buffer=$BUFFER
+local selected_dir="$(find . -maxdepth 5 -type d ! -path "*/.*"| peco)"
+if [ -d "$selected_dir" ]; then
+  BUFFER="${selected_dir}"
+  CURSOR=$#BUFFER
+  zle accept-line
+fi
+zle clear-screen
