@@ -1,2 +1,11 @@
+# .config directory
+.config
+!.config/peco
+
+# .vim directory
 .vim/bundle
 .netrwhist
+
+# .atom directory
+.atom
+!.atom/config.cson
