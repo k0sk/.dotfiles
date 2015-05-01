@@ -19,7 +19,6 @@ augroup END
 augroup NeoBundleLazyLoadHtml
   autocmd FileType html NeoBundleSource
     \ colorizer
-    \ vim-handlebars
     \ HTML-AutoCloseTag
 augroup END
 
