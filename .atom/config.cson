@@ -39,3 +39,6 @@
   "travis-ci-status": {}
   "autocomplete-plus": {}
   "atom-terminal-panel": {}
+  "highlight-column":
+    opacity: 0.15
+    enableHighlight: true
