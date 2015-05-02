@@ -13,6 +13,10 @@ export EDITOR='vim'
 export VISUAL='vim'
 export PAGER='less'
 
+#
+# SHELL
+#
+export SHELL="$(which zsh)"
 
 #
 # Language
