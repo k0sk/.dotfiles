@@ -7,7 +7,14 @@ fpath=($HOME/.zsh/functions/*(N-/) $fpath)
 # Commands {{{1
 # OS {{{2
 alias df="df -h"
-alias ls="ls -FGh"
+case "$OSTYPE" in
+darwin*|bsd*)
+  alias ls="ls -FGh"
+  ;;
+linux*)
+  alias ls="ls -Fh --color"
+  ;;
+esac
 alias ll="ls -l"
 alias la="ll -A"
 
