@@ -15,5 +15,5 @@ if [[ -n ${DEBUG:-} ]]; then echo "¥ 0 ($0)" && exit 0; fi
 echo -n 'Init submodules? (y/N) '
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
-  git submodules update --init --recursive
+  git submodule update --init --recursive
 fi
