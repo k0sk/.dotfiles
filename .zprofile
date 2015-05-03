@@ -14,9 +14,10 @@ export VISUAL='vim'
 export PAGER='less'
 
 #
-# SHELL
+# Env
 #
 export SHELL="$(which zsh)"
+export HOMEBREW_BREWFILE=~/.brewfile
 
 #
 # Language

@@ -1,0 +1,61 @@
+
+# tap repositories and their packages
+
+## caskroom/cask
+tap caskroom/cask
+install brew-cask
+cask install vagrant
+cask install virtualbox
+
+## peco/peco
+tap peco/peco
+install peco
+
+## rcmdnk/file
+tap rcmdnk/file
+install brew-file
+
+# Other Homebrew packages
+install autoconf
+install ctags
+install curl
+install gdbm
+install gist
+install git
+install hub
+install libevent
+install mackup
+install nkf
+install nmap
+install node
+install openssl
+install pcre
+install pkg-config
+install rbenv
+install readline
+install ruby-build
+install sqlite
+install tig
+install tmux
+install vim --with-lua
+install wget
+install xz
+install zsh
+
+# App Store applications
+appstore 1Password
+appstore DragonDrop
+appstore ForkLift
+appstore Keynote
+appstore MiniUsage
+appstore Monity
+appstore Monosnap
+appstore MonthlyCal
+appstore Pages
+appstore PopClip
+appstore ReadKit
+appstore Slack
+appstore The Unarchiver
+appstore Tweetbot
+appstore Window Tidy
+appstore Xcode
