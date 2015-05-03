@@ -1,6 +1,6 @@
 #!/bin/bash
 
-trap 'echo Error: ¥ 0 ($0): stopped; exit 1' ERR
+trap 'echo Error: $0: stopped; exit 1' ERR
 set -e
 set -u
 
@@ -13,10 +13,11 @@ if type xcode-select >/dev/null 2>&1; then
 fi
 
 # Testing the judgement system
-if [[ -n ${DEBUG:-} ]]; then echo "¥ 0 ($0)" && exit 0; fi
+if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 
 echo -n "Do you install Xcode CLI tools? (y/N) "
 read
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
-  sudo xcodebuild -license && xcode-select --install
+  xcode-select --install
+  sudo xcodebuild -license
 fi

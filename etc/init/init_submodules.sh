@@ -1,6 +1,6 @@
 #!/bin/bash
 
-trap 'echo Error: ¥ 0 ($0): stopped; exit 1' ERR INT
+trap 'echo Error: $0: stopped; exit 1' ERR INT
 set -u
 set -e
 
@@ -10,7 +10,7 @@ if ! type git >/dev/null 2>&1; then
 fi
 
 # Testing the judgement system
-if [[ -n ${DEBUG:-} ]]; then echo "¥ 0 ($0)" && exit 0; fi
+if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 
 echo -n 'Init submodules? (y/N) '
 read
