@@ -15,3 +15,5 @@
 	st = status
 [help]
 	autocorrect = 1
+[hub]
+	protocol = https
