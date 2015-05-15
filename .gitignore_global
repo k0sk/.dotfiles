@@ -12,6 +12,9 @@ Temporary Items
 .apdisk
 Icon
 
+# Credentials
+.env
+.envrc
 
 # rbenv
 .ruby-version

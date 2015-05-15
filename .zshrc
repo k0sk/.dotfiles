@@ -22,6 +22,7 @@ alias la="ll -A"
 alias gco="gcc -O2 -Wall -o"
 alias gpo="g++ -O2 -Wall -o"
 eval "$(hub alias -s)"
+eval "$(direnv hook zsh)"
 
 # Files {{{2
 alias -s c=vim
