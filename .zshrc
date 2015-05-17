@@ -21,7 +21,9 @@ alias la="ll -A"
 # Dev {{{2
 alias gco="gcc -O2 -Wall -o"
 alias gpo="g++ -O2 -Wall -o"
-eval "$(hub alias -s)"
+if [ -x "`which hub`" ]; then
+  eval "$(hub alias -s)"
+fi
 eval "$(direnv hook zsh)"
 
 # Files {{{2
