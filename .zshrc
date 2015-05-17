@@ -24,7 +24,9 @@ alias gpo="g++ -O2 -Wall -o"
 if [ -x "`which hub`" ]; then
   eval "$(hub alias -s)"
 fi
-eval "$(direnv hook zsh)"
+if [ -x "`which direnv`" ]; then
+  eval "$(direnv hook zsh)"
+fi
 
 # Files {{{2
 alias -s c=vim
