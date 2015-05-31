@@ -67,11 +67,11 @@ inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd vimrc FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd vimrc FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd vimrc FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd vimrc FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd vimrc FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')

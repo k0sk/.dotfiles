@@ -46,7 +46,7 @@ set nobackup
 set nowritebackup
 
 " Clean when Save
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd vimrc BufWritePre * :%s/\s\+$//e
 
 " Modeline
 set modeline
