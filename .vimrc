@@ -41,8 +41,10 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-over'
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 " Close text Objects with surrounds {{{2
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'rhysd/vim-operator-surround'
+NeoBundleLazy 'kana/vim-operator-user', {
+  \ "autoload": {"insert": 1}}
+NeoBundleLazy 'rhysd/vim-operator-surround', {
+  \ "autoload": {"insert": 1}}
 " Incremental search {{{2
 NeoBundle 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
@@ -60,14 +62,15 @@ let g:ctrlp_custom_ignore = {
 
 " Automation {{{1
 " Auto save {{{2
-NeoBundle 'syui/wauto.vim'
+NeoBundleLazy 'syui/wauto.vim', {
+  \ "autoload": {"insert": 1}}
 let g:auto_write = 1
 " Auto close parentheses {{{2
-NeoBundle 'Townk/vim-autoclose'
+NeoBundleLazy 'Townk/vim-autoclose', {
+  \ "autoload": {"insert": 1}}
 " Quick run {{{2
 NeoBundleLazy 'thinca/vim-quickrun.git', {
-\   'autoload': {'commands': ['QuickRun']}
-\ }
+  \ 'autoload': {'commands': ['QuickRun']}}
 let g:quickhl_config = {'_': {'split': 'vertical'}}
 nnoremap <leader>r :QuickRun<CR>
 " Comment out quickly {{{2
@@ -83,10 +86,13 @@ nmap <Leader>a <Plug>(EasyAlign)
 
 " Completion {{{1
 " neocomplete {{{2
-NeoBundle 'Shougo/neocomplete.vim'
+NeoBundleLazy 'Shougo/neocomplete.vim', {
+  \ "autoload": {"insert": 1}}
 " neosnippet {{{2
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundleLazy 'Shougo/neosnippet.vim', {
+  \ "autoload": {"insert": 1}}
+NeoBundleLazy 'Shougo/neosnippet-snippets', {
+  \ "autoload": {"insert": 1}}
 
 " Languages {{{1
 " Ruby {{{2
