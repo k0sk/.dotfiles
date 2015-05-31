@@ -42,9 +42,9 @@ NeoBundle 'osyo-manga/vim-over'
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 " Close text Objects with surrounds {{{2
 NeoBundleLazy 'kana/vim-operator-user', {
-  \ "autoload": {"insert": 1}}
+  \ 'autoload': {'insert': 1}}
 NeoBundleLazy 'rhysd/vim-operator-surround', {
-  \ "autoload": {"insert": 1}}
+  \ 'autoload': {'insert': 1}}
 " Incremental search {{{2
 NeoBundle 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
@@ -63,7 +63,7 @@ let g:ctrlp_custom_ignore = {
 " Automation {{{1
 " Auto save {{{2
 NeoBundleLazy 'syui/wauto.vim', {
-  \ "autoload": {"insert": 1}}
+  \ 'autoload': {'insert': 1}}
 let g:auto_write = 1
 " Auto close parentheses {{{2
 NeoBundleLazy 'cohama/lexima.vim', {
@@ -87,38 +87,38 @@ nmap <Leader>a <Plug>(EasyAlign)
 " Completion {{{1
 " neocomplete {{{2
 NeoBundleLazy 'Shougo/neocomplete.vim', {
-  \ "autoload": {"insert": 1}}
+  \ 'autoload': {'insert': 1}}
 " neosnippet {{{2
 NeoBundleLazy 'Shougo/neosnippet.vim', {
-  \ "autoload": {"insert": 1}}
+  \ 'autoload': {'insert': 1}}
 NeoBundleLazy 'Shougo/neosnippet-snippets', {
-  \ "autoload": {"insert": 1}}
+  \ 'autoload': {'insert': 1}}
 
 " Languages {{{1
 " Ruby {{{2
 NeoBundleLazy 'rails.vim', {
-  \ "autoload": {"filetypes": ['ruby']}}
+  \ 'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-rails', {
-  \ "autoload": {"filetypes": ['ruby']}}
+  \ 'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-rake', {
-  \ "autoload": {"filetypes": ['ruby']}}
+  \ 'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-projectionist', {
-  \ "autoload": {"filetypes": ['ruby']}}
+  \ 'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy 'thoughtbot/vim-rspec', {
-  \ "autoload": {"filetypes": ['ruby']}}
+  \ 'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy 'tpope/vim-endwise', {
-  \ "autoload": {"filetypes": ['ruby']}}
+  \ 'autoload': {'filetypes': ['ruby']}}
 " Python {{{2
 NeoBundleLazy 'davidhalter/jedi-vim', {
-  \ "autoload": {"filetypes": ['python']}}
+  \ 'autoload': {'filetypes': ['python']}}
 " HTML {{{2
 NeoBundleLazy 'lilydjwg/colorizer', {
-  \ "autoload": {"filetypes": ['html']}}
+  \ 'autoload': {'filetypes': ['html']}}
 NeoBundleLazy 'amirh/HTML-AutoCloseTag', {
-  \ "autoload": {"filetypes": ['html']}}
+  \ 'autoload': {'filetypes': ['html']}}
 " Markdown {{{2
 NeoBundleLazy 'mutewinter/vim-markdown', {
-  \ "autoload": {"filetypes": ['markdown']}}
+  \ 'autoload': {'filetypes': ['markdown']}}
 
 " Tools {{{1
 " Git {{{2
