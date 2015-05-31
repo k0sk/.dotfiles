@@ -28,4 +28,3 @@ augroup NeoBundleLazyLoadMarkdown
     \ vim-markdown
 augroup END
 
-"
