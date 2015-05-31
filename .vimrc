@@ -90,19 +90,29 @@ NeoBundle 'Shougo/neosnippet-snippets'
 
 " Languages {{{1
 " Ruby {{{2
-NeoBundleLazy 'rails.vim'
-NeoBundleLazy 'tpope/vim-rails'
-NeoBundleLazy 'tpope/vim-rake'
-NeoBundleLazy 'tpope/vim-projectionist'
-NeoBundleLazy 'thoughtbot/vim-rspec'
-NeoBundleLazy 'tpope/vim-endwise'
+NeoBundleLazy 'rails.vim', {
+  \ "autoload": {"filetypes": ['ruby']}}
+NeoBundleLazy 'tpope/vim-rails', {
+  \ "autoload": {"filetypes": ['ruby']}}
+NeoBundleLazy 'tpope/vim-rake', {
+  \ "autoload": {"filetypes": ['ruby']}}
+NeoBundleLazy 'tpope/vim-projectionist', {
+  \ "autoload": {"filetypes": ['ruby']}}
+NeoBundleLazy 'thoughtbot/vim-rspec', {
+  \ "autoload": {"filetypes": ['ruby']}}
+NeoBundleLazy 'tpope/vim-endwise', {
+  \ "autoload": {"filetypes": ['ruby']}}
 " Python {{{2
-NeoBundleLazy 'davidhalter/jedi-vim'
+NeoBundleLazy 'davidhalter/jedi-vim', {
+  \ "autoload": {"filetypes": ['python']}}
 " HTML {{{2
-NeoBundleLazy 'lilydjwg/colorizer'
-NeoBundleLazy 'amirh/HTML-AutoCloseTag'
+NeoBundleLazy 'lilydjwg/colorizer', {
+  \ "autoload": {"filetypes": ['html']}}
+NeoBundleLazy 'amirh/HTML-AutoCloseTag', {
+  \ "autoload": {"filetypes": ['html']}}
 " Markdown {{{2
-NeoBundleLazy 'mutewinter/vim-markdown'
+NeoBundleLazy 'mutewinter/vim-markdown', {
+  \ "autoload": {"filetypes": ['markdown']}}
 
 " Tools {{{1
 " Git {{{2
