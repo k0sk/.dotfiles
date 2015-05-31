@@ -66,8 +66,8 @@ NeoBundleLazy 'syui/wauto.vim', {
   \ "autoload": {"insert": 1}}
 let g:auto_write = 1
 " Auto close parentheses {{{2
-NeoBundleLazy 'Townk/vim-autoclose', {
-  \ "autoload": {"insert": 1}}
+NeoBundleLazy 'cohama/lexima.vim', {
+  \ 'autoload': {'insert': 1}}
 " Quick run {{{2
 NeoBundleLazy 'thinca/vim-quickrun.git', {
   \ 'autoload': {'commands': ['QuickRun']}}
