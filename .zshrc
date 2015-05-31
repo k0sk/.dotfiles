@@ -21,10 +21,10 @@ alias la="ll -A"
 # Dev {{{2
 alias gco="gcc -O2 -Wall -o"
 alias gpo="g++ -O2 -Wall -o"
-if [ -x "`which hub`" ]; then
+if [ -x "`which hub 2> /dev/null`" ]; then
   eval "$(hub alias -s)"
 fi
-if [ -x "`which direnv`" ]; then
+if [ -x "`which direnv 2> /dev/null`" ]; then
   eval "$(direnv hook zsh)"
 fi
 
