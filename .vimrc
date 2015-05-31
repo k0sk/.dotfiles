@@ -1,6 +1,10 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+augroup vimrc
+  autocmd!
+augroup END
+
 " NeoBundle
 " Initialization {{{1
 if !1 | finish | endif
