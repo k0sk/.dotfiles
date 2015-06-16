@@ -1,6 +1,8 @@
-EXCLUDED_FILES := .DS_Store .git .gitignore .gitmodules .brew
+EXCLUDED_FILES := .DS_Store .git .gitignore .gitmodules
 DOTFILES := $(filter-out $(EXCLUDED_FILES), $(wildcard .??*))
+DOTFILES_DIR := $(HOME)/.dotfiles
 BINFILES := $(filter-out $(EXCLUDED_FILES), $(wildcard ./bin/*))
+BINFILES_DIR := /usr/local/bin
 
 help:
 	@echo "make list       #=> List dotfiles/bin"
@@ -31,11 +33,11 @@ endif
 
 install:
 	@$(foreach f, $(DOTFILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
-	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) /usr/local/bin/$(notdir $(f));)
+	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
 
 uninstall:
 	@-$(foreach f, $(DOTFILES), rm -rfv $(HOME)/$(f);)
-	@-$(foreach f, $(BINFILES), rm -rfv /usr/local/bin/$(notdir $(f));)
+	@-$(foreach f, $(BINFILES), rm -rfv $(BINFILES_DIR)/$(notdir $(f));)
 
 update:
 	git pull --rebase origin master
