@@ -17,8 +17,8 @@ fi
 # Testing the judgement system
 if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 
-echo -n 'Install NeoBundle? (y/N) '
-read
-if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+# echo -n 'Install NeoBundle? (y/N) '
+# read
+# if [[ "$REPLY" =~ ^[Yy]$ ]]; then
   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-fi
+# fi

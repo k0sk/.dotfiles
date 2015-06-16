@@ -15,9 +15,9 @@ fi
 # Testing the judgement system
 if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 
-echo -n "Do you install Xcode CLI tools? (y/N) "
-read
-if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+# echo -n "Do you install Xcode CLI tools? (y/N) "
+# read
+# if [[ "$REPLY" =~ ^[Yy]$ ]]; then
   xcode-select --install
   sudo xcodebuild -license
-fi
+# fi
