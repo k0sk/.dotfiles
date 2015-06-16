@@ -23,7 +23,7 @@ ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(wildcard ./etc/init/osx/*.sh), bash $(f);)
 
 xcode:
-	@bash $(DOTFILES_DIR)/etc/init/osx/_install_xcode_cli.sh
+	@bash $(DOTFILES_DIR)/etc/init/osx/install_xcode_cli.sh
 
 homebrew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/install_homebrew.sh
@@ -40,4 +40,3 @@ uninstall:
 update:
 	git pull --rebase origin master
 	git submodule update --init --recursive
-
