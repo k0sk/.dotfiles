@@ -7,8 +7,7 @@
     showIndentGuide: true
     softWrap: true
     softWrapAtPreferredLineLength: true
-    invisibles:
-      {}
+    invisibles: {}
   core:
     ignoredNames: [
       ".git"
@@ -27,25 +26,19 @@
     showOnStartup: false
   "recent-files":
     updated: false
-  linter:
-    {}
+  linter: {}
   "tree-view":
     hideVcsIgnoredFiles: true
     hideIgnoredNames: true
-  "git-plus":
-    {}
-  rspec:
-    {}
+  "git-plus": {}
+  rspec: {}
   "atom-beautify":
     _analyticsUserId: "9bda7156-eb68-4735-b4b3-21e503306407"
   "atom-terminal":
     app: "iTerm.app"
-  "travis-ci-status":
-    {}
-  "autocomplete-plus":
-    {}
-  "atom-terminal-panel":
-    {}
+  "travis-ci-status": {}
+  "autocomplete-plus": {}
+  "atom-terminal-panel": {}
   "highlight-column":
     opacity: 0.15
     enableHighlight: true
