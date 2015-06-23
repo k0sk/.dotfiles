@@ -43,7 +43,6 @@ path=(
   /usr/local/{bin,sbin}
   /usr/local/heroku/bin
   /Applications/ADT/sdk/{tools,platform-tools}
-  /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
   $path
 )
 
