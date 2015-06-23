@@ -21,12 +21,8 @@ alias la="ll -A"
 # Dev {{{2
 alias gco="gcc -O2 -Wall -o"
 alias gpo="g++ -O2 -Wall -o"
-if [ -x "`which hub 2> /dev/null`" ]; then
-  eval "$(hub alias -s)"
-fi
-if [ -x "`which direnv 2> /dev/null`" ]; then
-  eval "$(direnv hook zsh)"
-fi
+if which hub > /dev/null; then eval "$(hub alias -s)"; fi
+if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
 # Files {{{2
 alias -s c=vim
