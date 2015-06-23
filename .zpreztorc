@@ -27,6 +27,7 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'ruby' \
   'rails' \
+  'python' \
   'node'
 
 
