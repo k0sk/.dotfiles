@@ -5,6 +5,9 @@ augroup vimrc
   autocmd!
 augroup END
 
+" Leader
+let g:mapleader="\<Space>"
+
 " NeoBundle
 " Initialization {{{1
 if !1 | finish | endif
@@ -52,7 +55,6 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " Filer {{{2
 NeoBundle 'justinmk/vim-dirvish'
-
 " File finder {{{2
 NeoBundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<C-p>'
