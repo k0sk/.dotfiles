@@ -165,6 +165,8 @@ nnoremap <Leader>d :Dictionary<CR>
 
 " Reccomended {{{1
 NeoBundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_do_mapping=0
+nmap s <Plug>(easymotion-s2)
 NeoBundle 'L9'
 NeoBundleLazy 'unite.vim', {
 \   'autoload': {'commands': ['Unite']}
