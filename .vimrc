@@ -123,8 +123,6 @@ NeoBundleLazy 'tpope/vim-projectionist', {
   \ 'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy 'thoughtbot/vim-rspec', {
   \ 'autoload': {'filetypes': ['ruby']}}
-NeoBundleLazy 'tpope/vim-endwise', {
-  \ 'autoload': {'filetypes': ['ruby']}}
 " Python {{{2
 NeoBundleLazy 'davidhalter/jedi-vim', {
   \ 'autoload': {'filetypes': ['python']}}
