@@ -60,7 +60,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|swp|zip)$',
+  \ 'file': '\v\.(exe|app|so|swp|zip|tar.gz|jpg|png)$',
   \ }
 
 " Automation {{{1
