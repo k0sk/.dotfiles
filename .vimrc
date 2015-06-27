@@ -52,14 +52,16 @@ NeoBundleLazy 'kana/vim-operator-user', {
 NeoBundleLazy 'rhysd/vim-operator-surround', {
   \ 'autoload': {'insert': 1}}
 " Incremental search {{{2
-NeoBundle 'haya14busa/incsearch.vim'
+NeoBundleLazy 'haya14busa/incsearch.vim', {
+  \ 'autoload': {'mappings': '<Plug>(incsearch'}}
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " Filer {{{2
 NeoBundle 'justinmk/vim-dirvish'
 " File finder {{{2
-NeoBundle 'kien/ctrlp.vim'
+NeoBundleLazy 'kien/ctrlp.vim', {
+  \ 'autoload': {'commands': ['CtrlP']}}
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -94,7 +96,8 @@ let g:NERDShutUp=1
 nmap <Leader>c <Plug>NERDCommenterToggle
 vmap <Leader>c <Plug>NERDCommenterToggle
 " Easiy align {{{2
-NeoBundle 'junegunn/vim-easy-align'
+NeoBundleLazy 'junegunn/vim-easy-align', {
+  \ 'autoload': {'mappings': '<Plug>(EasyAlign'}}
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
@@ -129,7 +132,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 NeoBundleLazy 'lilydjwg/colorizer', {
   \ 'autoload': {'filetypes': ['html']}}
 NeoBundleLazy 'amirh/HTML-AutoCloseTag', {
-  \ 'autoload': {'filetypes': ['html']}}
+  \ 'autoload': {'filetypes': ['html'], 'insert': 1}}
 " Markdown {{{2
 NeoBundleLazy 'mutewinter/vim-markdown', {
   \ 'autoload': {'filetypes': ['markdown']}}
@@ -140,11 +143,14 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'rhysd/committia.vim'
 " Grep {{{2
-NeoBundle 'vim-scripts/grep.vim'
+NeoBundleLazy 'vim-scripts/grep.vim', {
+  \ 'autoload': {'commands': ['Rgrep']}}
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 " Dictionary {{{2
-NeoBundle  'itchyny/dictionary.vim'
+NeoBundleLazy 'itchyny/dictionary.vim', {
+  \ 'autoload': {'commands': ['Dictionary']}}
+nnoremap <Leader>d :Dictionary<CR>
 
 " Reccomended {{{1
 NeoBundle 'Lokaltog/vim-easymotion'
