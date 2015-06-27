@@ -68,6 +68,11 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|app|so|swp|zip|tar.gz|jpg|png)$'
   \ }
 nnoremap <Leader>o :CtrlP<CR>
+" Region expanding {{{2
+NeoBundleLazy 'terryma/vim-expand-region', {
+  \ 'autoload': {'insert': 1}}
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " Automation {{{1
 " Auto save {{{2
