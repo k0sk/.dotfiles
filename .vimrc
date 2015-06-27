@@ -57,6 +57,9 @@ NeoBundleLazy 'haya14busa/incsearch.vim', {
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+" Improved ft command {{{2
+NeoBundleLazy 'chrisbra/improvedft', {
+  \ 'autoload': {'insert': 1}}
 " Filer {{{2
 NeoBundle 'justinmk/vim-dirvish'
 " File finder {{{2
