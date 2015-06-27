@@ -9,14 +9,14 @@ fpath=($HOME/.zsh/functions/*(N-/) $fpath)
 alias df="df -h"
 case "$OSTYPE" in
 darwin*|bsd*)
-  alias ls="ls -FGh"
+  alias ls=" ls -FGh"
   ;;
 linux*)
-  alias ls="ls -Fh --color"
+  alias ls=" ls -Fh --color"
   ;;
 esac
-alias ll="ls -l"
-alias la="ll -A"
+alias ll=" ls -l"
+alias la=" ll -A"
 
 # Dev {{{2
 alias gco="gcc -O2 -Wall -o"
