@@ -27,9 +27,12 @@ NeoBundle 'Shougo/vimproc', {
 
 " Display {{{1
 " Colorschemes {{{2
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'w0ng/vim-hybrid', {
+  \ 'autoload': {'commands': ['colorscheme']}}
+NeoBundle 'nanotech/jellybeans.vim', {
+  \ 'autoload': {'commands': ['colorscheme']}}
+NeoBundle 'jpo/vim-railscasts-theme', {
+  \ 'autoload': {'commands': ['colorscheme']}}
 " Show indent level {{{2
 NeoBundle 'Yggdroot/indentLine'
 if has('conceal')
