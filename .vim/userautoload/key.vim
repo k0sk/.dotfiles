@@ -1,3 +1,7 @@
+" Save and Quit
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+
 " Avoid typo errors
 cab W! w!
 cab Q! q!
@@ -15,3 +19,8 @@ nnoremap k gk
 " Increment/Decrement
 nnoremap + <C-a>
 nnoremap - <C-x>
+
+" Jump to end of the pasted text
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]

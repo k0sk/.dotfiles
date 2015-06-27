@@ -65,8 +65,9 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|app|so|swp|zip|tar.gz|jpg|png)$',
+  \ 'file': '\v\.(exe|app|so|swp|zip|tar.gz|jpg|png)$'
   \ }
+nnoremap <Leader>o :CtrlP<CR>
 
 " Automation {{{1
 " Auto save {{{2
