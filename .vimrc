@@ -51,6 +51,9 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " Filer {{{2
+NeoBundle 'justinmk/vim-dirvish'
+
+" File finder {{{2
 NeoBundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
