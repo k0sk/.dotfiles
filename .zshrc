@@ -66,6 +66,9 @@ bindkey '^W' forward-word
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
+# zsh-notify {{{2
+source $HOME/.zsh/plugins/zsh-notify/notify.plugin.zsh
+
 # cd bookmark {{{2
 autoload -Uz cd-bookmark
 alias cb="cd-bookmark"
