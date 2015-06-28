@@ -1,6 +1,9 @@
-[submodule ".zsh/plugins/zsh-autosuggestions"]
+[submodule "zsh-autosuggestions"]
 	path = .zsh/plugins/zsh-autosuggestions
 	url = https://github.com/tarruda/zsh-autosuggestions
-[submodule ".zprezto"]
+[submodule "prezto"]
 	path = .zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "zsh-notify"]
+	path = .zsh/plugins/zsh-notify
+	url = https://github.com/marzocchi/zsh-notify.git
