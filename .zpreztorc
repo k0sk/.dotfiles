@@ -23,8 +23,8 @@ zstyle ':prezto:load' pmodule \
   'syntax-highlighting' \
   'git' \
   'ssh' \
+  'tmux' \
   'osx' \
-  'homebrew' \
   'ruby' \
   'rails' \
   'python' \
@@ -62,7 +62,11 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Prompt {{{1
 # Set the prompt theme to load {{{2
-zstyle ':prezto:module:prompt' theme 'powerline'
+if [[ "$OSTYPE" == darwin* ]]; then
+  zstyle ':prezto:module:prompt' theme 'powerline'
+else
+  zstyle ':prezto:module:prompt' theme 'skwp'
+fi
 
 
 # Ruby  {{{1
@@ -101,9 +105,9 @@ zstyle ':prezto:module:prompt' theme 'powerline'
 # Auto set the tab and window titles {{{2
 zstyle ':prezto:module:terminal' auto-title 'yes'
 # Set the window title format {{{2
-# zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
+zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
 # Set the tab title format {{{2
-# zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
+zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 
 
 # Tmux  {{{1
@@ -112,7 +116,7 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 # Auto start a session when Zsh is launched in a SSH connection  {{{2
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 # Integrate with iTerm2 {{{2
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # Modeline {{{2
 # vim: foldmethod=marker
