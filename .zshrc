@@ -8,12 +8,8 @@ fpath=($HOME/.zsh/functions/*(N-/) $fpath)
 # OS {{{2
 alias df="df -h"
 case "$OSTYPE" in
-darwin*|bsd*)
-  alias ls=" ls -FGh"
-  ;;
-linux*)
-  alias ls=" ls -Fh --color"
-  ;;
+darwin*|bsd*) alias ls=" ls -FGh";;
+linux*) alias ls=" ls -Fh --color";;
 esac
 alias ll=" ls -l"
 alias la=" ll -A"
@@ -21,8 +17,8 @@ alias la=" ll -A"
 # Dev {{{2
 alias gco="gcc -O2 -Wall -o"
 alias gpo="g++ -O2 -Wall -o"
-if which hub > /dev/null; then eval "$(hub alias -s)"; fi
-if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+if [[ `which hub` > /dev/null ]]; then eval "$(hub alias -s)"; fi
+if [[ `which direnv` > /dev/null ]]; then eval "$(direnv hook zsh)"; fi
 
 # Files {{{2
 alias -s c=vim
