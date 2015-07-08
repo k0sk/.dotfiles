@@ -41,10 +41,12 @@ cdpath=(
 )
 path=(
   /usr/local/{bin,sbin}
-  /usr/local/heroku/bin
-  /Applications/ADT/sdk/{tools,platform-tools}
   $path
 )
+if [[ -r $HOME/PATH ]]; then
+  eval "env_path=(`cat $HOME/PATH`)"
+  path=("${path[@]}" "${env_path[@]}")
+fi
 
 
 #
