@@ -26,7 +26,10 @@
     showOnStartup: false
   "recent-files":
     updated: false
-  linter: {}
+  linter:
+    subtleLinterErrors: [
+      "htmlhint"
+    ]
   "tree-view":
     hideVcsIgnoredFiles: true
     hideIgnoredNames: true
@@ -42,3 +45,8 @@
   "highlight-column":
     opacity: 0.15
     enableHighlight: true
+  minimap:
+    plugins:
+      "minimap-autohide": true
+      "git-diff": true
+      "highlight-selected": true
