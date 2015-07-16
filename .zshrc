@@ -15,8 +15,8 @@ alias ll=" ls -l"
 alias la=" ll -A"
 
 # Dev {{{2
-alias gco="gcc -O2 -Wall -o"
-alias gpo="g++ -O2 -Wall -o"
+alias gco="gcc -O2 -Wall"
+alias gpo="g++ -O2 -Wall"
 if which hub > /dev/null; then eval "$(hub alias -s)"; fi
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 
