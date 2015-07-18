@@ -34,6 +34,7 @@ brew rbenv
 brew reattach-to-user-namespace
 brew ruby-build
 brew sqlite
+brew terminal-notifier
 brew tig
 brew tmux
 brew vim --with-lua --with-lua --with-lua
