@@ -158,6 +158,9 @@ NeoBundleLazy 'vim-scripts/grep.vim', {
   \ 'autoload': {'commands': ['Rgrep']}}
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
+" Gtags {{{2
+NeoBundleLazy 'gtags.vim', {
+  \ 'autoload': {'commands': ['Gtags']}}
 " Dictionary {{{2
 NeoBundleLazy 'itchyny/dictionary.vim', {
   \ 'autoload': {'commands': ['Dictionary']}}

@@ -16,7 +16,6 @@ tap rcmdnk/file
 brew brew-file
 
 # Other Homebrew packages
-brew ctags
 brew curl
 brew direnv
 brew envchain
@@ -24,6 +23,7 @@ brew fpp
 brew gcc
 brew gist
 brew git
+brew global
 brew hub
 brew mackup
 brew mercurial
