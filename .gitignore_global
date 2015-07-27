@@ -27,3 +27,8 @@ Icon
 
 # Node.js
 node_modules
+
+# GNU Global
+GPATH
+GRTAGS
+GTAGS
