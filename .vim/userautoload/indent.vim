@@ -9,4 +9,5 @@ set expandtab
 autocmd vimrc FileType c setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd vimrc FileType cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd vimrc FileType py setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd vimrc FileType yaml setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd vimrc FileType go setlocal shiftwidth=4 tabstop=4 noexpandtab
