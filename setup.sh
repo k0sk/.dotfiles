@@ -16,7 +16,7 @@ setup() {
     git clone https://github.com/k0sk/.dotfiles "$dotfiles"
   fi
 
-  has make && make install && make init
+  has make && cd "$dotfiles" && make install && make init
 }
 
 setup
