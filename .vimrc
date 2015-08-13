@@ -165,6 +165,12 @@ NeoBundleLazy 'gtags.vim', {
 NeoBundleLazy 'itchyny/dictionary.vim', {
   \ 'autoload': {'commands': ['Dictionary']}}
 nnoremap <Leader>d :Dictionary<CR>
+" AOJ {{{2
+NeoBundleLazy 'mopp/AOJ.vim', {
+  \ 'autoload': {'commands': ['AOJSubmit', 'AOJSubmitByProblemID',
+  \                           'AOJViewProblems', 'AOJViewStatisticsLogs']},
+  \ 'depends': ['Shougo/unite.vim', 'mattn/webapi-vim']}
+let g:aoj#user_id='kosk'
 
 " Reccomended {{{1
 NeoBundle 'Lokaltog/vim-easymotion'
