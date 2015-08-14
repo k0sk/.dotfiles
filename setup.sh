@@ -7,7 +7,7 @@ setup() {
   dotfiles=$HOME/.dotfiles
 
   has() {
-      type "$1" > /dev/null 2>&1
+    type "$1" > /dev/null 2>&1
   }
 
   if [ -d "$dotfiles" ]; then
@@ -16,7 +16,8 @@ setup() {
     git clone https://github.com/k0sk/.dotfiles "$dotfiles"
   fi
 
-  has make && cd "$dotfiles" && make install && make init
+  cd "$dotfiles" && has make && make install && make init
 }
 
 setup
+
