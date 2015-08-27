@@ -17,9 +17,11 @@ alias la=" ll -A"
 # Dev {{{2
 alias gco="gcc -O2 -Wall"
 alias gpo="g++ -O2 -Wall"
-if which brew > /dev/null; then alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"; fi
 if which hub > /dev/null; then eval "$(hub alias -s)"; fi
 if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+if which brew > /dev/null && which pyenv > /dev/null; then
+  alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+fi
 
 # Files {{{2
 alias -s c=vim
