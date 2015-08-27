@@ -88,7 +88,14 @@ NeoBundleLazy 'terryma/vim-expand-region', {
   \ 'autoload': {'insert': 1}}
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-
+" Tiled window manager {{{2
+NeoBundleLazy 'spolu/dwm.vim', {
+  \ 'autoload': {'insert': 1}}
+nmap <C-n> <Plug>DWMNew
+nmap <C-c> <Plug>DWMClose
+nmap <C-Space> <Plug>DWMFocus
+nmap <C-l> <Plug>DWMGrowMaster
+nmap <C-h> <Plug>DWMShrinkMaster
 " Automation {{{1
 " Auto save {{{2
 NeoBundleLazy 'syui/wauto.vim', {
