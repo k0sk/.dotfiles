@@ -136,6 +136,8 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
   \ 'autoload': {'insert': 1},
   \ 'depends': ['thinca/vim-quickrun', 'osyo-manga/shabadou.vim',
   \             'cohama/vim-hier', 'dannyob/quickfixstatus']}
+" Language pack {{{2
+NeoBundle 'sheerun/vim-polyglot'
 " Ruby {{{2
 NeoBundleLazy 'rails.vim', {
   \ 'autoload': {'filetypes': ['ruby']}}
