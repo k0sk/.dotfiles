@@ -47,10 +47,9 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-over'
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 " Close text Objects with surrounds {{{2
-NeoBundleLazy 'kana/vim-operator-user', {
-  \ 'autoload': {'insert': 1}}
 NeoBundleLazy 'rhysd/vim-operator-surround', {
-  \ 'autoload': {'insert': 1}}
+  \ 'autoload': {'insert': 1},
+  \ 'depends': ['kana/vim-operator-user']}
 " Incremental search {{{2
 NeoBundleLazy 'haya14busa/incsearch.vim', {
   \ 'autoload': {'mappings': '<Plug>(incsearch'}}
