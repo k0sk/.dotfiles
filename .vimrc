@@ -62,25 +62,8 @@ NeoBundleLazy 'chrisbra/improvedft', {
 " Filer {{{2
 NeoBundle 'justinmk/vim-dirvish'
 " File finder {{{2
-NeoBundleLazy 'kien/ctrlp.vim', {
+NeoBundleLazy 'ctrlpvim/ctrlp.vim', {
   \ 'autoload': {'commands': ['CtrlP']}}
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|app|so|swp|zip|tar.gz|jpg|png)$'
-  \ }
-if executable('ag')
-  let g:ctrlp_use_caching=0
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_use_caching=0
-  let g:ctrlp_user_command=['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings={
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>']}
-endif
 nnoremap <Leader>o :CtrlP<CR>
 " Region expanding {{{2
 NeoBundleLazy 'terryma/vim-expand-region', {
@@ -89,7 +72,7 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 " Tiled window manager {{{2
 NeoBundleLazy 'spolu/dwm.vim', {
-  \ 'autoload': {'insert': 1}}
+  \ 'autoload': {'mappings': ['<Plug>DWM']}}
 nmap <C-n> <Plug>DWMNew
 nmap <C-c> <Plug>DWMClose
 nmap <C-@> <Plug>DWMFocus
