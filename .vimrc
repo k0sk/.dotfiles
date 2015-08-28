@@ -121,6 +121,14 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
   \             'cohama/vim-hier', 'dannyob/quickfixstatus']}
 " Language pack {{{2
 NeoBundle 'sheerun/vim-polyglot'
+" C++ {{{2
+NeoBundleLazy 'osyo-manga/vim-marching', {
+  \ 'autoload': {'filetypes': ['cpp', 'c'], 'insert': 1},
+  \ 'depends': ['Shougo/vimproc.vim']}
+let g:marching_clang_command='clang'
+let g:marching_include_paths=['/usr/include/c++', '/usr/local/include/c++']
+let g:marching_enable_neocomplete=1
+" let g:marching_backend='sync_clang_command'
 " Ruby {{{2
 NeoBundleLazy 'rails.vim', {
   \ 'autoload': {'filetypes': ['ruby']}}

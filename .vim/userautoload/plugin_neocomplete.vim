@@ -79,7 +79,7 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns = {
         \ 'c': '[^.[:digit:] *\t]\%(\.\|->\)',
-        \ 'cpp': '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::',
+        \ 'cpp': '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*',
         \ 'ruby': '[^.*\t]\.\w*\|\h\w*::',
-        \ 'python': '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+        \ 'python': '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*',
       \ }
