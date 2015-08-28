@@ -93,7 +93,7 @@ NeoBundleLazy 'spolu/dwm.vim', {
   \ 'autoload': {'insert': 1}}
 nmap <C-n> <Plug>DWMNew
 nmap <C-c> <Plug>DWMClose
-nmap <C-Space> <Plug>DWMFocus
+nmap <C-@> <Plug>DWMFocus
 nmap <C-l> <Plug>DWMGrowMaster
 nmap <C-h> <Plug>DWMShrinkMaster
 " Automation {{{1
