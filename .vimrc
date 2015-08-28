@@ -145,6 +145,8 @@ NeoBundleLazy 'thoughtbot/vim-rspec', {
 " Python {{{2
 NeoBundleLazy 'davidhalter/jedi-vim', {
   \ 'autoload': {'filetypes': ['python']}}
+let g:jedi#completions_enabled=0
+let g:jedi#auto_vim_configuration=0
 " HTML {{{2
 NeoBundleLazy 'lilydjwg/colorizer', {
   \ 'autoload': {'filetypes': ['html']}}

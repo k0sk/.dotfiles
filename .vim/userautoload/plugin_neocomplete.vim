@@ -70,15 +70,16 @@ inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() . "\<Space>" : "
 autocmd vimrc FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd vimrc FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd vimrc FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd vimrc FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd vimrc FileType python setlocal omnifunc=jedi#completions
 autocmd vimrc FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#sources#omni#input_patterns = {
+let g:neocomplete#force_omni_input_patterns = {
         \ 'c': '[^.[:digit:] *\t]\%(\.\|->\)',
         \ 'cpp': '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::',
-        \ 'ruby': '[^.*\t]\.\w*\|\h\w*::'
-        \ }
+        \ 'ruby': '[^.*\t]\.\w*\|\h\w*::',
+        \ 'python': '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+      \ }
