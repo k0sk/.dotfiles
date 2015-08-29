@@ -4,6 +4,8 @@
 
 # .vim directory
 .vim/bundle
+.vim/templates
+.vim/snippets
 .netrwhist
 
 # .atom directory
