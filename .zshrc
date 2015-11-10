@@ -72,6 +72,10 @@ source $HOME/.zsh/plugins/zsh-notify/notify.plugin.zsh
 autoload -Uz cd-bookmark
 alias cb="cd-bookmark"
 
+# tmux auto attach {{{2
+autoload -Uz tmux-auto-attach
+tmux-auto-attach
+
 # Blank enter {{{2
 # ls abbrev {{{3
 autoload -Uz ls-abbrev
