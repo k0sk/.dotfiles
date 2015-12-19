@@ -27,12 +27,9 @@ NeoBundle 'Shougo/vimproc', {
 
 " Display {{{1
 " Colorschemes {{{2
-NeoBundle 'w0ng/vim-hybrid', {
-  \ 'autoload': {'commands': ['colorscheme']}}
-NeoBundle 'nanotech/jellybeans.vim', {
-  \ 'autoload': {'commands': ['colorscheme']}}
-NeoBundle 'jpo/vim-railscasts-theme', {
-  \ 'autoload': {'commands': ['colorscheme']}}
+NeoBundle 'w1ng/vim-hybrid'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
 " Show indent level {{{2
 NeoBundle 'Yggdroot/indentLine'
 if has('conceal')
@@ -59,8 +56,6 @@ map g/ <Plug>(incsearch-stay)
 " Improved ft command {{{2
 NeoBundleLazy 'chrisbra/improvedft', {
   \ 'autoload': {'insert': 1}}
-" Filer {{{2
-NeoBundle 'justinmk/vim-dirvish'
 " File finder {{{2
 NeoBundleLazy 'ctrlpvim/ctrlp.vim', {
   \ 'autoload': {'commands': ['CtrlP']}}
