@@ -27,7 +27,7 @@ NeoBundle 'Shougo/vimproc', {
 
 " Display {{{1
 " Colorschemes {{{2
-NeoBundle 'w1ng/vim-hybrid'
+NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'jpo/vim-railscasts-theme'
 " Show indent level {{{2
