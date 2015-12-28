@@ -40,6 +40,10 @@ endif
 NeoBundle 'itchyny/lightline.vim'
 
 " Utilities {{{1
+" Netrw {{{2
+let g:netrw_bufsettings='noma nomod nu nobl nowrap ro'
+let g:netrw_liststyle=3
+let g:netrw_list_hide='^\._.*$,^\.DS_Store$'
 " Substitute all {{{2
 NeoBundle 'osyo-manga/vim-over'
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
