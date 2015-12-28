@@ -126,6 +126,11 @@ let g:marching_clang_command='clang'
 let g:marching_include_paths=['/usr/include/c++', '/usr/local/include/c++']
 let g:marching_enable_neocomplete=1
 " let g:marching_backend='sync_clang_command'
+" Lisp {{{2
+NeoBundleLazy 'kovisoft/slimv', {
+  \ 'autoload': {'filetypes': ['lisp'], 'insert': 1}}
+let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load '.$HOME.'/.vim/bundle/slimv/slime/start-swank.lisp\""'
+let g:lisp_rainbow=1
 " Ruby {{{2
 NeoBundleLazy 'rails.vim', {
   \ 'autoload': {'filetypes': ['ruby']}}
