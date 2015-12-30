@@ -16,7 +16,8 @@ let g:neocomplete#sources#dictionary#dictionaries = {
         \ 'cpp': $DOTVIM.'/dict/cpp.dict',
         \ 'ruby': $DOTVIM.'/dict/ruby.dict',
         \ 'perl': $DOTVIM.'/dict/perl.dict',
-        \ 'php': $DOTVIM.'/dict/php.dict'
+        \ 'php': $DOTVIM.'/dict/php.dict',
+        \ 'lisp': $DOTVIM.'/dict/lisp.dict'
       \ }
 
 " Define keyword.
