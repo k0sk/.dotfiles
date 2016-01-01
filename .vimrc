@@ -133,7 +133,7 @@ let g:marching_enable_neocomplete=1
 " Lisp {{{2
 NeoBundleLazy 'kovisoft/slimv', {
   \ 'autoload': {'filetypes': ['lisp'], 'insert': 1}}
-let g:slimv_swank_cmd='!osascript -e "tell application \"iTerm\"" -e "tell the first terminal" -e "set vimsession to current session" -e "launch session \"Default Session\"" -e "tell the last session" -e "write text \"sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp\"" -e "end tell" -e "select vimsession" -e "end tell" -e "end tell"'
+let g:slimv_swank_cmd='!osascript -e "tell application \"iTerm\"" -e "tell the first terminal" -e "set vimsession to current session" -e "launch session \"Default Session\"" -e "tell the last session" -e "write text \"cd $(pwd); sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp\"" -e "end tell" -e "select vimsession" -e "end tell" -e "end tell"'
 let g:lisp_rainbow=1
 " Ruby {{{2
 NeoBundleLazy 'rails.vim', {
