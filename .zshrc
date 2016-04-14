@@ -22,6 +22,7 @@ if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
 if which brew > /dev/null && which pyenv > /dev/null; then
   alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 fi
+export XDG_CONFIG_HOME=~/.config
 
 # Files {{{2
 alias -s c=vim
