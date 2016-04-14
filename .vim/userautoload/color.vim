@@ -12,6 +12,10 @@ elseif &term =~ "xterm-color"
   set t_Sb=[4%dm
 endif
 
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
 " Highlight
 syntax enable
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c

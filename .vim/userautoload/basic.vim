@@ -18,7 +18,7 @@ set colorcolumn=80
 
 " Operation
 set backspace=indent,eol,start
-set clipboard=unnamed,autoselect
+" set clipboard=unnamed,autoselect
 
 " Parentheses
 set matchpairs& matchpairs+=<:>
@@ -32,8 +32,9 @@ nmap <silent> <ESC><ESC> :nohlsearch<CR>
 
 " Timeout
 set timeout
-set timeoutlen=150
-set ttimeoutlen=75
+set timeoutlen=1000
+set ttimeout
+set ttimeoutlen=100
 
 " Encoding
 set termencoding=utf-8
