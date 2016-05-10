@@ -1,0 +1,47 @@
+[[plugins]]
+  repo = 'Shougo/dein.vim'
+
+[[plugins]]
+  repo = 'Shougo/vimproc.vim'
+  hook_post_update = 'call dein_hook#vimproc#post_update()'
+
+[[plugins]]
+  repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+  repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+  repo = 'jpo/vim-railscasts-theme'
+
+[[plugins]]
+	repo = 'Yggdroot/indentLine'
+  hook_add = '''
+    if has('conceal') || has('nvim')
+      let g:indentLine_char='¦'
+      let g:indentLine_color_term=239
+    endif
+  '''
+
+[[plugins]]
+	repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+  repo = 'scrooloose/nerdcommenter'
+  hook_add = '''
+    let g:NERDSpaceDelims=1
+    let g:NERDShutUp=1
+  '''
+
+[[plugins]]
+	repo = 'sheerun/vim-polyglot'
+
+# Git
+[[plugins]]
+	repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+	repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+	repo = 'rhysd/committia.vim'

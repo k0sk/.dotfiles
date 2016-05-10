@@ -1,7 +1,3 @@
-# .config directory
-.config
-!.config/peco
-
 # .vim directory
 .vim/bundle
 .vim/templates
@@ -9,7 +5,7 @@
 .netrwhist
 
 # .atom directory
-.atom
+.atom/*
 !.atom/config.cson
 
 # Xmonad

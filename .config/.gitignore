@@ -1,0 +1,7 @@
+/*
+!.gitignore
+!peco
+!nvim
+nvim/dein
+nvim/snippets
+nvim/templates

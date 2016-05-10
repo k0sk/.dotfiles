@@ -1,0 +1,177 @@
+[[plugins]]
+  repo = 'rhysd/vim-operator-surround'
+  on_i = 1
+  depends = ['kana/vim-operator-user']
+
+[[plugins]]
+  repo = 'kana/vim-operator-user'
+  on_i = 1
+
+[[plugins]]
+  repo = 'haya14busa/incsearch.vim'
+  on_map = '<Plug>(incsearch'
+
+[[plugins]]
+  repo = 'chrisbra/improvedft'
+  on_i = 1
+
+[[plugins]]
+	repo = 'itchyny/lightline.vim'
+  on_i = 1
+  hook_source = 'call dein_hook#lightline#source()'
+
+[[plugins]]
+  repo = 'ctrlpvim/ctrlp.vim'
+  on_cmd = ['CtrlP']
+  hook_post_source = 'call dein_hook#ctrlp#source()'
+
+[[plugins]]
+  repo = 'terryma/vim-expand-region'
+  on_i = 1
+
+[[plugins]]
+  repo = 'spolu/dwm.vim'
+  on_map = ['<Plug>DWM']
+
+[[plugins]]
+  repo = 'syui/airsave.vim'
+  on_i = 1
+  hook_add = '''
+    let g:air_auto_write = 1
+    let g:air_auto_write_nosilent = 1
+  '''
+
+[[plugins]]
+  repo = 'seletskiy/vim-autosurround'
+  on_i = 1
+
+[[plugins]]
+  repo = 'thinca/vim-quickrun.git'
+  on_cmd = ['QuickRun']
+  hook_add = '''
+    let g:quickhl_config = {'_': {'split': 'vertical'}}
+  '''
+
+[[plugins]]
+  repo = 'junegunn/vim-easy-align'
+  on_map = '<Plug>(EasyAlign'
+
+# [[plugins]]
+#   repo = 'osyo-manga/vim-watchdogs'
+#   on_i = 1
+#   depends = [
+#     'thinca/vim-quickrun',
+#     'osyo-manga/shabadou.vim',
+#     'cohama/vim-hier',
+#     'dannyob/quickfixstatus'
+#   ]
+
+[[plugins]]
+  repo = 'osyo-manga/vim-marching'
+  on_ft = ['cpp', 'c']
+  on_i = 1
+  depends = ['Shougo/vimproc.vim']
+  hook_add = '''
+    let g:marching_clang_command='clang'
+    let g:marching_include_paths=['/usr/include/c++', '/usr/local/include/c++']
+    let g:marching_enable_neocomplete=1
+  '''
+    # let g:marching_backend='sync_clang_command'
+
+# Ruby
+[[plugins]]
+  repo = 'rails.vim'
+  on_ft = ['ruby']
+
+[[plugins]]
+  repo = 'tpope/vim-rails'
+  on_ft = ['ruby']
+
+[[plugins]]
+  repo = 'tpope/vim-rake'
+  on_ft = ['ruby']
+
+[[plugins]]
+  repo = 'tpope/vim-projectionist'
+  on_ft = ['ruby']
+
+[[plugins]]
+  repo = 'thoughtbot/vim-rspec'
+  on_ft = ['ruby']
+
+# Python
+[[plugins]]
+  repo = 'davidhalter/jedi-vim'
+  on_ft = ['python']
+  hook_add = '''
+    let g:jedi#completions_enabled = 0
+    let g:jedi#auto_vim_configuration = 0
+  '''
+
+[[plugins]]
+  repo = 'lilydjwg/colorizer'
+  on_ft = ['html']
+
+[[plugins]]
+  repo = 'amirh/HTML-AutoCloseTag'
+  on_ft = ['html']
+  on_i = 1
+
+[[plugins]]
+  repo = 'mutewinter/vim-markdown'
+  on_ft = ['markdown']
+
+# Auto-complete
+[[plugins]]
+  repo = 'Shougo/neocomplete'
+  if = 'has("lua")'
+  on_i = 1
+  # hook_add = 'call dein_hook#neocomplete#source()'
+
+[[plugins]]
+  repo = 'Shougo/deoplete.nvim'
+  if = 'has("nvim")'
+  on_i = 1
+  hook_add = 'call dein_hook#deoplete#source()'
+
+[[plugins]]
+  repo = 'Shougo/neosnippet'
+  depends = ['Shougo/neosnippet-snippets']
+  on_i = 1
+
+[[plugins]]
+  repo = 'Shougo/neosnippet-snippets'
+  on_i = 1
+
+[[plugins]]
+  repo = 'itchyny/dictionary.vim'
+  on_cmd = ['Dictionary']
+
+[[plugins]]
+  repo = 'mopp/AOJ.vim'
+  on_cmd = [
+    'AOJSubmit',
+    'AOJSubmitByProblemID',
+    'AOJViewProblems',
+    'AOJViewStatisticsLogs'
+  ]
+  depends = [
+    'Shougo/unite.vim',
+    'mattn/webapi-vim'
+  ]
+  hook_add = '''
+    let g:aoj#user_id='kosk'
+  '''
+
+[[plugins]]
+  repo = 'mattn/webapi-vim'
+
+[[plugins]]
+  repo = 'Lokaltog/vim-easymotion'
+  hook_add = '''
+    let g:EasyMotion_do_mapping = 0
+  '''
+
+[[plugins]]
+  repo = 'Shougo/unite.vim'
+  on_cmd = ['Unite']
