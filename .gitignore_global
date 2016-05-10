@@ -16,8 +16,9 @@ Icon
 .env
 .envrc
 
-# rbenv
+# Version management
 .ruby-version
+.python-version
 
 # Rails
 /.bundle
