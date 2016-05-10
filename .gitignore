@@ -11,3 +11,8 @@
 # .atom directory
 .atom
 !.atom/config.cson
+
+# Xmonad
+.xmonad
+!.xmonad/*.hs
+
