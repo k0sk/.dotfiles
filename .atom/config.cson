@@ -1,6 +1,8 @@
 "*":
   "atom-beautify":
     _analyticsUserId: "9bda7156-eb68-4735-b4b3-21e503306407"
+    general:
+      _analyticsUserId: "b15c8dc6-427c-45ae-a279-3320b6466885"
   "atom-terminal":
     app: "iTerm.app"
   "atom-terminal-panel": {}
