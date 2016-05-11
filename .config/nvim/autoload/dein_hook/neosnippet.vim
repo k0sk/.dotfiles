@@ -1,18 +1,16 @@
-function! dein_hook#neosnippet#init() abort
+function! dein_hook#neosnippet#source() abort
   " Plugin key-mappings.
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
   smap <C-k>     <Plug>(neosnippet_expand_or_jump)
   xmap <C-k>     <Plug>(neosnippet_expand_target)
 
   " SuperTab like snippets behavior.
-  if !has('nvim')
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-     \  "\<Plug>(neosnippet_expand_or_jump)" :
-     \  pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-     \  "\<Plug>(neosnippet_expand_or_jump)" :
-     \  "\<TAB>"
-  endif
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+   \  "\<Plug>(neosnippet_expand_or_jump)" :
+   \  pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+   \  "\<Plug>(neosnippet_expand_or_jump)" :
+   \  "\<TAB>"
 
   " For snippet_complete marker.
   if has('conceal') || has('nvim')
@@ -24,6 +22,6 @@ function! dein_hook#neosnippet#init() abort
 
   " Tell Neosnippet about the other snippets
   let g:neosnippet#snippets_directory=[
-    \ '~/.vim/snippets'
+    \ '~/.config/nvim/snippets'
     \ ]
 endfunction

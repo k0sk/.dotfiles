@@ -1,11 +1,11 @@
 [[plugins]]
+  repo = 'kana/vim-operator-user'
+  on_i = 1
+
+[[plugins]]
   repo = 'rhysd/vim-operator-surround'
   on_i = 1
   depends = ['kana/vim-operator-user']
-
-[[plugins]]
-  repo = 'kana/vim-operator-user'
-  on_i = 1
 
 [[plugins]]
   repo = 'haya14busa/incsearch.vim'
@@ -132,16 +132,17 @@
   repo = 'Shougo/deoplete.nvim'
   if = 'has("nvim")'
   on_i = 1
-  hook_add = 'call dein_hook#deoplete#source()'
+  # hook_add = 'call dein_hook#deoplete#source()'
+
+[[plugins]]
+  repo = 'Shougo/neosnippet-snippets'
+  on_i = 1
 
 [[plugins]]
   repo = 'Shougo/neosnippet'
   depends = ['Shougo/neosnippet-snippets']
   on_i = 1
-
-[[plugins]]
-  repo = 'Shougo/neosnippet-snippets'
-  on_i = 1
+  hook_add = 'call dein_hook#neosnippet#source()'
 
 [[plugins]]
   repo = 'itchyny/dictionary.vim'

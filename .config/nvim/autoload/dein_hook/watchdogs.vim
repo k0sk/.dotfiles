@@ -1,4 +1,4 @@
-function! dein_hook#watchdog#init() abort
+function! dein_hook#watchdog#source() abort
   let s:watchdog_config={
     \ 'watchdogs_checker/_': {
     \   'hook/close_quickfix/enable_exit': 1,
