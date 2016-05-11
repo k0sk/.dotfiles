@@ -1,4 +1,4 @@
-urxvt*font: xft:Source Code Pro:Medium:pixelsize=13
+urxvt*font: xft:Source Code Pro:Medium:pixelsize=13:antialias=true
 URxvt*scrollBar: false
 URxvt.saveLines: 32767
 URxvt*termName: rxvt
