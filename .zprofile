@@ -23,7 +23,7 @@ export HOMEBREW_BREWFILE=~/.brewfile
 # Language
 #
 if [[ -z "$LANG" ]]; then
-  export LANG='ja_JP.UTF-8'
+  export LANG='en_US.UTF-8'
 fi
 
 
