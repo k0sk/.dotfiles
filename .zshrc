@@ -56,18 +56,10 @@ chpwd() {
 
 # Plugins/Functions {{{1
 # Auto suggestions {{{2
-source $HOME/.zsh/plugins/zsh-autosuggestions/autosuggestions.zsh
-zle-line-init() {
-  zle autosuggest-start
-}
-zle -N zle-line-init
 bindkey '^I' expand-or-complete
 bindkey '^W' forward-word
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
-
-# zsh-notify {{{2
-# source $HOME/.zsh/plugins/zsh-notify/notify.plugin.zsh
 
 # cd bookmark {{{2
 autoload -Uz cd-bookmark

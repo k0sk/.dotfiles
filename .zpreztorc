@@ -9,6 +9,7 @@ zstyle ':prezto:*:*' color 'yes'
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 # Set the Prezto modules to load (browse modules) {{{2
 zstyle ':prezto:load' pmodule \
+  'autosuggestions' \
   'environment' \
   'terminal' \
   'editor' \
