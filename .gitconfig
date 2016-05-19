@@ -4,8 +4,6 @@
 [user]
 	email = mail@kosk.me
 	name = kosk
-[credential]
-	helper = osxkeychain
 [color]
 	ui = auto
 [alias]
