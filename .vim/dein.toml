@@ -1,7 +1,4 @@
 [[plugins]]
-  repo = 'Shougo/dein.vim'
-
-[[plugins]]
   repo = 'Shougo/vimproc.vim'
   hook_post_update = 'call dein_hook#vimproc#post_update()'
 
