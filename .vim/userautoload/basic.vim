@@ -49,6 +49,11 @@ set nowritebackup
 " Clean when Save
 autocmd vimrc BufWritePre * :%s/\s\+$//e
 
+" Netrw
+let g:netrw_bufsettings='noma nomod nu nobl nowrap ro'
+let g:netrw_liststyle=3
+let g:netrw_list_hide='^\._.*$,^\.DS_Store$'
+
 " Modeline
 set modeline
 set modelines=3

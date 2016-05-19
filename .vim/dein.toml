@@ -17,7 +17,7 @@
 [[plugins]]
 	repo = 'Yggdroot/indentLine'
   hook_add = '''
-    if has('conceal') || has('nvim')
+    if has('conceal')
       let g:indentLine_char='¦'
       let g:indentLine_color_term=239
     endif

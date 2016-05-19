@@ -1,5 +1,5 @@
 # .vim directory
-.vim/bundle
+.vim/dein
 .vim/templates
 .vim/snippets
 .netrwhist
@@ -11,4 +11,3 @@
 # Xmonad
 .xmonad
 !.xmonad/*.hs
-

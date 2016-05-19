@@ -126,12 +126,12 @@
   repo = 'Shougo/neocomplete'
   if = 'has("lua")'
   on_i = 1
-  # hook_add = 'call dein_hook#neocomplete#source()'
+  hook_add = 'call dein_hook#neocomplete#source()'
 
 [[plugins]]
   repo = 'Shougo/deoplete.nvim'
   if = 'has("nvim")'
-  on_i = 1
+  # on_i = 1
   # hook_add = 'call dein_hook#deoplete#source()'
 
 [[plugins]]
@@ -146,6 +146,7 @@
 
 [[plugins]]
   repo = 'itchyny/dictionary.vim'
+  if = 'has("mac")'
   on_cmd = ['Dictionary']
 
 [[plugins]]
