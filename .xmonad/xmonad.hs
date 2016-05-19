@@ -36,7 +36,7 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.SpawnOnce
 
-import XMonad.Actions.CycleWS 
+import XMonad.Actions.CycleWS
 import XMonad.Actions.FloatKeys
 import XMonad.Actions.CopyWindow
 
@@ -151,7 +151,7 @@ myCommonStartupHook = do
 	setWMName "LG3D"
 
 myStartupHook = do
-	spawnOnce "feh --bg-center ~/pics/geo.png"
+	spawnOnce "feh --randomize --bg-center ~/wallpapers"
 	spawnOnce "fcitx"
 
 -- Handle Window behaveior

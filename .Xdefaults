@@ -1,5 +1,5 @@
 URxvt*termName:     xterm-256color
-URxvt*font:         xft:Source Code Pro:Medium:size=10:antialias=true,xft:Noto Sans CJK:Regular:size=9:antialiase=true
+URxvt*font:         xft:Source Code Pro:Medium:size=10:antialias=true,xft:Noto Sans CJK JP:Regular:size=9:antialias=true
 URxvt*cursorBlink:  true
 URxvt*scrollBar:    false
 URxvt.saveLines:    32767

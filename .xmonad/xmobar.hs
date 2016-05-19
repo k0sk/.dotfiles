@@ -1,4 +1,4 @@
-Config { font = "xft:Source Code Pro:Regular:size=10"
+Config { font = "xft:Source Code Pro:Regular:size=10,Noto Sans CJK JP:Regular:size=9"
        , bgColor = "#1a1e1b"
        , fgColor = "#888888"
        , position = Top
