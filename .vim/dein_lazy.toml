@@ -150,25 +150,6 @@
   on_cmd = ['Dictionary']
 
 [[plugins]]
-  repo = 'mopp/AOJ.vim'
-  on_cmd = [
-    'AOJSubmit',
-    'AOJSubmitByProblemID',
-    'AOJViewProblems',
-    'AOJViewStatisticsLogs'
-  ]
-  depends = [
-    'Shougo/unite.vim',
-    'mattn/webapi-vim'
-  ]
-  hook_add = '''
-    let g:aoj#user_id='kosk'
-  '''
-
-[[plugins]]
-  repo = 'mattn/webapi-vim'
-
-[[plugins]]
   repo = 'Lokaltog/vim-easymotion'
   hook_add = '''
     let g:EasyMotion_do_mapping = 0
