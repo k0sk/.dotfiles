@@ -124,24 +124,18 @@
   repo = 'Shougo/neocomplete'
   on_i = 1
   if = 'has("lua")'
-  on_source = ['Shougo/neosnippet']
   hook_add = 'call dein_hook#neocomplete#source()'
 
 [[plugins]]
   repo = 'Shougo/deoplete.nvim'
   on_i = 1
   if = 'has("nvim")'
-  on_source = ['Shougo/neosnippet']
   hook_add = 'call dein_hook#deoplete#source()'
 
 [[plugins]]
   repo = 'Shougo/neosnippet'
-  on_source = ['Shougo/neosnippet-snippets']
+  on_i = 1
   hook_add = 'call dein_hook#neosnippet#source()'
-
-
-[[plugins]]
-  repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
   repo = 'itchyny/dictionary.vim'

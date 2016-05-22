@@ -13,7 +13,7 @@ function! dein_hook#neosnippet#source() abort
    \  "\<TAB>"
 
   " For snippet_complete marker.
-  if has('conceal') || has('nvim')
+  if has('conceal')
     set conceallevel=2 concealcursor=niv
   endif
 
