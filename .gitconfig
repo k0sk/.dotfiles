@@ -15,3 +15,5 @@
 	autocorrect = 1
 [hub]
 	protocol = https
+[credential]
+  helper = osxkeychain
