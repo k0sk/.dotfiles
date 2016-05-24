@@ -4,6 +4,21 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 fpath=($HOME/.zsh/functions/*(N-/) $fpath)
 
+# zplug
+if [[ -s "$HOME/.zplug/init.zsh" ]]; then
+  source "$HOME/.zplug/init.zsh"
+fi
+
+zplug "direnv/direnv", as:command, from:gh-r, rename-to:direnv
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
 # Commands {{{1
 # OS {{{2
 alias df="df -h"
