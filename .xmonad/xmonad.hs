@@ -106,8 +106,8 @@ main = do
     session <- getEnv "DESKTOP_SESSION"
     let defDesktopConfig = maybe desktopConfig desktop session
         myDesktopConfig = defDesktopConfig
-            { modMask     = myModMask
-            , terminal = myTerminal
+            { -- modMask     = myModMask
+            terminal = myTerminal
             , borderWidth = myBorderWidth
             , normalBorderColor = myNormalBorderColor
             , focusedBorderColor = myFocusedBorderColor

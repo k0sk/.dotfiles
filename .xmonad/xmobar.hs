@@ -6,7 +6,7 @@ Config { font = "xft:Source Code Pro:Regular:size=10,Noto Sans CJK JP:Regular:si
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
-       , commands = [ Run Network "en0" [ "-t"       , "<rx> : <tx>"
+       , commands = [ Run Network "enp3s0" [ "-t"       , "<rx> : <tx>"
                                           , "-L"       , "40"
                                           , "-H"       , "200"
                                           , "--normal" , "#d3d7cf"
@@ -42,5 +42,5 @@ Config { font = "xft:Source Code Pro:Regular:size=10,Noto Sans CJK JP:Regular:si
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %memory% %en0% <fc=#c7a273>%date%</fc> "
+       , template = " %StdinReader% }{ %multicpu% %memory% %enp3s0% <fc=#c7a273>%date%</fc> "
        }
