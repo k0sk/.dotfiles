@@ -33,14 +33,6 @@
   on_map = ['<Plug>DWM']
 
 [[plugins]]
-  repo = 'syui/airsave.vim'
-  on_i = 1
-  hook_add = '''
-    let g:air_auto_write = 1
-    let g:air_auto_write_nosilent = 1
-  '''
-
-[[plugins]]
   repo = 'seletskiy/vim-autosurround'
   on_i = 1
 
