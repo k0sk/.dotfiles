@@ -93,10 +93,16 @@
 [[plugins]]
   repo = 'davidhalter/jedi-vim'
   on_ft = ['python']
+  if = 'has("lua")'
   hook_add = '''
     let g:jedi#completions_enabled = 0
     let g:jedi#auto_vim_configuration = 0
   '''
+
+[[plugins]]
+  repo = 'zchee/deoplete-jedi'
+  on_ft = ['python']
+  if = 'has("nvim")'
 
 [[plugins]]
   repo = 'lilydjwg/colorizer'
