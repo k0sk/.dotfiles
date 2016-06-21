@@ -24,9 +24,6 @@
 [[plugins]]
 	repo = 'sheerun/vim-polyglot'
 
-[[plugins]]
-  repo = 'Shougo/neosnippet-snippets'
-
 # Git
 [[plugins]]
 	repo = 'tpope/vim-fugitive'

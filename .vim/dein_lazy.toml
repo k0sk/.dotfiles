@@ -139,6 +139,10 @@
   hook_add = 'call dein_hook#neosnippet#source()'
 
 [[plugins]]
+  repo = 'Shougo/neosnippet-snippets'
+  on_i = 1
+
+[[plugins]]
   repo = 'itchyny/dictionary.vim'
   if = 'has("mac")'
   on_cmd = ['Dictionary']
