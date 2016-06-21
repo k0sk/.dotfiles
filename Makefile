@@ -21,6 +21,7 @@ list:
 
 init:
 	@$(foreach f, $(wildcard ./etc/init/*.sh), bash $(f);)
+	git submodule update --init --recursive
 ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(wildcard ./etc/init/osx/*.sh), bash $(f);)
 
