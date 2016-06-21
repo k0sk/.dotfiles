@@ -3,15 +3,6 @@
   hook_post_update = 'call dein_hook#vimproc#post_update()'
 
 [[plugins]]
-  repo = 'w0ng/vim-hybrid'
-
-[[plugins]]
-  repo = 'nanotech/jellybeans.vim'
-
-[[plugins]]
-  repo = 'jpo/vim-railscasts-theme'
-
-[[plugins]]
 	repo = 'Yggdroot/indentLine'
   hook_add = '''
     if has('conceal')
