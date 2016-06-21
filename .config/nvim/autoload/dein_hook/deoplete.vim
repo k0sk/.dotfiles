@@ -1,4 +1,4 @@
-" function! dein_hook#deoplete#source() abort
+function! dein_hook#deoplete#source() abort
   set completeopt+=noinsert
 
   let g:deoplete#enable_smart_case = 1
@@ -20,14 +20,14 @@
   let g:deoplete#keyword_patterns._ = '[a-zA-Z_]\k*\(?'
 
 
-  " Undo inputted candidate. >
+  " Undo inputted candidate
   inoremap <expr><C-g>     deoplete#mappings#undo_completion()
 
   " <C-h>, <BS>: close popup and delete backword char.
   inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
   inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
 
-  " <CR>: close popup and save indent.
+  " <CR>: close popup and save indent
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function() abort
     return deoplete#mappings#close_popup() . "\<CR>"
@@ -40,5 +40,4 @@
   inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
   inoremap <expr> '  pumvisible() ? deoplete#mappings#close_popup() : "'"
 
-" endfunction
-
+endfunction

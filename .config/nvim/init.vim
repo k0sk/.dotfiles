@@ -12,7 +12,9 @@ if &compatible
   set nocompatible
 endif
 
-let g:python3_host_prog = expand('~/.pyenv/shims/python3')
+
+let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 
 let s:dein_dir = expand('~/.vim/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
