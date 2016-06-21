@@ -21,7 +21,7 @@ list:
 
 init:
 	@$(foreach f, $(wildcard ./etc/init/*.sh), bash $(f);)
-	git submodule update --init --recursive
+	@git submodule update --init --recursive
 ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(wildcard ./etc/init/osx/*.sh), bash $(f);)
 
@@ -37,10 +37,10 @@ install:
 	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
 
 uninstall:
-	@-$(foreach f, $(DOTFILES), rm -rfv $(HOME)/$(f);)
-	@-$(foreach f, $(BINFILES), rm -rfv $(BINFILES_DIR)/$(notdir $(f));)
+	@$(foreach f, $(DOTFILES), rm -rfv $(HOME)/$(f);)
+	@$(foreach f, $(BINFILES), rm -rfv $(BINFILES_DIR)/$(notdir $(f));)
 
 update:
-	git pull --rebase origin master
-	git submodule foreach git pull origin master
-	git submodule update --init --recursive
+	@git pull --rebase origin master
+	@git submodule foreach git pull origin master
+	@git submodule update --init --recursive
