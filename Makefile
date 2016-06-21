@@ -1,5 +1,7 @@
 EXCLUDED_FILES := .DS_Store .git .gitignore .gitmodules
-DOTFILES := $(filter-out $(EXCLUDED_FILES), $(wildcard .??*))
+MACOS_FILES := .mackup .mackup.cfg .brewfile
+X_FILES := $(filter-out $(EXCLUDED_FILES), $(wildcard .x?*) $(wildcard .X?*))
+DOTFILES := $(filter-out $(EXCLUDED_FILES) $(MACOS_FILES) $(X_FILES), $(wildcard .??*))
 DOTFILES_DIR := $(HOME)/.dotfiles
 BINFILES := $(filter-out $(EXCLUDED_FILES), $(wildcard ./bin/*))
 BINFILES_DIR := /usr/local/bin
@@ -11,11 +13,17 @@ help:
 	@echo "make homebrew   #=> Install Homebrew"
 	@echo "make install    #=> Create symlinks"
 	@echo "make uninstall  #=> Delete symlinks"
+	@echo "make x  #=> Create symlinks for X"
+	@echo "make unx  #=> Delete symlinks for X"
 	@echo "make update     #=> Update repositories"
 
 list:
 	@echo "--- dotfiles ---"
 	@$(foreach f, $(DOTFILES), ls -dF $(f);)
+	@echo "--- macOS ---"
+	@$(foreach f, $(MACOS_FILES), ls -dF $(f);)
+	@echo "--- X ---"
+	@$(foreach f, $(X_FILES), ls -dF $(f);)
 	@echo "--- bin ---"
 	@$(foreach f, $(BINFILES), ls -dF $(f);)
 
@@ -35,10 +43,22 @@ endif
 install:
 	@$(foreach f, $(DOTFILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
+ifeq ($(shell uname), Darwin)
+	@$(foreach f, $(MACOS_FILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
+endif
 
 uninstall:
 	@$(foreach f, $(DOTFILES), rm -rfv $(HOME)/$(f);)
 	@$(foreach f, $(BINFILES), rm -rfv $(BINFILES_DIR)/$(notdir $(f));)
+ifeq ($(shell uname), Darwin)
+	@$(foreach f, $(MACOS_FILES), rm -rfv $(HOME)/$(f);)
+endif
+
+x:
+	@$(foreach f, $(X_FILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
+
+unx:
+	@$(foreach f, $(X_FILES), rm -rfv $(HOME)/$(f);)
 
 update:
 	@git pull --rebase origin master
