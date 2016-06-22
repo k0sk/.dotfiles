@@ -9,13 +9,16 @@ if [[ -s "$HOME/.zplug/init.zsh" ]]; then
   source "$HOME/.zplug/init.zsh"
 fi
 
-zplug "direnv/direnv", as:command, from:gh-r, rename-to:direnv
+zplug "direnv/direnv", as:command, from:gh-r, rename-to:direnv, \
+        hook-build:"chmod +x direnv.*", use:"direnv.darwin-*", \
+        if:""$OSTYPE" == "darwin"*"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
     echo; zplug install
+    echo; zplug load --verbose
   fi
 fi
 
