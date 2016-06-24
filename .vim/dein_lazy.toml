@@ -128,10 +128,7 @@
   repo = 'Shougo/deoplete.nvim'
   on_i = 1
   if = 'has("nvim")'
-  hook_add = '''
-    let g:deoplete#enable_at_startup = 1
-    call dein_hook#deoplete#source()
-  '''
+  hook_add = 'call dein_hook#deoplete#source()'
 
 [[plugins]]
   repo = 'Shougo/neosnippet'

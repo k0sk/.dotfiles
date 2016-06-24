@@ -1,6 +1,5 @@
 function! dein_hook#deoplete#source() abort
-  set completeopt+=noinsert
-
+  let g:deoplete#enable_at_startup = 1
   let g:deoplete#enable_smart_case = 1
 
   let g:deoplete#keyword_patterns = {}
