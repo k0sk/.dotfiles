@@ -42,7 +42,7 @@ alias la=" ll -A"
 # Dev
 alias gco="gcc -O2 -Wall"
 alias gpo="g++ -O2 -Wall"
-if (( $+commands[brew] )); && (( $+commands[pyenv] )); then
+if (( $+commands[brew] )) && (( $+commands[pyenv] )); then
   alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 fi
 
