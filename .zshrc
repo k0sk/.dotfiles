@@ -23,32 +23,8 @@ if ! zplug check --verbose; then
 fi
 
 # Commands {{{1
-# OS {{{2
-alias df="df -h"
-case "$OSTYPE" in
-darwin*|bsd*) alias ls=" ls -FGh";;
-linux*) alias ls=" ls -Fh --color";;
-esac
-alias ll=" ls -l"
-alias la=" ll -A"
-
-# Dev {{{2
-alias gco="gcc -O2 -Wall"
-alias gpo="g++ -O2 -Wall"
-if (( $+commands[hub] )); then eval "$(hub alias -s)"; fi
+# Direnv
 if (( $+commands[direnv] )); then eval "$(direnv hook zsh)"; fi
-if (( $+commands[brew] )); && (( $+commands[pyenv] )); then
-  alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
-fi
-
-
-# Files {{{2
-alias -s c=vim
-alias -s cpp=vim
-alias -s rb=vim
-alias -s html=atom
-alias -s log="less -MN"
-
 
 # Preferences {{{1
 # Edit command line with editor {{{2

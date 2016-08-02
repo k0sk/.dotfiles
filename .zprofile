@@ -28,6 +28,34 @@ export LC_ALL='en_US.UTF-8'
 export XDG_CONFIG_HOME=~/.config
 
 #
+# Aliases
+#
+# OS
+alias df="df -h"
+case "$OSTYPE" in
+darwin*|bsd*) alias ls=" ls -FGh";;
+linux*) alias ls=" ls -Fh --color";;
+esac
+alias ll=" ls -l"
+alias la=" ll -A"
+
+# Dev
+alias gco="gcc -O2 -Wall"
+alias gpo="g++ -O2 -Wall"
+if (( $+commands[hub] )); then eval "$(hub alias -s)"; fi
+if (( $+commands[brew] )); && (( $+commands[pyenv] )); then
+  alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+fi
+
+
+# Files
+alias -s c=vim
+alias -s cpp=vim
+alias -s rb=vim
+alias -s html=atom
+alias -s log="less -MN"
+
+#
 # Paths
 #
 # Ensure path arrays do not contain duplicates
