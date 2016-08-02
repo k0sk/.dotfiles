@@ -22,8 +22,16 @@ if ! zplug check --verbose; then
   fi
 fi
 
-# Commands {{{1
-# Direnv
+# OS/Machine specifics {{{1
+if (( $+commands[nvim] )); then
+  export EDITOR='nvim'
+  export VISUAL='nvim'
+fi
+
+if (( $+commands[brew] && $+commands[pyenv] )); then
+  alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+fi
+
 if (( $+commands[direnv] )); then eval "$(direnv hook zsh)"; fi
 
 # Preferences {{{1

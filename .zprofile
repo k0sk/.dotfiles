@@ -40,9 +40,6 @@ case "$OSTYPE" in
     export HOMEBREW_BREWFILE=~/.brewfile
 
     alias ls="ls -FGh"
-    if (( $+commands[pyenv] )); then
-      alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
-    fi
     ;;
   linux*)
     alias ls="ls -Fh --color"
