@@ -43,11 +43,13 @@ path=(
   /usr/local/{bin,sbin}
   $path
 )
-if [[ -r $HOME/PATH ]]; then
-  eval "env_path=(`cat $HOME/PATH`)"
-  path=("${path[@]}" "${env_path[@]}")
+if [[ -r $HOME/.zprofile_local ]]; then
+  source $HOME/.zprofile_local
 fi
-
+# if [[ -r $HOME/PATH ]]; then
+#   eval "env_path=(`cat $HOME/PATH`)"
+#   path=("${path[@]}" "${env_path[@]}")
+# fi
 
 #
 # Less
