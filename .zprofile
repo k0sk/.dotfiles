@@ -5,7 +5,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-
 #
 # Editors
 #
@@ -24,6 +23,9 @@ export HOMEBREW_BREWFILE=~/.brewfile
 #
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
+
+# Others
+export XDG_CONFIG_HOME=~/.config
 
 #
 # Paths
