@@ -37,9 +37,9 @@ bindkey '^B' beginning-of-line
 bindkey '^A' end-of-line
 
 # Press enter {{{2
-autoload -Uz enter
-zle -N enter
-bindkey '^M' enter
+# autoload -Uz enter
+# zle -N enter
+# bindkey '^M' enter
 
 # After cd {{{2
 chpwd() {
