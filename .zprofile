@@ -1,11 +1,4 @@
 #
-# Browser
-#
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
-#
 # Editors
 #
 export EDITOR='vim'
@@ -16,7 +9,6 @@ export PAGER='less'
 # Env
 #
 export SHELL="$(which zsh)"
-export HOMEBREW_BREWFILE=~/.brewfile
 
 #
 # Language
@@ -32,19 +24,35 @@ export XDG_CONFIG_HOME=~/.config
 #
 # OS
 alias df="df -h"
-case "$OSTYPE" in
-darwin*|bsd*) alias ls=" ls -FGh";;
-linux*) alias ls=" ls -Fh --color";;
-esac
-alias ll=" ls -l"
-alias la=" ll -A"
+alias ll="ls -l"
+alias la="ll -A"
 
 # Dev
 alias gco="gcc -O2 -Wall"
 alias gpo="g++ -O2 -Wall"
-if (( $+commands[brew] )) && (( $+commands[pyenv] )); then
-  alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+
+#
+# OS/Machine specifics
+#
+case "$OSTYPE" in
+  darwin*)
+    export BROWSER='open'
+    export HOMEBREW_BREWFILE=~/.brewfile
+
+    alias ls="ls -FGh"
+    if (( $+commands[pyenv] )); then
+      alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+    fi
+    ;;
+  linux*)
+    alias ls="ls -Fh --color"
+    ;;
+esac
+
+if [[ -r $HOME/.zprofile_local ]]; then
+  source $HOME/.zprofile_local
 fi
+
 
 #
 # Paths
@@ -62,9 +70,6 @@ path=(
   /usr/local/{bin,sbin}
   $path
 )
-if [[ -r $HOME/.zprofile_local ]]; then
-  source $HOME/.zprofile_local
-fi
 # if [[ -r $HOME/PATH ]]; then
 #   eval "env_path=(`cat $HOME/PATH`)"
 #   path=("${path[@]}" "${env_path[@]}")
