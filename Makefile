@@ -62,5 +62,5 @@ unx:
 
 update:
 	@git pull --rebase origin master
-	@git submodule foreach git pull origin master
+	@git submodule foreach git pull --rebase origin master
 	@git submodule update --init --recursive
