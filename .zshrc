@@ -12,6 +12,7 @@ fi
 zplug 'direnv/direnv', as:command, from:gh-r, rename-to:direnv
 zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
 zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
+zplug 'b4b4r07/enhancd', use:init.sh
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
