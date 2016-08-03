@@ -40,6 +40,7 @@ case "$OSTYPE" in
     export HOMEBREW_BREWFILE=~/.brewfile
     ;;
   linux*)
+    export BROWSER='google-chrome-stable'
     ;;
 esac
 
