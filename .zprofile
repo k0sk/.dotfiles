@@ -38,11 +38,8 @@ case "$OSTYPE" in
   darwin*)
     export BROWSER='open'
     export HOMEBREW_BREWFILE=~/.brewfile
-
-    alias ls="ls -FGh"
     ;;
   linux*)
-    alias ls="ls -Fh --color"
     ;;
 esac
 
