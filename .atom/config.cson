@@ -59,6 +59,7 @@
   "recent-files":
     updated: false
   rspec: {}
+  "todo-show": {}
   "travis-ci-status": {}
   "tree-view":
     hideIgnoredNames: true
