@@ -1,3 +1,6 @@
+" Esc
+inoremap jj <Esc>
+
 " Save and Quit
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
