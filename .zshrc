@@ -38,11 +38,11 @@ if (( $+commands[direnv] )); then eval "$(direnv hook zsh)"; fi
 # Edit command line with editor {{{2
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^E' edit-command-line
+bindkey '^V' edit-command-line
 
 # Corsor move {{{2
-bindkey '^B' beginning-of-line
-bindkey '^A' end-of-line
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 # Press enter {{{2
 autoload -Uz enter
