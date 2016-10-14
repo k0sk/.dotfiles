@@ -24,8 +24,8 @@
     ]
     projectHome: "~/Repos"
   editor:
-    fontFamily: "Source Code Pro, Source Han Sans JP"
-    fontSize: 13
+    fontFamily: "Cica"
+    fontSize: 15
     invisibles: {}
     lineHeight: 1.4
     showIndentGuide: true
@@ -46,7 +46,6 @@
     ]
   "markdown-preview-plus":
     pandocBIBFile: "reference.bib"
-    useGitHubStyle: true
   minimap:
     plugins:
       "git-diff": true
