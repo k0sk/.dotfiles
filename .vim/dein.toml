@@ -3,7 +3,7 @@
   hook_post_update = 'call dein_hook#vimproc#post_update()'
 
 [[plugins]]
-	repo = 'Yggdroot/indentLine'
+  repo = 'Yggdroot/indentLine'
   hook_add = '''
     if has('conceal')
       let g:indentLine_char='¦'
@@ -12,7 +12,7 @@
   '''
 
 [[plugins]]
-	repo = 'osyo-manga/vim-over'
+  repo = 'osyo-manga/vim-over'
 
 [[plugins]]
   repo = 'scrooloose/nerdcommenter'
@@ -22,14 +22,14 @@
   '''
 
 [[plugins]]
-	repo = 'sheerun/vim-polyglot'
+  repo = 'sheerun/vim-polyglot'
 
 # Git
 [[plugins]]
-	repo = 'tpope/vim-fugitive'
+  repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-	repo = 'airblade/vim-gitgutter'
+  repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-	repo = 'rhysd/committia.vim'
+  repo = 'rhysd/committia.vim'
