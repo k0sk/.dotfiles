@@ -25,160 +25,69 @@
 ## Git
 [[plugins]] # git wrapper
   repo = 'tpope/vim-fugitive'
-  on_path = '.*'
+  on_cmd = ['Gstatus', 'Gcommit', 'Gwrite', 'Git', 'Git!',
+            'Gcd', 'Glcd', 'Ggrep', 'Glog']
 
 [[plugins]] # shows a git diff in the 'gutter'
   repo = 'airblade/vim-gitgutter'
+  if = 'isdirectory(".git")'
   on_path = '.*'
 
 [[plugins]] # pleasant editing on commit messages
   repo = 'rhysd/committia.vim'
+  on_path = '.*/COMMIT_EDITMSG'
+
+## Editing
+[[plugins]]
+  repo = 'cohama/lexima.vim'
   on_path = '.*'
 
-# Editing
+# [[plugins]] # automatically insert pairs (brackets, quotes)
+#   repo = 'seletskiy/vim-autosurround'
+
 [[plugins]] # substitute preview
   repo = 'osyo-manga/vim-over'
-  on_path = '.*'
+  on_cmd = 'OverCommandLine'
 
 [[plugins]] # intensely orgasmic commenting
   repo = 'scrooloose/nerdcommenter'
-  on_path = '.*'
+  on_map = '<Plug>NERDCommenterToggle'
   hook_add = '''
     let g:NERDSpaceDelims=1
     let g:NERDShutUp=1
   '''
 
 [[plugins]]
-  repo = 'rhysd/vim-operator-surround'
-
-[[plugins]]
-  repo = 'kana/vim-operator-user'
-  on_i = 1
-  depends = 'vim-operator-surround'
-
-[[plugins]]
-  repo = 'haya14busa/incsearch.vim'
-  on_map = '<Plug>(incsearch'
-
-[[plugins]]
-  repo = 'chrisbra/improvedft'
-  on_i = 1
-
-[[plugins]]
-  repo = 'tacahiroy/ctrlp-funky'
-
-[[plugins]]
-  repo = 'suy/vim-ctrlp-commandline'
-
-[[plugins]]
-  repo = 'ctrlpvim/ctrlp.vim'
-  depends = ['ctrlp-funky', 'vim-ctrlp-commandline']
-  hook_post_source = 'call dein_hook#ctrlp#source()'
-
-[[plugins]]
-  repo = 'terryma/vim-expand-region'
-  on_i = 1
-
-[[plugins]]
-  repo = 'spolu/dwm.vim'
-  on_map = ['<Plug>DWM']
-
-[[plugins]]
-  repo = 'seletskiy/vim-autosurround'
-  on_i = 1
-
-[[plugins]]
-  repo = 'thinca/vim-quickrun.git'
-  on_cmd = ['QuickRun']
-  hook_add = '''
-    let g:quickhl_config = {'_': {'split': 'vertical'}}
-  '''
-
-[[plugins]]
   repo = 'junegunn/vim-easy-align'
-  on_map = '<Plug>(EasyAlign'
+  on_map = '<Plug>(EasyAlign)'
 
-# [[plugins]]
-#   repo = 'osyo-manga/vim-watchdogs'
-#   on_i = 1
-#   depends = [
-#     'vim-quickrun',
-#     'shabadou.vim',
-#     'vim-hier',
-#     'quickfixstatus'
-#   ]
-
-[[plugins]]
-  repo = 'osyo-manga/vim-marching'
-  on_ft = ['cpp', 'c']
-  on_i = 1
+[[plugins]] # motions on speed
+  repo = 'Lokaltog/vim-easymotion'
+  on_map = '<Plug>(easymotion-s2)'
   hook_add = '''
-    let g:marching_clang_command='clang'
-    let g:marching_include_paths=['/usr/include/c++', '/usr/local/include/c++']
-    let g:marching_enable_neocomplete=1
-  '''
-    # let g:marching_backend='sync_clang_command'
-
-## Ruby
-[[plugins]]
-  repo = 'rails.vim'
-  on_ft = ['ruby']
-
-[[plugins]]
-  repo = 'tpope/vim-rails'
-  on_ft = ['ruby']
-
-[[plugins]]
-  repo = 'tpope/vim-rake'
-  on_ft = ['ruby']
-
-[[plugins]]
-  repo = 'tpope/vim-projectionist'
-  on_ft = ['ruby']
-
-[[plugins]]
-  repo = 'thoughtbot/vim-rspec'
-  on_ft = ['ruby']
-
-## Python
-[[plugins]]
-  repo = 'davidhalter/jedi-vim'
-  on_ft = ['python']
-  if = 'has("lua")'
-  hook_add = '''
-    let g:jedi#completions_enabled = 0
-    let g:jedi#auto_vim_configuration = 0
+    let g:EasyMotion_do_mapping = 0
   '''
 
-[[plugins]]
-  repo = 'zchee/deoplete-jedi'
-  on_ft = ['python']
-  if = 'has("nvim")'
+[[plugins]] # universal interface
+  repo = 'Shougo/unite.vim'
+  on_cmd = 'Unite'
 
 [[plugins]]
-  repo = 'lilydjwg/colorizer'
-  on_ft = ['html']
-
-[[plugins]]
-  repo = 'amirh/HTML-AutoCloseTag'
-  on_ft = ['html']
-  on_i = 1
-
-[[plugins]]
-  repo = 'mutewinter/vim-markdown'
-  on_ft = ['markdown']
+  repo = 'itchyny/dictionary.vim'
+  if = 'has("mac")'
+  on_cmd = 'Dictionary'
 
 ## Auto-completion
 [[plugins]]
   repo = 'Shougo/neocomplete'
-  on_i = 1
   if = 'has("lua")'
+  on_path = '.*'
   hook_add = 'call dein_hook#neocomplete#source()'
 
 [[plugins]]
   repo = 'Shougo/deoplete.nvim'
-  on_i = 1
   if = 'has("nvim")'
+  on_path = '.*'
   hook_add = 'call dein_hook#deoplete#source()'
 
 [[plugins]]
@@ -186,21 +95,122 @@
 
 [[plugins]]
   repo = 'Shougo/neosnippet'
-  on_i = 1
+  on_path = '.*'
   depends = 'neosnippet-snippets'
   hook_add = 'call dein_hook#neosnippet#source()'
 
-[[plugins]]
-  repo = 'itchyny/dictionary.vim'
-  if = 'has("mac")'
-  on_cmd = ['Dictionary']
+## Text objects
+[[plugins]] # define your own operator easily
+  repo = 'kana/vim-operator-user'
+
+[[plugins]] # operator mapping to enclose text objects with surrounds
+  repo = 'rhysd/vim-operator-surround'
+  on_path = '.*'
+  depends = 'vim-operator-user'
+
+[[plugins]] # visually select increasingly larger regions of text
+  repo = 'terryma/vim-expand-region'
+  on_path = '.*'
+
+## Search
+[[plugins]] # improved incremental searching
+  repo = 'haya14busa/incsearch.vim'
+  on_map = '<Plug>(incsearch'
+
+[[plugins]] # improved ft command
+  repo = 'chrisbra/improvedft'
+  on_path = '.*'
+
+## Filer
+[[plugins]] # function navigator for CtrlP
+  repo = 'tacahiroy/ctrlp-funky'
+
+[[plugins]] # command line history navigation for CtrlP
+  repo = 'suy/vim-ctrlp-commandline'
+
+[[plugins]] # Fuzzy file, buffer, mru, tag, etc finder
+  repo = 'ctrlpvim/ctrlp.vim'
+  depends = ['ctrlp-funky', 'vim-ctrlp-commandline']
+  hook_post_source = 'call dein_hook#ctrlp#source()'
 
 [[plugins]]
-  repo = 'Lokaltog/vim-easymotion'
+  repo = 'spolu/dwm.vim'
+  on_map = '<Plug>DWM'
+
+## Runner
+[[plugins]]
+  repo = 'thinca/vim-quickrun.git'
+  on_cmd = 'QuickRun'
   hook_add = '''
-    let g:EasyMotion_do_mapping = 0
+    let g:quickhl_config = {'_': {'split': 'vertical'}}
+  '''
+
+# [[plugins]]
+#   repo = 'osyo-manga/vim-watchdogs'
+#   depends = [
+#     'vim-quickrun',
+#     'shabadou.vim',
+#     'vim-hier',
+#     'quickfixstatus'
+#   ]
+
+## Languages
+### C/C++
+[[plugins]]
+  repo = 'osyo-manga/vim-marching'
+  on_ft = ['cpp', 'c']
+  hook_add = '''
+    let g:marching_clang_command='clang'
+    let g:marching_include_paths=['/usr/include/c++', '/usr/local/include/c++']
+    let g:marching_enable_neocomplete=1
+  '''
+  # let g:marching_backend='sync_clang_command'
+
+### Ruby
+[[plugins]]
+  repo = 'rails.vim'
+  on_ft = 'ruby'
+
+[[plugins]]
+  repo = 'tpope/vim-rails'
+  on_ft = 'ruby'
+
+[[plugins]]
+  repo = 'tpope/vim-rake'
+  on_ft = 'ruby'
+
+[[plugins]]
+  repo = 'tpope/vim-projectionist'
+  on_ft = 'ruby'
+
+[[plugins]]
+  repo = 'thoughtbot/vim-rspec'
+  on_ft = 'ruby'
+
+### Python
+[[plugins]]
+  repo = 'davidhalter/jedi-vim'
+  if = 'has("lua")'
+  on_ft = 'python'
+  hook_add = '''
+    let g:jedi#completions_enabled = 0
+    let g:jedi#auto_vim_configuration = 0
   '''
 
 [[plugins]]
-  repo = 'Shougo/unite.vim'
-  on_cmd = ['Unite']
+  repo = 'zchee/deoplete-jedi'
+  if = 'has("nvim")'
+  on_ft = 'python'
+
+### HTML
+[[plugins]]
+  repo = 'lilydjwg/colorizer'
+  on_ft = 'html'
+
+[[plugins]]
+  repo = 'amirh/HTML-AutoCloseTag'
+  on_ft = 'html'
+
+[[plugins]]
+  repo = 'mutewinter/vim-markdown'
+  on_ft = 'markdown'
