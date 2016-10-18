@@ -1,3 +1,53 @@
+## View
+[[plugins]] # configurable statusline/tabline
+  repo = 'itchyny/lightline.vim'
+  on_path = '.*'
+  hook_source = 'call dein_hook#lightline#source()'
+
+[[plugins]] # language pack
+  repo = 'sheerun/vim-polyglot'
+  on_path = '.*'
+
+[[plugins]] # display the indention levels
+  repo = 'Yggdroot/indentLine'
+  on_path = '.*'
+  hook_add = '''
+    if has('conceal')
+      let g:indentLine_char='¦'
+      let g:indentLine_color_term=239
+    endif
+  '''
+
+[[plugins]] # highlight trailing whitespaces
+  repo = 'bronson/vim-trailing-whitespace'
+  on_path = '.*'
+
+## Git
+[[plugins]] # git wrapper
+  repo = 'tpope/vim-fugitive'
+  on_path = '.*'
+
+[[plugins]] # shows a git diff in the 'gutter'
+  repo = 'airblade/vim-gitgutter'
+  on_path = '.*'
+
+[[plugins]] # pleasant editing on commit messages
+  repo = 'rhysd/committia.vim'
+  on_path = '.*'
+
+# Editing
+[[plugins]] # substitute preview
+  repo = 'osyo-manga/vim-over'
+  on_path = '.*'
+
+[[plugins]] # intensely orgasmic commenting
+  repo = 'scrooloose/nerdcommenter'
+  on_path = '.*'
+  hook_add = '''
+    let g:NERDSpaceDelims=1
+    let g:NERDShutUp=1
+  '''
+
 [[plugins]]
   repo = 'rhysd/vim-operator-surround'
 
@@ -13,11 +63,6 @@
 [[plugins]]
   repo = 'chrisbra/improvedft'
   on_i = 1
-
-[[plugins]]
-	repo = 'itchyny/lightline.vim'
-  on_i = 1
-  hook_source = 'call dein_hook#lightline#source()'
 
 [[plugins]]
   repo = 'tacahiroy/ctrlp-funky'
@@ -74,7 +119,7 @@
   '''
     # let g:marching_backend='sync_clang_command'
 
-# Ruby
+## Ruby
 [[plugins]]
   repo = 'rails.vim'
   on_ft = ['ruby']
@@ -95,7 +140,7 @@
   repo = 'thoughtbot/vim-rspec'
   on_ft = ['ruby']
 
-# Python
+## Python
 [[plugins]]
   repo = 'davidhalter/jedi-vim'
   on_ft = ['python']
@@ -123,7 +168,7 @@
   repo = 'mutewinter/vim-markdown'
   on_ft = ['markdown']
 
-# Auto-complete
+## Auto-completion
 [[plugins]]
   repo = 'Shougo/neocomplete'
   on_i = 1
