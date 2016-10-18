@@ -1,10 +1,10 @@
 [[plugins]]
-  repo = 'kana/vim-operator-user'
-  on_i = 1
-  on_source = ['rhysd/vim-operator-surround']
+  repo = 'rhysd/vim-operator-surround'
 
 [[plugins]]
-  repo = 'rhysd/vim-operator-surround'
+  repo = 'kana/vim-operator-user'
+  on_i = 1
+  depends = 'vim-operator-surround'
 
 [[plugins]]
   repo = 'haya14busa/incsearch.vim'
@@ -57,10 +57,10 @@
 #   repo = 'osyo-manga/vim-watchdogs'
 #   on_i = 1
 #   depends = [
-#     'thinca/vim-quickrun',
-#     'osyo-manga/shabadou.vim',
-#     'cohama/vim-hier',
-#     'dannyob/quickfixstatus'
+#     'vim-quickrun',
+#     'shabadou.vim',
+#     'vim-hier',
+#     'quickfixstatus'
 #   ]
 
 [[plugins]]
@@ -137,13 +137,13 @@
   hook_add = 'call dein_hook#deoplete#source()'
 
 [[plugins]]
-  repo = 'Shougo/neosnippet'
-  on_i = 1
-  hook_add = 'call dein_hook#neosnippet#source()'
+  repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-  repo = 'Shougo/neosnippet-snippets'
+  repo = 'Shougo/neosnippet'
   on_i = 1
+  depends = 'neosnippet-snippets'
+  hook_add = 'call dein_hook#neosnippet#source()'
 
 [[plugins]]
   repo = 'itchyny/dictionary.vim'
