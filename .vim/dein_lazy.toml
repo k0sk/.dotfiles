@@ -20,8 +20,14 @@
   hook_source = 'call dein_hook#lightline#source()'
 
 [[plugins]]
+  repo = 'tacahiroy/ctrlp-funky'
+
+[[plugins]]
+  repo = 'suy/vim-ctrlp-commandline'
+
+[[plugins]]
   repo = 'ctrlpvim/ctrlp.vim'
-  on_cmd = ['CtrlP']
+  depends = ['ctrlp-funky', 'vim-ctrlp-commandline']
   hook_post_source = 'call dein_hook#ctrlp#source()'
 
 [[plugins]]

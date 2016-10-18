@@ -4,6 +4,9 @@ function! dein_hook#ctrlp#source() abort
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(exe|app|so|swp|zip|tar.gz|jpg|png)$'
     \ }
+  let g:ctrlp_extensions = ['funky', 'commandline']
+  let g:ctrlp_funky_matchtype = 'path'
+
   if executable('ag')
     let g:ctrlp_use_caching=0
     set grepprg=ag\ --nogroup\ --nocolor
