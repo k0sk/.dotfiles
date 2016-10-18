@@ -22,15 +22,10 @@ endif
 execute 'set runtimepath^=' . s:dein_repo_dir
 set runtimepath+=~/.vim
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
-  call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
+call dein#begin(s:dein_dir)
+call dein#load_toml('~/.vim/dein.toml', {'lazy': 0})
+call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
+call dein#end()
 
 if dein#check_install()
   call dein#install()
