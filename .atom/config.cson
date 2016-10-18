@@ -23,6 +23,11 @@
       ".key"
     ]
     projectHome: "~/Repos"
+    telemetryConsent: "no"
+    themes: [
+      "spacegray-dark-ui"
+      "spacegray-dark-syntax"
+    ]
   editor:
     fontFamily: "Cica"
     fontSize: 15
