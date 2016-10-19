@@ -9,26 +9,26 @@ zstyle ':prezto:*:*' color 'yes'
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 # Set the Prezto modules to load (browse modules) {{{2
 zstyle ':prezto:load' pmodule \
-  'autosuggestions' \
   'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'autosuggestions' \
   'utility' \
   'completion' \
   'history' \
-  'history-substring-search' \
+  'terminal' \
   'prompt' \
-  'syntax-highlighting' \
+  'spectrum' \
+  'editor' \
+  'directory' \
+  'archive' \
   'git' \
   'tmux' \
+  'ssh' \
   'osx' \
   'ruby' \
   'rails' \
-  'python' \
-  'node'
+  'python'
 
 
 # Editor {{{1
