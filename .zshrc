@@ -14,6 +14,7 @@ zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
 zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
 zplug 'b4b4r07/enhancd', use:'init.sh'
 zplug 'b4b4r07/cli-finder', as:command, use:'bin/finder'
+zplug "b4b4r07/easy-oneliner", if:"which fzf"
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
@@ -96,11 +97,6 @@ bindkey '^X^F' peco-find
 # fzf
 # MRU
 autoload -Uz mru
-# Oneliner
-autoload -Uz oneliner
-zle -N oneliner
-bindkey '^X^X' oneliner
-
 # Modeline {{{2
 # vim: foldmethod=marker
 # vim: foldcolumn=3
