@@ -48,6 +48,9 @@
 [[plugins]] # substitute preview
   repo = 'osyo-manga/vim-over'
   on_cmd = 'OverCommandLine'
+  on_add = '''
+    nnoremap <silent> <Leader>m :OverCommandLine<CR>
+  '''
 
 [[plugins]] # intensely orgasmic commenting
   repo = 'scrooloose/nerdcommenter'
@@ -55,21 +58,33 @@
   hook_add = '''
     let g:NERDSpaceDelims=1
     let g:NERDShutUp=1
+    nmap <Leader>c <Plug>NERDCommenterToggle
+    vmap <Leader>c <Plug>NERDCommenterToggle
   '''
 
 [[plugins]]
   repo = 'kana/vim-smartword'
   on_map = '<Plug>(smartword'
+  hook_add = '''
+    nmap w <Plug>(smartword-w)
+    nmap b <Plug>(smartword-b)
+    nmap e <Plug>(smartword-e)
+  '''
 
 [[plugins]]
   repo = 'junegunn/vim-easy-align'
   on_map = '<Plug>(EasyAlign)'
+  hook_add = '''
+    vmap <Enter> <Plug>(EasyAlign)
+    nmap <Leader>a <Plug>(EasyAlign)
+  '''
 
 [[plugins]] # motions on speed
   repo = 'Lokaltog/vim-easymotion'
   on_map = '<Plug>(easymotion-s2)'
   hook_add = '''
     let g:EasyMotion_do_mapping = 0
+    nmap s <Plug>(easymotion-s2)
   '''
 
 [[plugins]] # universal interface
@@ -80,6 +95,9 @@
   repo = 'itchyny/dictionary.vim'
   if = 'has("mac")'
   on_cmd = 'Dictionary'
+  hook_add = '''
+    nnoremap <Leader>d :Dictionary<CR>
+  '''
 
 ## Auto-completion
 [[plugins]]
@@ -115,11 +133,20 @@
 [[plugins]] # visually select increasingly larger regions of text
   repo = 'terryma/vim-expand-region'
   on_path = '.*'
+  hook_add = '''
+    vmap v <Plug>(expand_region_expand)
+    vmap <C-v> <Plug>(expand_region_shrink)
+  '''
 
 ## Search
 [[plugins]] # improved incremental searching
   repo = 'haya14busa/incsearch.vim'
   on_map = '<Plug>(incsearch'
+  hook_add = '''
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+  '''
 
 [[plugins]] # improved ft command
   repo = 'chrisbra/improvedft'
@@ -135,11 +162,24 @@
 [[plugins]] # Fuzzy file, buffer, mru, tag, etc finder
   repo = 'ctrlpvim/ctrlp.vim'
   depends = ['ctrlp-funky', 'vim-ctrlp-commandline']
+  hook_add = '''
+    nnoremap <Leader>o :CtrlP<CR>
+    let g:netrw_bufsettings='noma nomod nu nobl nowrap ro'
+    let g:netrw_liststyle=3
+    let g:netrw_list_hide='^\._.*$,^\.DS_Store$,^\.git/$'
+  '''
   hook_post_source = 'call dein_hook#ctrlp#source()'
 
 [[plugins]]
   repo = 'spolu/dwm.vim'
   on_map = '<Plug>DWM'
+  hook_add = '''
+    nmap <C-n> <Plug>DWMNew
+    nmap <C-c> <Plug>DWMClose
+    nmap <C-@> <Plug>DWMFocus
+    nmap <C-l> <Plug>DWMGrowMaster
+    nmap <C-h> <Plug>DWMShrinkMaster
+  '''
 
 ## Runner
 [[plugins]]
@@ -147,6 +187,7 @@
   on_cmd = 'QuickRun'
   hook_add = '''
     let g:quickhl_config = {'_': {'split': 'vertical'}}
+    nnoremap <leader>r :QuickRun<CR>
   '''
 
 # [[plugins]]
