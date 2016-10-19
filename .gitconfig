@@ -44,9 +44,13 @@
   filetrail = log --follow -p -w
   mergetrail = log --ancestry-path --merges
   unmerged = diff --name-only --diff-filter=U
+
+  # Git Undo from http://megakemp.com/2016/08/25/git-undo/
+  undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 [help]
   autocorrect = 1
 [hub]
   protocol = https
 [credential]
   helper = osxkeychain
+
