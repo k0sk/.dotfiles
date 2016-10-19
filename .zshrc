@@ -23,9 +23,9 @@ if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
     echo; zplug install
-    echo; zplug load --verbose
   fi
 fi
+zplug load
 
 # OS/Machine specifics {{{1
 if (( $+commands[nvim] )); then
