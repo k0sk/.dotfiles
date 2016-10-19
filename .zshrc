@@ -38,6 +38,7 @@ if (( $+commands[brew] && $+commands[pyenv] )); then
 fi
 
 if (( $+commands[direnv] )); then eval "$(direnv hook zsh)"; fi
+if (( $+commands[hub] )); then eval "$(hub alias -s)"; fi
 
 # Preferences {{{1
 # Edit command line with editor {{{2
