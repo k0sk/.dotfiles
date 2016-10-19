@@ -11,7 +11,7 @@
 [[plugins]] # display the indention levels
   repo = 'Yggdroot/indentLine'
   on_path = '.*'
-  hook_add = '''
+  hook_source = '''
     if has('conceal')
       let g:indentLine_char='¦'
       let g:indentLine_color_term=239
@@ -104,13 +104,13 @@
   repo = 'Shougo/neocomplete'
   if = 'has("lua")'
   on_path = '.*'
-  hook_add = 'call dein_hook#neocomplete#source()'
+  hook_source = 'call dein_hook#neocomplete#source()'
 
 [[plugins]]
   repo = 'Shougo/deoplete.nvim'
   if = 'has("nvim")'
   on_path = '.*'
-  hook_add = 'call dein_hook#deoplete#source()'
+  hook_source = 'call dein_hook#deoplete#source()'
 
 [[plugins]]
   repo = 'Shougo/neosnippet-snippets'
@@ -119,7 +119,7 @@
   repo = 'Shougo/neosnippet'
   on_path = '.*'
   depends = 'neosnippet-snippets'
-  hook_add = 'call dein_hook#neosnippet#source()'
+  hook_source = 'call dein_hook#neosnippet#source()'
 
 ## Text objects
 [[plugins]] # define your own operator easily
@@ -168,7 +168,7 @@
     let g:netrw_liststyle=3
     let g:netrw_list_hide='^\._.*$,^\.DS_Store$,^\.git/$'
   '''
-  hook_post_source = 'call dein_hook#ctrlp#source()'
+  hook_source = 'call dein_hook#ctrlp#source()'
 
 [[plugins]]
   repo = 'spolu/dwm.vim'
