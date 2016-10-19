@@ -102,6 +102,8 @@ autoload -Uz git-status-abbrev
 ## peco
 # Kill process
 autoload -Uz peco-kill
+zle -N peco-kill
+bindkey '^K^K' peco-kill
 
 # Search file from git repo and open with vim
 autoload -Uz peco-git-ls
@@ -114,7 +116,7 @@ bindkey '^R' peco-history
 # Search and move directory
 autoload -Uz peco-find
 zle -N peco-find
-bindkey '^X^F' peco-find
+bindkey '^F^F' peco-find
 
 ## fzf
 # MRU

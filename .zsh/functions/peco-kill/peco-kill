@@ -1,2 +1,2 @@
-ps -ef | peco | awk '{ print $2 }' | xargs kill
+ps -efr | peco | awk '{ print $2 }' | xargs kill
 zle clear-screen
