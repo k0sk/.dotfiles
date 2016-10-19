@@ -58,6 +58,10 @@
   '''
 
 [[plugins]]
+  repo = 'kana/vim-smartword'
+  on_map = '<Plug>(smartword'
+
+[[plugins]]
   repo = 'junegunn/vim-easy-align'
   on_map = '<Plug>(EasyAlign)'
 

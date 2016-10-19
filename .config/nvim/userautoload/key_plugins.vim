@@ -41,3 +41,9 @@ nnoremap <Leader>d :Dictionary<CR>
 
 " Easy-motion
 nmap s <Plug>(easymotion-s2)
+
+" smartword
+nmap w <Plug>(smartword-w)
+nmap b <Plug>(smartword-b)
+nmap e <Plug>(smartword-e)
+
