@@ -14,7 +14,10 @@ zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
 zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
 zplug 'b4b4r07/enhancd', use:'init.sh'
 zplug 'b4b4r07/cli-finder', as:command, use:'bin/finder'
-zplug "b4b4r07/easy-oneliner", if:"which fzf"
+zplug 'b4b4r07/easy-oneliner', on:'junegunn/fzf-bin'
+zplug 'stedolan/jq', from:gh-r, as:command
+zplug 'b4b4r07/emoji-cli', on:'stedolan/jq'
+zplug "mrowa44/emojify", as:command
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
