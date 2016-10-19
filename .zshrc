@@ -93,6 +93,14 @@ autoload -Uz peco-find
 zle -N peco-find
 bindkey '^X^F' peco-find
 
+# fzf
+# MRU
+autoload -Uz mru
+# Oneliner
+autoload -Uz oneliner
+zle -N oneliner
+bindkey '^X^X' oneliner
+
 # Modeline {{{2
 # vim: foldmethod=marker
 # vim: foldcolumn=3
