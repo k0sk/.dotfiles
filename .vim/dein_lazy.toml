@@ -30,7 +30,6 @@
 
 [[plugins]] # shows a git diff in the 'gutter'
   repo = 'airblade/vim-gitgutter'
-  if = 'isdirectory(".git")'
   on_path = '.*'
 
 [[plugins]] # pleasant editing on commit messages
