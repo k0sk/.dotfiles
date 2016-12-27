@@ -252,7 +252,7 @@
   on_ft = 'html'
 
 [[plugins]]
-  repo = 'amirh/HTML-AutoCloseTag'
+  repo = 'vim-scripts/HTML-AutoCloseTag'
   on_ft = 'html'
 
 [[plugins]]
