@@ -1,58 +1,52 @@
 
 # tap repositories and their packages
 
-## caskroom/cask
 tap caskroom/cask
-brew brew-cask
-cask vagrant
-cask virtualbox
 
-## peco/peco
-tap peco/peco
-brew peco
-
-## rcmdnk/file
-tap rcmdnk/file
-brew brew-file
-
-# Other Homebrew packages
+tap homebrew/core
 brew curl
-brew direnv
 brew envchain
-brew fpp
-brew gcc
 brew gist
 brew git
-brew global
 brew hub
-brew mackup
-brew mercurial
+brew mas
 brew nkf
-brew nmap
-brew openssl
+brew pyenv
+brew pyenv-virtualenv
 brew rbenv
 brew reattach-to-user-namespace
 brew ruby-build
 brew sqlite
-brew terminal-notifier
 brew tig
 brew tmux
-brew vim --with-lua --with-lua --with-lua
+brew vim --with-lua
 brew wakeonlan
 brew wget
 brew zsh
 
+tap neovim/neovim
+brew neovim
+
+tap rcmdnk/file
+brew brew-file
+
 # App Store applications
-appstore 1Password
-appstore DragonDrop
-appstore ForkLift
-appstore MiniUsage
-appstore Monity
-appstore Monosnap
-appstore PopClip
-appstore PopHub
-appstore Slack
-appstore The Unarchiver
-appstore Tweetbot
-appstore Window Tidy
-appstore Xcode
+appstore 443987910 1Password (6.5.3)
+appstore 974971992 Alternote (1.0.10)
+appstore 529456740 CheatSheet (1.0.3)
+appstore 499148234 DragonDrop (1.4.1)
+appstore 412448059 ForkLift (2.6.6)
+appstore 409183694 Keynote (7.0.5)
+appstore 539883307 LINE (4.11.1)
+appstore 950145466 Letterspace (1.7.2)
+appstore 464896493 LinguaSwitch (1.2)
+appstore 540348655 Monosnap (3.3.0)
+appstore 445189367 PopClip (1.5.6)
+appstore 928494006 PopHub (2.1.4)
+appstore 588726889 ReadKit (2.4.3)
+appstore 803453959 Slack (2.3.4)
+appstore 1176895641 Spark (1.1.0)
+appstore 425424353 The Unarchiver (3.11.1)
+appstore 557168941 Tweetbot (2.4.5)
+appstore 456609775 Window Tidy (2.1.3)
+appstore 497799835 Xcode (8.2.1)
