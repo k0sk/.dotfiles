@@ -7,6 +7,8 @@
     app: "iTerm.app"
   "atom-terminal-panel": {}
   "autocomplete-plus": {}
+  "autocomplete-python":
+    useKite: false
   core:
     disabledPackages: [
       "markdown-preview"
