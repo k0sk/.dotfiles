@@ -51,6 +51,8 @@
     subtleLinterErrors: [
       "htmlhint"
     ]
+  "linter-pep8":
+    pep8ExecutablePath: "~/.pyenv/versions/neovim3/bin/pep8"
   "markdown-preview-plus":
     pandocBIBFile: "reference.bib"
   minimap:
