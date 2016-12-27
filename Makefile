@@ -63,3 +63,5 @@ unx:
 update:
 	@git pull --rebase origin master
 	@git submodule update --init --recursive
+	@apm list --installed --bare > .atom/packages.txt
+
