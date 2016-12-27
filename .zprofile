@@ -47,8 +47,6 @@ typeset -gU cdpath fpath mailpath path
 
 cdpath=(
   ..
-  $HOME
-  $HOME/Repos
   $cdpath
 )
 path=(
