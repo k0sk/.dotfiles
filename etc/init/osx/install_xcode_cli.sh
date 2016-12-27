@@ -6,10 +6,11 @@ set -u
 
 # A system that judge if this script is necessary or not
 if [[ $OSTYPE != darwin* ]]; then
-    exit 0
+  exit 0
 fi
 if type xcode-select >/dev/null 2>&1; then
-    exit 0
+  sudo xcodebuild -license
+  exit 0
 fi
 
 # Testing the judgement system
