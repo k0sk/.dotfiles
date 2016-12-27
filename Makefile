@@ -40,6 +40,9 @@ homebrew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/install_homebrew.sh
 endif
 
+atom:
+	@apm install --packages-file .atom/packages.txt
+
 install:
 	@$(foreach f, $(DOTFILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
