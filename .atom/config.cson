@@ -24,7 +24,7 @@
       ".zip"
       ".key"
     ]
-    projectHome: "~/Repos"
+    projectHome: "~/repos"
     telemetryConsent: "no"
     themes: [
       "spacegray-dark-ui"
