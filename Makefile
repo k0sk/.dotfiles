@@ -6,47 +6,30 @@ DOTFILES_DIR := $(HOME)/.dotfiles
 BINFILES := $(filter-out $(EXCLUDED_FILES), $(wildcard ./bin/*))
 BINFILES_DIR := /usr/local/bin
 
-help:
-	@echo "make list       #=> List dotfiles/bin"
-	@echo "make init       #=> Setup environment"
-	@echo "make xcode      #=> Install Xcode Command Line Tools"
-	@echo "make homebrew   #=> Install Homebrew"
-	@echo "make install    #=> Create symlinks"
-	@echo "make uninstall  #=> Delete symlinks"
-	@echo "make x  #=> Create symlinks for X"
-	@echo "make unx  #=> Delete symlinks for X"
-	@echo "make update     #=> Update repositories"
+default:
+	@echo "Usage: make <task(s)>"
+	@echo
+	@echo "General tasks:"
+	@echo "install     Create symlinks"
+	@echo "uninstall   Remove symlinks"
+	@echo "update      Update .dotfiles repo and sub repos"
+	@echo "backup      Update backup file for Homebrew and Atom"
+	@echo "atom        Install packages for Atom"
+	@echo "neovim      Set up Python for Neovim"
+	@echo "list        List all dotfiles amd bins"
+	@echo
+	@echo "macOS-specific tasks:"
+	@echo "mac         Install Xcode CLT and Homebrew"
+	@echo "xcode       Install Xcode Command Line Tools"
+	@echo "homebrew    Install Homebrew and the basic packages"
+	@echo
+	@echo "Linux-specific tasks:"
+	@echo "x           Create symlinks for X"
+	@echo "unx         Remove symlinks for X"
+help: default
 
-list:
-	@echo "--- dotfiles ---"
-	@$(foreach f, $(DOTFILES), ls -dF $(f);)
-	@echo "--- macOS ---"
-	@$(foreach f, $(MACOS_FILES), ls -dF $(f);)
-	@echo "--- X ---"
-	@$(foreach f, $(X_FILES), ls -dF $(f);)
-	@echo "--- bin ---"
-	@$(foreach f, $(BINFILES), ls -dF $(f);)
-
-init:
-	@$(foreach f, $(wildcard ./etc/init/*.sh), bash $(f);)
-	@git submodule update --init --recursive
-ifeq ($(shell uname), Darwin)
-	@$(foreach f, $(wildcard ./etc/init/osx/*.sh), bash $(f);)
-
-xcode:
-	@bash $(DOTFILES_DIR)/etc/init/osx/install_xcode_cli.sh
-
-homebrew:
-	@bash $(DOTFILES_DIR)/etc/init/osx/install_homebrew.sh
-endif
-
-atom:
-	@apm install --packages-file .atom/packages.txt
-
-neovim:
-	@bash $(DOTFILES_DIR)/etc/init/setup_neovim.sh
-
-install:
+# General tasks
+install: update
 	@$(foreach f, $(DOTFILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
 ifeq ($(shell uname), Darwin)
@@ -60,13 +43,42 @@ ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(MACOS_FILES), rm -rfv $(HOME)/$(f);)
 endif
 
+update:
+	@git pull --rebase origin master
+	@git submodule update --init --recursive
+
+backup:
+	@apm list --installed --bare > .atom/packages.txt
+
+atom:
+	@apm install --packages-file .atom/packages.txt
+
+neovim:
+	@bash $(DOTFILES_DIR)/etc/init/setup_neovim.sh
+
+list:
+	@echo "--- dotfiles ---"
+	@$(foreach f, $(DOTFILES), ls -dF $(f);)
+	@echo "--- macOS ---"
+	@$(foreach f, $(MACOS_FILES), ls -dF $(f);)
+	@echo "--- X ---"
+	@$(foreach f, $(X_FILES), ls -dF $(f);)
+	@echo "--- bin ---"
+	@$(foreach f, $(BINFILES), ls -dF $(f);)
+
+# macOS-specific tasks
+mac: xcode homebrew
+
+xcode:
+	@bash $(DOTFILES_DIR)/etc/init/osx/install_xcode_cli.sh
+
+homebrew:
+	@bash $(DOTFILES_DIR)/etc/init/osx/install_homebrew.sh
+	@bash $(DOTFILES_DIR)/etc/init/osx/install_packages.sh
+
+# Linux-specific tasks
 x:
 	@$(foreach f, $(X_FILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 
 unx:
 	@$(foreach f, $(X_FILES), rm -rfv $(HOME)/$(f);)
-
-update:
-	@git pull --rebase origin master
-	@git submodule update --init --recursive
-	@apm list --installed --bare > .atom/packages.txt
