@@ -43,6 +43,9 @@ endif
 atom:
 	@apm install --packages-file .atom/packages.txt
 
+neovim:
+	@bash $(DOTFILES_DIR)/etc/init/setup_neovim.sh
+
 install:
 	@$(foreach f, $(DOTFILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
@@ -67,4 +70,3 @@ update:
 	@git pull --rebase origin master
 	@git submodule update --init --recursive
 	@apm list --installed --bare > .atom/packages.txt
-
