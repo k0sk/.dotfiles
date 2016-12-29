@@ -31,10 +31,10 @@ help: default
 # General tasks
 install: update
 	@$(foreach f, $(DOTFILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
-	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
 ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(MACOS_FILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 endif
+	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
 
 uninstall:
 	@$(foreach f, $(DOTFILES), rm -rfv $(HOME)/$(f);)
