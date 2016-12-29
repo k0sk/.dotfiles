@@ -50,8 +50,8 @@ cdpath=(
   $cdpath
 )
 path=(
-  /usr/local/{bin,sbin}
   $HOME/bin
+  /usr/local/{bin,sbin}
   $path
 )
 
