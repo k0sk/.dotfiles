@@ -54,7 +54,8 @@ atom:
 	@apm install --packages-file .atom/packages.txt
 
 neovim:
-	@bash $(DOTFILES_DIR)/etc/init/setup_neovim.sh
+	@bash $(DOTFILES_DIR)/etc/init/install_latest_python.sh
+	@bash $(DOTFILES_DIR)/etc/init/create_neovim_virtualenv.sh
 
 list:
 	@echo "--- dotfiles ---"

@@ -17,18 +17,16 @@ if [[ -n ${DEBUG:-} ]]; then echo "$0" && exit 0; fi
 py2=$(pyenv install --list | grep -v - | grep -v b | grep -e '2\..*\..*' | tail -1)
 py3=$(pyenv install --list | grep -v - | grep -v b | grep -e '3\..*\..*' | tail -1)
 
-pyenv install $py2
-pyenv install $py3
-
 pyenv virtualenv $py2 neovim2
 pyenv virtualenv $py3 neovim3
 
-pyenv activate neovim2
-pip install neovim
-pyenv which python
+cat << EOS
+Next, you should run below.
+> pyenv activate neovim(2|3)
+> pip install neovim
+> pyenv which python
 
-pyenv activate neovim3
-pip install neovim
-pyenv which python
-
-pyenv deactivate
+If you wanna use some plugins regardless of what env is currently active, you should run below, too.
+> pip install pep8
+> ln -s `pyenv which pep8` $HOME/bin # Assumes that $HOME/bin is in \$PATH
+EOS
