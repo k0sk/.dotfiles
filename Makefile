@@ -19,9 +19,11 @@ default:
 	@echo "list        List all dotfiles amd bins"
 	@echo
 	@echo "macOS-specific tasks:"
-	@echo "mac         Install Xcode CLT and Homebrew"
+	@echo "mac         Run all 4 tasks below"
+	@echo "macos       Install the basic macOS settings"
 	@echo "xcode       Install Xcode Command Line Tools"
-	@echo "homebrew    Install Homebrew and the basic packages"
+	@echo "homebrew    Install Homebrew"
+	@echo "brewfile    Install the basic packages and AppStore apps"
 	@echo
 	@echo "Linux-specific tasks:"
 	@echo "x           Create symlinks for X"
@@ -68,13 +70,18 @@ list:
 	@$(foreach f, $(BINFILES), ls -dF $(f);)
 
 # macOS-specific tasks
-mac: xcode homebrew
+mac: macos xcode homebrew brewfile
+
+macos:
+	@bash $(DOTFILES_DIR)/etc/init/osx/install_basic_setting.sh
 
 xcode:
 	@bash $(DOTFILES_DIR)/etc/init/osx/install_xcode_cli.sh
 
 homebrew:
 	@bash $(DOTFILES_DIR)/etc/init/osx/install_homebrew.sh
+
+brewfile:
 	@bash $(DOTFILES_DIR)/etc/init/osx/install_packages.sh
 
 # Linux-specific tasks
