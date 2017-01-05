@@ -19,6 +19,7 @@ brew ruby-build
 brew sqlite
 brew tig
 brew tmux
+brew tree
 brew vim --with-lua
 brew wakeonlan
 brew wget
@@ -31,17 +32,20 @@ brew neovim
 appstore 443987910 1Password (6.5.3)
 appstore 974971992 Alternote (1.0.10)
 appstore 529456740 CheatSheet (1.0.3)
+appstore 406056744 Evernote (6.10)
 appstore 412448059 ForkLift (2.6.6)
 appstore 409183694 Keynote (7.0.5)
 appstore 539883307 LINE (4.11.1)
 appstore 950145466 Letterspace (1.7.2)
 appstore 464896493 LinguaSwitch (1.2)
 appstore 540348655 Monosnap (3.3.0)
+appstore 409201541 Pages (6.0.5)
 appstore 445189367 PopClip (1.5.6)
 appstore 928494006 PopHub (2.1.4)
-appstore 588726889 ReadKit (2.4.3)
+appstore 588726889 ReadKit (2.4.5)
 appstore 803453959 Slack (2.3.4)
 appstore 425424353 The Unarchiver (3.11.1)
 appstore 557168941 Tweetbot (2.4.5)
 appstore 456609775 Window Tidy (2.1.3)
 appstore 497799835 Xcode (8.2.1)
+
