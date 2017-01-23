@@ -90,3 +90,8 @@ x:
 
 unx:
 	@$(foreach f, $(X_FILES), rm -rfv $(HOME)/$(f);)
+
+# Others
+pyenv:
+	@git clone https://github.com/yyuu/pyenv $HOME/.pyenv
+	@git clone https://github.com/yyuu/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv
