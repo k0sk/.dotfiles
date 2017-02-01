@@ -29,7 +29,9 @@ Icon
 # Node.js
 node_modules
 
-# GNU Global
+# Tags
+tags
 GPATH
 GRTAGS
 GTAGS
+
