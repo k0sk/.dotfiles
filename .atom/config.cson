@@ -43,7 +43,9 @@
     userId: "62f8490a-8e62-357f-a5d2-217c4238a88e"
   "file-icons":
     coloured: false
-  "git-plus": {}
+  "git-plus":
+    general:
+      _analyticsUserId: "525232a9-8c35-4dea-9207-2276153beafc"
   "highlight-column":
     enableHighlight: true
     opacity: 0.15
