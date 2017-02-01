@@ -53,4 +53,7 @@
   protocol = https
 [credential]
   helper = osxkeychain
+  helper = gnomekeyring
+  helper = wincred
+  helper = cache --timeout=3600
 
