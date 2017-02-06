@@ -1,8 +1,12 @@
 # .vim directory
-.vim/dein
-.vim/templates
-.vim/snippets
+vim_backup/.vim/dein
+vim_backup/.vim/templates
+vim_backup/.vim/snippets
 .netrwhist
+
+# .config
+.config/*
+!.config/peco
 
 # .atom directory
 .atom/*

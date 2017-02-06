@@ -37,10 +37,13 @@ ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(MACOS_FILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 endif
 	@$(foreach f, $(BINFILES), ln -sfnv $(abspath $(f)) $(BINFILES_DIR)/$(notdir $(f));)
+	@ln -sfnv $(DOTFILES_DIR)/.SpaceVim $(HOME)/.vim
+	@ln -sfnv $(DOTFILES_DIR)/.SpaceVim $(HOME)/.config/nvim
 
 uninstall:
 	@$(foreach f, $(DOTFILES), rm -rfv $(HOME)/$(f);)
 	@$(foreach f, $(BINFILES), rm -rfv $(BINFILES_DIR)/$(notdir $(f));)
+	@rm -fv $(HOME)/.vim $(DOTFILES_DIR)/.config/nvim
 ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(MACOS_FILES), rm -rfv $(HOME)/$(f);)
 endif
