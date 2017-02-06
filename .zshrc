@@ -22,6 +22,8 @@ zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
 zplug 'b4b4r07/enhancd', use:'init.sh'
 zplug 'b4b4r07/cli-finder', as:command, use:'bin/finder'
 zplug 'b4b4r07/easy-oneliner', on:'junegunn/fzf-bin'
+zplug "b4b4r07/git-conflict", as:command, use:'git-conflict'
+
 
 # Emoji
 zplug 'stedolan/jq', from:gh-r, as:command
