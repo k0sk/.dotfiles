@@ -5,13 +5,9 @@ augroup END
 let g:python_host_prog  = expand('~/.pyenv/versions/neovim2/bin/python')
 let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 
-let g:mapleader = ' '
-
-set list " Invisible chars
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-set clipboard=unnamed " Clipboard
-autocmd vimrc BufWritePre * :%s/\s\+$//e " Clean whispaces before saving
-
+"
+" SpaceVim
+"
 execute 'source' expand('~/.dotfiles/.SpaceVim/config/main.vim')
 
 let g:spacevim_colorscheme = 'base16-railscasts'
@@ -27,6 +23,17 @@ let g:spacevim_custom_plugins = [
             \ ]
 "\ ['cohama/lexima.vim'],
 "\ ['chrisbra/improvedft'],
+
+"
+" Preferences
+"
+let g:mapleader = ' '
+set mouse=a
+set norelativenumber
+set list " Invisible chars
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set clipboard=unnamed " Clipboard
+autocmd vimrc BufWritePre * :%s/\s\+$//e " Clean whispaces before saving
 
 "
 " Mappings
