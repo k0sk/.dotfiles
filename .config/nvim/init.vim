@@ -12,9 +12,7 @@ execute 'source' expand('~/.dotfiles/.SpaceVim/config/main.vim')
 
 let g:spacevim_colorscheme = 'base16-railscasts'
 let g:spacevim_custom_plugins = [
-            \ ['tacahiroy/ctrlp-funky'],
-            \ ['suy/vim-ctrlp-commandline'],
-            \ ['rhysd/committia.vim', {'on_ft' : 'gitcommit'}],
+            \ ['rhysd/committia.vim', {'on_path': '.*/COMMIT_EDITMSG'}],
             \ ['kana/vim-smartword', {'on_map': '<Plug>(smartword'}],
             \ ['junegunn/vim-easy-align', {'on_map': '<Plug>(EasyAlign)'}],
             \ ['Lokaltog/vim-easymotion', {'on_map': '<Plug>(easymotion-s2)'}],
