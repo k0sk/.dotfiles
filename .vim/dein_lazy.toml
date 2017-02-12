@@ -41,6 +41,10 @@
   repo = 'cohama/lexima.vim'
   on_path = '.*'
 
+[[plugins]]
+  repo = 'ConradIrwin/vim-bracketed-paste'
+  on_path = '.*'
+
 # [[plugins]] # automatically insert pairs (brackets, quotes)
 #   repo = 'seletskiy/vim-autosurround'
 
