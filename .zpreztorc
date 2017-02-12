@@ -36,7 +36,8 @@ zstyle ':prezto:load' pmodule \
   'osx' \
   'ruby' \
   'rails' \
-  'python'
+  'python' \
+  'node'
 
   #
   # Autosuggestions
