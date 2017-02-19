@@ -58,8 +58,8 @@ if (( $+commands[hub] )); then eval "$(hub alias -s)"; fi
 #
 
 # Auto suggestions
-bindkey '^I' expand-or-complete
-bindkey '^W' forward-word
+#bindkey '^I' expand-or-complete
+#bindkey '^W' forward-word
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
@@ -118,7 +118,7 @@ bindkey '^R' peco-history
 # Search and move directory
 autoload -Uz peco-find
 zle -N peco-find
-bindkey '^F^F' peco-find
+bindkey '^P^F' peco-find
 
 ## fzf
 # MRU
