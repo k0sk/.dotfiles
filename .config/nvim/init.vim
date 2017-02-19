@@ -25,7 +25,7 @@ let g:spacevim_custom_plugins = [
 "
 " Preferences
 "
-let g:mapleader = ' '
+let g:mapleader = "\<Space>"
 set mouse=a
 set norelativenumber
 set list " Invisible chars
@@ -36,14 +36,13 @@ autocmd vimrc BufWritePre * :%s/\s\+$//e " Clean whispaces before saving
 "
 " Mappings
 "
-inoremap jj <Esc>
 nmap <silent> <ESC><ESC> :nohlsearch<CR>
 
-nnoremap j gj " Enable jk within the same line
-nnoremap k gk
+"nnoremap j gj " Enable jk within the same line
+"nnoremap k gk
 
-nnoremap + <C-a> " Increment / Decrement
-nnoremap - <C-x>
+"nnoremap + <C-a> " Increment / Decrement
+"nnoremap - <C-x>
 
 vnoremap <silent> y y`] " Jump to end of the pasted text
 vnoremap <silent> p p`]
@@ -68,18 +67,18 @@ nnoremap <Leader>o :CtrlP<CR>
 
 nnoremap <silent> <Leader>m :OverCommandLine<CR>
 
-nmap w <Plug>(smartword-w)
-nmap b <Plug>(smartword-b)
-nmap e <Plug>(smartword-e)
+"nmap w <Plug>(smartword-w)
+"nmap b <Plug>(smartword-b)
+"nmap e <Plug>(smartword-e)
 
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
-nmap s <Plug>(easymotion-s2)
+"nmap s <Plug>(easymotion-s2)
 
 "nnoremap <Leader>d :Dictionary<CR>
 
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
 
