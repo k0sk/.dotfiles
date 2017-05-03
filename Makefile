@@ -93,5 +93,5 @@ unx:
 
 # Others
 pyenv:
-	@git clone https://github.com/yyuu/pyenv $HOME/.pyenv
-	@git clone https://github.com/yyuu/pyenv-virtualenv $HOME/.pyenv/plugins/pyenv-virtualenv
+	@git clone https://github.com/yyuu/pyenv $(HOME)/.pyenv
+	@git clone https://github.com/yyuu/pyenv-virtualenv $(HOME)/.pyenv/plugins/pyenv-virtualenv
