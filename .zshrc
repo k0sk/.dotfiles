@@ -12,18 +12,20 @@ if [[ -s "$HOME/.zplug/init.zsh" ]]; then
   source "$HOME/.zplug/init.zsh"
 fi
 
+# System
+zplug 'rcmdnk/open_newtab', as:command, use:'bin/open_newtab', rename-to:otab
+
 # Dev
 zplug 'direnv/direnv', as:command, from:gh-r, rename-to:direnv
+zplug 'github/hub', as:command, from:gh-r, rename-to:hub
 
 # Interactive filtering
 zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
 zplug 'junegunn/fzf-bin', as:command, from:gh-r, rename-to:fzf
-
 zplug 'b4b4r07/enhancd', use:'init.sh'
 zplug 'b4b4r07/cli-finder', as:command, use:'bin/finder'
 zplug 'b4b4r07/easy-oneliner', on:'junegunn/fzf-bin'
 zplug "b4b4r07/git-conflict", as:command, use:'git-conflict'
-
 
 # Emoji
 zplug 'stedolan/jq', from:gh-r, as:command
