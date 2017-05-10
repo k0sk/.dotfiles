@@ -13,7 +13,8 @@ if [[ -s "$HOME/.zplug/init.zsh" ]]; then
 fi
 
 # System
-zplug 'rcmdnk/open_newtab', as:command, use:'bin/open_newtab', rename-to:otab
+zplug 'rcmdnk/open_newtab', as:command, use:'bin/open_newtab', \
+    rename-to:otab, if:"[[ $OSTYPE == *darwin* ]]"
 
 # Dev
 zplug 'direnv/direnv', as:command, from:gh-r, rename-to:direnv
