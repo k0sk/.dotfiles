@@ -18,7 +18,8 @@ zplug 'rcmdnk/open_newtab', as:command, use:'bin/open_newtab', \
 
 # Dev
 zplug 'direnv/direnv', as:command, from:gh-r, rename-to:direnv
-zplug 'github/hub', as:command, from:gh-r, rename-to:hub
+zplug 'github/hub', as:command, from:gh-r, rename-to:hub, \
+    if:"[[ $OSTYPE == *linux* ]]"
 
 # Interactive filtering
 zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
@@ -33,7 +34,8 @@ zplug 'stedolan/jq', from:gh-r, as:command
 zplug 'b4b4r07/emoji-cli', on:'stedolan/jq'
 zplug "mrowa44/emojify", as:command
 
-if ! zplug check --verbose; then
+if ! zplug check; then
+  zplug check --verbose
   printf "Install? [y/N]: "
   if read -q; then
     echo; zplug install
