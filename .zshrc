@@ -77,10 +77,8 @@ bindkey '^V' edit-command-line
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
-# Press enter
-autoload -Uz enter
-zle -N enter
-bindkey '^J' enter
+# Accept and execute a suggestion
+bindkey '^J' autosuggest-execute
 
 # ls and git status after cd
 chpwd() {
