@@ -1,11 +1,78 @@
-let g:spacevim_colorscheme = 'base16-railscasts'
+augroup vimrc
+  autocmd!
+augroup END
+
+"
+" SpaceVim
+"
+let g:spacevim_colorscheme = 'onedark'
 let g:spacevim_custom_plugins = [
-            \ ['rhysd/committia.vim', {'on_path': '.*/COMMIT_EDITMSG'}],
-            \ ['kana/vim-smartword', {'on_map': '<Plug>(smartword'}],
-            \ ['junegunn/vim-easy-align', {'on_map': '<Plug>(EasyAlign)'}],
-            \ ['Lokaltog/vim-easymotion', {'on_map': '<Plug>(easymotion-s2)'}],
-            \ ['haya14busa/incsearch.vim', {'on_map': '<Plug>(incsearch'}],
-            \ ['osyo-manga/vim-over', {'on_cmd': 'OverCommandLine'}],
-            \ ]
-"\ ['cohama/lexima.vim'],
-"\ ['chrisbra/improvedft'],
+    \ ['osyo-manga/vim-over', {'on_cmd': 'OverCommandLine'}],
+    \ ['itchyny/dictionary.vim', {'on_cmd': 'Dictionary'}],
+    \ ['kana/vim-smartword', {'on_map': '<Plug>(smartword'}],
+    \ ['junegunn/vim-easy-align', {'on_map': '<Plug>(EasyAlign)'}],
+    \ ['cohama/lexima.vim', {'on_i': 1}],
+    \ ['chrisbra/improvedft', {'on_i': 1}],
+    \ ['rhysd/committia.vim', {'on_path': '.*/COMMIT_EDITMSG'}],
+\ ]
+let g:spacevim_relativenumber = 0
+
+"
+" Preferences
+"
+if has('nvim')
+    set mouse=a
+endif
+set list " show invisible chars
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set clipboard=unnamed
+autocmd vimrc BufWritePre * :%s/\s\+$//e " clean whispaces before saving
+
+"
+" Mappings
+"
+" Turn off hilights
+nmap <silent> <ESC><ESC> :nohlsearch<CR>
+
+" Enable jk within the same line
+" nnoremap j gj
+" nnoremap k gk
+
+" Increment / Decrement
+" nnoremap + <C-a>
+" nnoremap - <C-x>
+
+" Jump to end of the yanked/pasted text
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" Avoid typo errors
+cab W! w!
+cab Q! q!
+cab Wq wq
+cab Wa wa
+cab wQ wq
+cab WQ wq
+cab W w
+cab Q q
+
+"
+" Mappings for plugins
+"
+nmap <Leader>c <Plug>NERDCommenterToggle
+vmap <Leader>c <Plug>NERDCommenterToggle
+
+" nnoremap <silent> <Leader>m :OverCommandLine<CR>
+call SpaceVim#custom#SPC('nnoremap', ['m'], ':OverCommandLine', 'Substitute preview', 1)
+
+nmap w <Plug>(smartword-w)
+nmap b <Plug>(smartword-b)
+nmap e <Plug>(smartword-e)
+
+vmap <Enter> <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+
+" nnoremap <silent> <Leader>d :Dictionary<CR>
+call SpaceVim#custom#SPC('nnoremap', ['d'], ':Dictionary', 'Dictionary', 1)
+
