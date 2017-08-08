@@ -32,7 +32,6 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'git' \
   'tmux' \
-  'ssh' \
   'osx' \
   'ruby' \
   'rails' \
