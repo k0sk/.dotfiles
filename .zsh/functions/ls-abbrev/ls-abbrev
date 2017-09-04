@@ -6,10 +6,10 @@ fi
 # -F : Append indicator (one of */=>@|) to entries.
 local cmd_ls='ls'
 local -a opt_ls
-opt_ls=('-aCF' '--color=always')
+opt_ls=('-1aCF' '--color=always')
 case "${OSTYPE}" in
   freebsd*|darwin*)
-    opt_ls=('-aCFG')
+    opt_ls=('-1aCFG')
 esac
 
 local ls_result
