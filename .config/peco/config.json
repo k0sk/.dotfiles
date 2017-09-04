@@ -1,17 +1,17 @@
 {
-  "keymap": {
-    "C-j": "peco.SelectNext",
-    "C-k": "peco.SelectPrevious",
-    "C-p": "peco.ScrollPageUp",
-    "C-d": "peco.ScrollPageDown",
-    "C-f": "peco.SelectNextPage",
-    "C-b": "peco.SelectPreviousPage"
-  },
   "Style": {
     "Basic": ["on_default", "default"],
-    "Matched": ["cyan"],
-    "Query": ["default"],
-    "SavedSelection": ["on_blue", "white"],
-    "Selected": ["on_magenta", "default"]
+    "Query": ["green"],
+    "Matched": ["yellow", "bold"],
+    "Selected": ["on_magenta"],
+    "SavedSelection": ["on_blue", "white"]
   }
 }
+// "keymap": {
+//   "C-j": "peco.SelectNext",
+//   "C-k": "peco.SelectPrevious",
+//   "C-u": "peco.ScrollPageUp",
+//   "C-d": "peco.ScrollPageDown",
+//   "C-f": "peco.SelectNextPage",
+//   "C-b": "peco.SelectPreviousPage"
+// }
