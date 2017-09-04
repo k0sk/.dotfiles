@@ -12,14 +12,22 @@ if [[ -s "$HOME/.zplug/init.zsh" ]]; then
   source "$HOME/.zplug/init.zsh"
 fi
 
+# Theme
+zplug 'denysdovhan/spaceship-zsh-theme', as:theme, use:'spaceship.zsh', \
+    if:"[[ $OSTYPE == *darwin* ]]"
+
+
 # System
 zplug 'rcmdnk/open_newtab', as:command, use:'bin/open_newtab', \
     rename-to:otab, if:"[[ $OSTYPE == *darwin* ]]"
+zplug 'gnachman/iTerm2', as:command, use:'tests/{imgcat,imgls}'
 
 # Dev
 zplug 'direnv/direnv', as:command, from:gh-r, rename-to:direnv
 zplug 'github/hub', as:command, from:gh-r, rename-to:hub, \
     if:"[[ $OSTYPE == *linux* ]]"
+zplug 'jingweno/ccat', as:command, from:gh-r, rename-to:ccat
+zplug "b4b4r07/httpstat", as:command, use:'httpstat.sh', rename-to:httpstat
 
 # Interactive filtering
 zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
