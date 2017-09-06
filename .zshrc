@@ -86,7 +86,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^V' edit-command-line
 
-# Corsor move
+# Cursor move
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
