@@ -76,8 +76,8 @@ if (( $+commands[hub] )); then eval "$(hub alias -s)"; fi
 #
 
 # Auto suggestions
-#bindkey '^I' expand-or-complete
-#bindkey '^W' forward-word
+# bindkey '^I' expand-or-complete
+bindkey '^F' forward-word
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
