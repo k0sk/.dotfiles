@@ -12,10 +12,15 @@ if [[ -s "$HOME/.zplug/init.zsh" ]]; then
   source "$HOME/.zplug/init.zsh"
 fi
 
+# Zsh plugins
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions", defer:3
+zplug "zsh-users/zsh-history-substring-search", defer:3
+
 # Theme
 zplug 'denysdovhan/spaceship-zsh-theme', as:theme, use:'spaceship.zsh', \
     if:"[[ $OSTYPE == *darwin* ]]"
-
 
 # System
 zplug 'rcmdnk/open_newtab', as:command, use:'bin/open_newtab', \

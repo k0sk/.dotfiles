@@ -18,11 +18,7 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'autosuggestions' \
   'utility' \
-  'completion' \
   'history' \
   'terminal' \
   'prompt' \
