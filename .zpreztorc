@@ -34,16 +34,16 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'node'
 
-  #
-  # Autosuggestions
-  #
+#
+# Autosuggestions
+#
 
-  # Set the query found color.
-  # zstyle ':prezto:module:autosuggestions:color' found ''
+# Set the query found color.
+zstyle ':prezto:module:autosuggestions:color' found ''
 
-  #
-  # Editor
-  #
+#
+# Editor
+#
 
   # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'vi'
