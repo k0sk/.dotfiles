@@ -33,6 +33,8 @@ zplug 'github/hub', as:command, from:gh-r, rename-to:hub, \
     if:"[[ $OSTYPE == *linux* ]]"
 zplug 'jingweno/ccat', as:command, from:gh-r, rename-to:ccat
 zplug "b4b4r07/httpstat", as:command, use:'httpstat.sh', rename-to:httpstat
+zplug 'sharkdp/fd', as:command, from:gh-r, rename-to:fd
+zplug 'raylee/tldr', as:command, use:'tldr'
 
 # Interactive filtering
 zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
