@@ -2,7 +2,7 @@
     excludesfile = ~/.gitignore_global
     filemode = false
 [user]
-    email = mail@kosk.me
+    email = ot@kosk.me
     name = kosk
 [color]
     ui = auto
