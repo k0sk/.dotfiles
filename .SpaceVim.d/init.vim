@@ -12,9 +12,9 @@ let g:spacevim_custom_plugins = [
     \ ['kana/vim-smartword', {'on_map': '<Plug>(smartword'}],
     \ ['junegunn/vim-easy-align', {'on_map': '<Plug>(EasyAlign)'}],
     \ ['cohama/lexima.vim', {'on_i': 1}],
-    \ ['chrisbra/improvedft', {'on_i': 1}],
     \ ['rhysd/committia.vim', {'on_path': '.*/COMMIT_EDITMSG'}],
 \ ]
+" \ ['chrisbra/improvedft', {'on_i': 1}],
 let g:spacevim_relativenumber = 0
 
 "
