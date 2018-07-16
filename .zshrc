@@ -14,27 +14,30 @@ fi
 
 # Zsh plugins
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-autosuggestions", defer:3
-zplug "zsh-users/zsh-history-substring-search", defer:3
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-history-substring-search"
 
 # Theme
 zplug 'denysdovhan/spaceship-zsh-theme', as:theme, use:'spaceship.zsh', \
     if:"[[ $OSTYPE == *darwin* ]]"
 
-# System
+# macOS
 zplug 'rcmdnk/open_newtab', as:command, use:'bin/open_newtab', \
     rename-to:otab, if:"[[ $OSTYPE == *darwin* ]]"
-zplug 'gnachman/iTerm2', as:command, use:'tests/{imgcat,imgls}'
+zplug 'gnachman/iTerm2', as:command, use:'tests/{imgcat,imgls}', \
+    if:"[[ $OSTYPE == *darwin* ]]"
 
 # Dev
 zplug 'direnv/direnv', as:command, from:gh-r, rename-to:direnv
 zplug 'github/hub', as:command, from:gh-r, rename-to:hub, \
     if:"[[ $OSTYPE == *linux* ]]"
 zplug 'jingweno/ccat', as:command, from:gh-r, rename-to:ccat
+zplug 'sharkdp/bat', as:command, from:gh-r, rename-to:bat
 zplug "b4b4r07/httpstat", as:command, use:'httpstat.sh', rename-to:httpstat
 zplug 'sharkdp/fd', as:command, from:gh-r, rename-to:fd
 zplug 'raylee/tldr', as:command, use:'tldr'
+zplug 'browsh-org/browsh', as:command, from:gh-r, rename-to:browsh
 
 # Interactive filtering
 zplug 'peco/peco', as:command, from:gh-r, rename-to:peco
