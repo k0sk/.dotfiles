@@ -28,6 +28,15 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set clipboard=unnamed
 autocmd vimrc BufWritePre * :%s/\s\+$//e " clean whispaces before saving
 
+" Better same line join
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j
+endif
+
+" Show errors for too long lines and trailing spaces
+match ErrorMsg '\%>120v.\+'
+match ErrorMsg '\s\+$'
+
 "
 " Mappings
 "
