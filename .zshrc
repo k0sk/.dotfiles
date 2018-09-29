@@ -77,6 +77,9 @@ fi
 
 if (( $+commands[direnv] )); then eval "$(direnv hook zsh)"; fi
 if (( $+commands[hub] )); then eval "$(hub alias -s)"; fi
+if (( $+commands[bat] )); then alias cat='bat'; fi
+if (( $+commands[htop] )); then alias top='htop'; fi
+if (( $+commands[prettyping] )); then alias ping='prettyping'; fi
 
 #
 # Preferences
