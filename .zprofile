@@ -33,12 +33,6 @@ if [[ -z "$LANG" ]]; then
 fi
 
 #
-# Aliases
-#
-alias gco="gcc -O2 -Wall"
-alias gpo="g++ -O2 -Wall"
-
-#
 # Paths
 #
 
@@ -61,6 +55,15 @@ path=(
 if [[ -r $HOME/.zprofile_local ]]; then
   source $HOME/.zprofile_local
 fi
+
+#
+# Aliases
+#
+alias gco="gcc -O2 -Wall"
+alias gpo="g++ -O2 -Wall"
+if (( $+commands[bat] )); then alias cat='bat'; fi
+if (( $+commands[htop] )); then alias top='htop'; fi
+if (( $+commands[prettyping] )); then alias ping='prettyping'; fi
 
 #
 # Less
@@ -87,3 +90,4 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+

@@ -40,6 +40,7 @@ zplug "sharkdp/fd", as:command, from:gh-r, rename-to:fd
 zplug "raylee/tldr", as:command, use:"tldr"
 zplug "browsh-org/browsh", as:command, from:gh-r, rename-to:browsh
 zplug "thisredone/rb", as:command, use:"rb"
+zplug "denilsonsa/prettyping", as:command, use:"prettyping"
 
 # Interactive filtering
 zplug "peco/peco", as:command, from:gh-r, rename-to:peco
@@ -148,3 +149,4 @@ bindkey "^P^F" peco-find
 autoload -Uz mru
 
 # vim:fdm=marker fdc=3 ft=zsh ts=4 sw=4 sts=4:
+
