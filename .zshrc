@@ -32,7 +32,7 @@ zplug "gnachman/iTerm2", as:command, use:"tests/{imgcat,imgls}", \
 zplug "direnv/direnv", as:command, from:gh-r, rename-to:direnv
 zplug "github/hub", as:command, from:gh-r, rename-to:hub, \
     if:"[[ $OSTYPE == *linux* ]]"
-zplug "stedolan/jq", from:gh-r, as:command
+zplug "stedolan/jq", as:command, from:gh-r
 zplug "jingweno/ccat", as:command, from:gh-r, rename-to:ccat
 zplug "sharkdp/bat", as:command, from:gh-r, rename-to:bat
 zplug "b4b4r07/httpstat", as:command, use:"httpstat.sh", rename-to:httpstat
@@ -49,6 +49,7 @@ zplug "b4b4r07/enhancd", use:"init.sh"
 zplug "b4b4r07/cli-finder", as:command, use:"bin/finder"
 zplug "b4b4r07/easy-oneliner", on:"junegunn/fzf-bin"
 zplug "b4b4r07/git-conflict", as:command, use:"git-conflict"
+zplug "akavel/up", as:command, from:gh-r, rename-to:up
 
 # Emoji
 zplug "b4b4r07/emoji-cli", on:"stedolan/jq"
