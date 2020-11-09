@@ -87,8 +87,6 @@ if (( $+commands[prettyping] )); then alias ping='prettyping'; fi
 #
 
 # Auto suggestions
-# bindkey "^I" expand-or-complete
-bindkey "^F" forward-word
 bindkey "^P" history-substring-search-up
 bindkey "^N" history-substring-search-down
 
