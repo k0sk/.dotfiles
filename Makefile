@@ -31,7 +31,7 @@ default:
 help: default
 
 # General tasks
-install: update
+install:
 	@$(foreach f, $(DOTFILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)
 ifeq ($(shell uname), Darwin)
 	@$(foreach f, $(MACOS_FILES), ln -sfnv $(abspath $(f)) $(HOME)/$(f);)

@@ -30,9 +30,7 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'osx' \
   'ruby' \
-  'rails' \
-  'python' \
-  'node'
+  'python'
 
 #
 # Autosuggestions

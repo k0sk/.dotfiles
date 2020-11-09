@@ -1,11 +1,20 @@
 [core]
-  excludesfile = ~/.gitignore_global
+  excludesfile = /Users/kota/.gitignore_global
   filemode = false
+
+[include] # Override config if .gitconfig_local exists
+  path = ~/.gitconfig_local
+
 [user]
-  email = ot@kosk.me
   name = kosk
-[color]
-  ui = auto
+  email = ot@kosk.me
+
+[credential]
+  helper = osxkeychain
+  helper = wincred
+  helper = gnomekeyring
+  helper = cache --timeout=3600
+
 [alias]
   co = checkout
   ci = commit
@@ -46,18 +55,18 @@
 
   # Git Undo from http://megakemp.com/2016/08/25/git-undo/
   undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
-[help]
-  autocorrect = 1
-[hub]
-  protocol = https
-[credential]
-  helper = osxkeychain
-  helper = gnomekeyring
-  helper = wincred
-  helper = cache --timeout=3600
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+
+[color]
+  ui = auto
+
+[help]
+  autocorrect = 1
+
+[hub]
+  protocol = https

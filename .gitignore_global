@@ -30,6 +30,9 @@ Icon
 # Node.js
 node_modules
 
+# Java
+.factorypath
+
 # Tags
 tags
 GPATH
